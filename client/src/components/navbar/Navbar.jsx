@@ -1,18 +1,46 @@
 import "./navbar.css"
 import { useEffect, useRef, useState } from "react";
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-// import { Typography } from '@material-ui/core'
 import Logo from "../../images/mainLogo.png"
+import DehazeIcon from '@mui/icons-material/Dehaze';
 
 const Navbar = () => {
 
     const [open, setOpen] = useState(false)
+    const [navopen, setnavOpen] = useState(false)
+
+    const [whenSmall, setWhenSmall] = useState(false)
+
+
+    const [windowSize, setWindowSize] = useState(window.innerWidth);
+
+    useEffect(() => {
+        function handleWindowResize() {
+            setWindowSize(window.screen.width);
+        }
+
+        if (windowSize < 840){
+            setWhenSmall(true)
+            setOpen(false)
+        }
+        else {
+            setWhenSmall(false)
+            setnavOpen(false)
+        }
+
+        window.addEventListener('resize', handleWindowResize);
+
+        return () => {
+            window.removeEventListener('resize', handleWindowResize);
+        };
+    }, [windowSize]);
 
     function useOutsideAlerter(ref) {
         useEffect(() => {
             function handleClickOutside(event) {
                 if (ref.current && !ref.current.contains(event.target)) {
                     setOpen(false)
+                    setnavOpen(false);
                 }
             }
 
@@ -30,9 +58,8 @@ const Navbar = () => {
     return (
         <>
             <div className='container'>
-                <div className="logoParent"><div className='logo'>
-                </div></div>
-                <ul className='mainMenu'>
+                <div className="logoParent"><div className='logo'></div></div>
+                {!whenSmall && <ul className='mainMenu'>
                     <li className="menuItems">Home</li>
                     <li className="menuItems">View Data</li>
                     <li className="menuItems">Hospitals near me</li>
@@ -48,12 +75,27 @@ const Navbar = () => {
                             <div className="optionItems">Legal Resources</div>
                         </div>}
                     </li>
-                </ul>
+                </ul>}
+                {whenSmall && <div className="smallnav">
+                    <button className="smallwidth" ref={wrapperRef} onClick={() => setnavOpen(!navopen)}>
+                        <span className="more"><DehazeIcon /></span>
+                    </button>
+                </div>}
                 <div className="right">
                     <button>Help</button>
                 </div>
             </div>
-            <hr /></>
+            {navopen && <div className="navopt">
+                <div className="navoptItems">Home</div>
+                <div className="navoptItems">View Data</div>
+                <div className="navoptItems">Hospitals near me</div>
+                <div className="navoptItems">Police Stations near me</div>
+                <div className="navoptItems">Faqs</div>
+                <div className="navoptItems">Contact Us</div>
+                <div className="navoptItems">Legal Resources</div>
+            </div>}
+            <hr />
+        </>
     )
 }
 

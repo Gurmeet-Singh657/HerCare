@@ -1,26 +1,81 @@
 @import url('https://fonts.googleapis.com/css2?family=Mukta+Vaani&display=swap');
 
+@media only screen and (max-width: 840px) {
+    * {
+        /* background-color: lightblue; */
+        font-size: medium;
+    }
+}
+
 * {
     margin: 0;
     padding: 0;
 }
 
+.smallnav {
+    flex: 1;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
 .container {
+    position: relative;
     display: flex;
     flex-direction: row;
     align-items: center;
-    /* border: 1px solid red; */
+    /* justify-content: center; */
     padding: 15px;
     height: 40px;
     font-family: 'Mukta Vaani', sans-serif;
     font-size: large;
-    /* background: rgb(2, 0, 36); */
-    /* background: radial-gradient(circle, rgba(2, 0, 36, 1) 0%, rgba(112, 217, 221, 0.3081854578436609) 0%, rgba(45, 37, 209, 0.2910914407496439) 0%, rgba(115, 90, 195, 1) 0%, rgba(255, 0, 70, 1) 100%); */
 }
+
 
 .logoParent {
     flex: 1;
     margin-left: 20px;
+    justify-content: center;
+    align-items: center;
+    /* width: max-content; */
+}
+
+.navopt {
+    position: absolute;
+    top: 71.5px;
+    /* -webkit-box-shadow: 0px 0px 10px -5px rgba(0, 0, 0, 0.4);
+    box-shadow: 0px 0px 10px -5px rgba(0, 0, 0, 0.4); */
+    /* padding: 5px; */
+    width: 100%;
+    /* border: 1px solid red; */
+    transition: 2s ease-out;
+    /* transform: translateY(20vh); */
+    text-align: center;
+    background-color: gray;
+    font-family: 'Mukta Vaani', sans-serif;
+}
+
+.navoptItems {
+    cursor: pointer;
+    padding: 5px;
+    color: black;
+    width: 97%;
+}
+
+.smallwidth {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    font-family: 'Mukta Vaani', sans-serif;
+    font-size: large;
+}
+
+.navoptItems:hover {
+    color: gray;
 }
 
 .logo {
@@ -56,6 +111,7 @@
     z-index: 2;
     -webkit-box-shadow: 0px 0px 10px -5px rgba(0, 0, 0, 0.4);
     box-shadow: 0px 0px 10px -5px rgba(0, 0, 0, 0.4);
+    /* transition: 5s ease-in; */
 }
 
 .dropdown {
@@ -68,11 +124,11 @@
     font-size: large;
 }
 
-.more{
+.more {
     color: black;
 }
 
-.more:hover{
+.more:hover {
     color: gray;
 }
 
