@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Mukta+Vaani&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    /* border: 1px solid red; */
+    padding: 15px;
+    height: 40px;
+    font-family: 'Mukta Vaani', sans-serif;
+    font-size: large;
+    /* background: rgb(2, 0, 36); */
+    /* background: radial-gradient(circle, rgba(2, 0, 36, 1) 0%, rgba(112, 217, 221, 0.3081854578436609) 0%, rgba(45, 37, 209, 0.2910914407496439) 0%, rgba(115, 90, 195, 1) 0%, rgba(255, 0, 70, 1) 100%); */
+}
+
+.logoParent {
+    flex: 1;
+    margin-left: 20px;
+}
+
+.logo {
+    height: 68px;
+    width: 68px;
+    background: url('../../images/mainLogo.png');
+    background-size: cover;
+    cursor: pointer;
+}
+
+.mainMenu {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    flex: 3;
+    gap: 30px;
+}
+
+.menuItems {
+    color: black;
+    cursor: pointer;
+}
+
+.menuItems:hover {
+    color: gray;
+}
+
+.options {
+    /* border: 1px solid green; */
+    padding: 5px;
+    position: absolute;
+    background-color: white;
+    z-index: 2;
+    -webkit-box-shadow: 0px 0px 10px -5px rgba(0, 0, 0, 0.4);
+    box-shadow: 0px 0px 10px -5px rgba(0, 0, 0, 0.4);
+}
+
+.dropdown {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    font-family: 'Mukta Vaani', sans-serif;
+    font-size: large;
+}
+
+.more{
+    color: black;
+}
+
+.more:hover{
+    color: gray;
+}
+
+.optionItems {
+    padding: 5px;
+    color: black;
+}
+
+.optionItems:hover {
+    color: gray;
+}
+
+.right {
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: center;
+    flex: 1;
+}
+
+.right>button {
+    background: transparent;
+    /* border: 2px solid red; */
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    width: 80px;
+    font-size: large;
+    background-color: red;
+}
+
+.right>button:hover {
+    background-color: rgb(205, 87, 87);
+}
