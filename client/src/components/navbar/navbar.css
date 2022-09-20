@@ -12,20 +12,23 @@
     padding: 0;
 }
 
+
 .smallnav {
-    flex: 1;
+    /* flex: 1; */
     padding: 10px;
-    display: flex;
+    /* display: flex;
     align-items: center;
-    justify-content: center;
-    width: 100%;
+    justify-content: center; */
+    /* width: 100%; */
 }
 
 .container {
+    background-color: rgb(169, 138, 198);
     position: relative;
     display: flex;
     flex-direction: row;
     align-items: center;
+    top: 0;
     /* justify-content: center; */
     padding: 15px;
     height: 40px;
@@ -33,14 +36,33 @@
     font-size: large;
 }
 
-
 .logoParent {
-    flex: 1;
-    margin-left: 20px;
+    /* flex: 1; */
+    /* margin: 0px 9% 0px 20px; */
+    display: flex;
     justify-content: center;
     align-items: center;
-    /* width: max-content; */
+    width: 20%;
 }
+
+.smaller {
+    flex: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0px;
+}
+
+/* .transf>div {
+    left: -100%;
+    transition: all 0.5s ease;
+} */
+
+/* .transf {
+    right: -100%;
+    transition: 0.2s ease right;
+    right: 0;
+} */
 
 .navopt {
     position: absolute;
@@ -68,8 +90,8 @@
     background-color: transparent;
     border: none;
     cursor: pointer;
-    display: flex;
-    align-items: center;
+    /* display: flex; */
+    /* align-items: center; */
     font-family: 'Mukta Vaani', sans-serif;
     font-size: large;
 }
@@ -90,8 +112,9 @@
     list-style: none;
     display: flex;
     align-items: center;
+    /* justify-content: center; */
     flex: 3;
-    gap: 30px;
+    gap: 40px;
 }
 
 .menuItems {
@@ -145,22 +168,26 @@
     /* border: 1px solid red; */
     display: flex;
     justify-content: center;
-    flex: 1;
+    margin: 0px 10px;
 }
 
 .right>button {
-    background: transparent;
-    /* border: 2px solid red; */
-    color: white;
-    padding: 5px;
+    background-color: rgb(220, 198, 198);
+    color: red;
     border-radius: 5px;
     border: none;
     cursor: pointer;
-    width: 80px;
     font-size: large;
-    background-color: red;
+    border: 2px solid red;
+    padding: 5px;
+    width: max-content;
+}
+
+.largehelp>button {
+    width: 80px;
 }
 
 .right>button:hover {
-    background-color: rgb(205, 87, 87);
+    background-color: red;
+    color: white;
 }

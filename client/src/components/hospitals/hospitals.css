@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Mukta+Vaani&display=swap');
+
+.hospitaldetails{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* height : auto; */
+ }  
+
+.inputForms
+{
+    height: 70vh;
+    display: flex;
+    /* width:30%; */
+    margin: 0px 20px;
+    flex-direction: column;
+    /* margin:auto; */
+    /* border: 2px solid red; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.form
+{
+    color:black;
+    font-family: 'Mukta Vaani', sans-serif;
+    font-size: 18px;
+        /* text-align: center; */
+}
+
+.formInput{
+    border: none;
+    border-bottom:2px solid purple;
+    padding: 0 0 8px 8px;
+    outline: none;
+    margin:20px;
+    font-size: large;
+    width: 98%;
+    /* overflow: hidden; */
+    /* width:max-content; */
+    /* word-wrap: break-word; */
+    /* padding : 5px; */
+}
+
+.submitBtn{
+background-color: transparent;
+cursor: pointer;
+color : purple;
+padding : 7px;
+border: 2px solid purple;
+border-radius: 4px;
+background-color: rgb(210, 190, 210);
+width: 80px;
+font-weight: bold;
+/* text-transform: uppercase; */
+}
+
+.submitBtn:hover{
+    background-color: rgb(216, 130, 216);
+    color: white;
+}
+
+.image{
+    background: url('../../images/Search.jpg');
+    height: 68px;
+    width: 68px;
+    /* background: url('../../images/mainLogo.png'); */
+    background-size: cover;
+    cursor: pointer;
+}
