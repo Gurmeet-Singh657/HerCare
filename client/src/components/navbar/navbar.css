@@ -1,193 +1,194 @@
 @import url('https://fonts.googleapis.com/css2?family=Mukta+Vaani&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@500&display=swap');
 
-@media only screen and (max-width: 840px) {
-    * {
-        /* background-color: lightblue; */
-        font-size: medium;
-    }
-}
-
-* {
-    margin: 0;
-    padding: 0;
-}
-
-
-.smallnav {
-    /* flex: 1; */
-    padding: 10px;
-    /* display: flex;
-    align-items: center;
-    justify-content: center; */
-    /* width: 100%; */
-}
-
-.container {
-    background-color: rgb(169, 138, 198);
-    position: relative;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    top: 0;
-    /* justify-content: center; */
-    padding: 15px;
-    height: 40px;
-    font-family: 'Mukta Vaani', sans-serif;
-    font-size: large;
-}
-
-.logoParent {
-    /* flex: 1; */
-    /* margin: 0px 9% 0px 20px; */
+.NavbarItems {
+    background: linear-gradient(90deg, rgb(110, 94, 254) 0%, rgba(73, 63, 252, 1) 100%);
+    height: 80px;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 20%;
-}
-
-.smaller {
-    flex: 2;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0px;
-}
-
-/* .transf>div {
-    left: -100%;
-    transition: all 0.5s ease;
-} */
-
-/* .transf {
-    right: -100%;
-    transition: 0.2s ease right;
-    right: 0;
-} */
-
-.navopt {
-    position: absolute;
-    top: 71.5px;
-    /* -webkit-box-shadow: 0px 0px 10px -5px rgba(0, 0, 0, 0.4);
-    box-shadow: 0px 0px 10px -5px rgba(0, 0, 0, 0.4); */
-    /* padding: 5px; */
-    width: 100%;
-    /* border: 1px solid red; */
-    transition: 2s ease-out;
-    /* transform: translateY(20vh); */
-    text-align: center;
-    background-color: gray;
+    font-size: 1.2rem;
     font-family: 'Mukta Vaani', sans-serif;
 }
 
-.navoptItems {
+.navbar-logo {
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 0.5rem;
+    font-size: 0rem;
     cursor: pointer;
-    padding: 5px;
-    color: black;
-    width: 97%;
+    height: max-content;
+    flex-direction: column;
 }
 
-.smallwidth {
-    background-color: transparent;
+.btn {
+    background-color: #d94234;
+    padding: 8px 20px;
+    border-radius: 4px;
+    outline: none;
     border: none;
     cursor: pointer;
-    /* display: flex; */
-    /* align-items: center; */
     font-family: 'Mukta Vaani', sans-serif;
+    color: #fff;
     font-size: large;
+    display: flex;
+    flex-direction: row;
+}
+.contentlogo{
+    /* height: max-content; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin:auto;
 }
 
-.navoptItems:hover {
-    color: gray;
+.btn:hover {
+    /* padding: 8px 20px; */
+    margin:-1px;
+    /* transition: all 0.3s ease-out; */
+    border: 1px solid #d0d0d0;
+    background-color: red;
+    /* transition: 250ms; */
 }
 
 .logo {
-    height: 68px;
-    width: 68px;
-    background: url('../../images/mainLogo.png');
+    border-radius:50%;
+    height: 49px;
+    width: 49px;
+    /* border:2px solid red; */
+    background: url('../../images/logo.jfif');
     background-size: cover;
     cursor: pointer;
-}
-
-.mainMenu {
-    list-style: none;
-    display: flex;
-    align-items: center;
-    /* justify-content: center; */
-    flex: 3;
-    gap: 40px;
-}
-
-.menuItems {
-    color: black;
-    cursor: pointer;
-}
-
-.menuItems:hover {
-    color: gray;
-}
-
-.options {
-    /* border: 1px solid green; */
-    padding: 5px;
-    position: absolute;
-    background-color: white;
-    z-index: 2;
-    -webkit-box-shadow: 0px 0px 10px -5px rgba(0, 0, 0, 0.4);
-    box-shadow: 0px 0px 10px -5px rgba(0, 0, 0, 0.4);
-    /* transition: 5s ease-in; */
-}
-
-.dropdown {
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    font-family: 'Mukta Vaani', sans-serif;
-    font-size: large;
-}
-
-.more {
-    color: black;
-}
-
-.more:hover {
-    color: gray;
-}
-
-.optionItems {
-    padding: 5px;
-    color: black;
-}
-
-.optionItems:hover {
-    color: gray;
-}
-
-.right {
-    /* border: 1px solid red; */
     display: flex;
     justify-content: center;
-    margin: 0px 10px;
+    align-items: center;
+}
+.logohead{
+    font-size: 28px;
+    line-height: 28px;
+    /* font-weight: normal; */
+    font-family: 'Caveat', cursive;
 }
 
-.right>button {
-    background-color: rgb(220, 198, 198);
-    color: red;
-    border-radius: 5px;
-    border: none;
-    cursor: pointer;
-    font-size: large;
-    border: 2px solid red;
-    padding: 5px;
-    width: max-content;
+.nav-menu {
+    display: grid;
+    grid-template-columns: repeat(5, auto);
+    grid-gap: 10px;
+    list-style: none;
+    text-align: center;
+    width: 70vw;
+    justify-content: center;
+    margin-right: 2rem
+}
+@media screen and (min-width:961px)
+{
+    .disnon{
+        display: none !important;
+    }
 }
 
-.largehelp>button {
-    width: 80px;
-}
-
-.right>button:hover {
-    background-color: red;
+.nav-links {
     color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+}
+
+.link-contain {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-links:hover {
+    background-color: #6d76f7;
+    border-radius: 4px;
+    transition: all 0.2s ease-out;
+}
+
+.bars {
+    color: #fff;
+}
+
+.nav-links-mobile {
+    display: none;
+}
+.menu-icon{
+    display: none;
+}
+.smalldisnon{
+    display: flex;
+    flex-direction: row;
+    cursor: pointer;
+}
+.dropicon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border:2px solid white; */
+}
+
+
+@media screen and (max-width:960px)
+{
+    .NavbarItems{
+        position: relative;
+    }
+    .nav-menu{
+        display: flex;
+        flex-direction: column;
+        width:100%;
+        height:400px;
+        position: absolute;
+        top:80px;
+        left:-100%;
+        opacity:1;
+        transition:all 0.5s ease;
+    }
+    .smalldisnon{
+        display: none;
+    }
+    .active{
+        background:#6668f4;
+        left:0;
+        opacity: 1;
+        transition: all 0.5s ease;
+        z-index: 1;
+    }
+
+    .nav-links{
+        text-align: center;
+        /* padding:2rem; */
+        width:100%;
+        display: table;
+    }
+
+    .nav-links:hover{
+        background-color: #7577fa;
+        border-radius: 0;
+    }
+    .navbar-logo{
+        position: absolute;
+        display: flex;
+    }
+
+    .menu-icon{
+        display: flex;
+        position: absolute;
+        top:0;
+        left:0;
+        transform: translate(50%,55%);
+        font-size: 2rem;
+        cursor: pointer;
+    }
+    .btn{
+        font-size: medium;
+        width:max-content;
+        position:absolute;
+        top:0;
+        right:0;
+        transform: translate(-10%,40%);
+        padding:8px 8px;
+    }
 }
