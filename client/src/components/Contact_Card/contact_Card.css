@@ -1,11 +1,48 @@
-list.card{
+@import url('https://fonts.googleapis.com/css2?family=Mukta+Vaani&display=swap');
+.card{
+  width:60%;
+  position: absolute;
+  top:150px;
+  right:100px;
+  border:2px solid  rgb(110, 94, 254);
+  padding:10px;
+  border-radius: 10px;
+  background-color: rgb(226, 226, 231);
+  /* transform:translate(-25%,150px); */
 
 }
 
 .cardullist{
-
+  list-style: none;
+  font-family: 'Mukta Vaani', sans-serif;
+  
+}
+.cardlist{
+  padding: 8px 0;
 }
 
-.cardlist{
-    
+.carda{
+  text-decoration: none;
+}
+
+.iconstyles{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+@media screen and (max-width:960px) {
+  .card{
+    position: absolute;
+    width:60%;
+    top:150px;
+    right:20%;
+    margin: 0px auto;
+  }
+}
+@media screen and (max-width:300px) {
+  .iconstyles{
+    display: flex;
+    flex-direction: column;
+  }
 }
