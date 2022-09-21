@@ -47,8 +47,8 @@ const Navbar = () => {
                     }
                 </li>
                 <li className="disnon link-contain"><NavLink className="nav-links" to="/contact">Contact Us</NavLink></li>
-                <li className="disnon link-contain"><NavLink className="nav-links" to="">Faqs</NavLink></li>
-                <li className="disnon link-contain"><NavLink className="nav-links" to="">Legal Resources</NavLink></li>
+                <li className="disnon link-contain"><NavLink className="nav-links" to="/faqs">Faqs</NavLink></li>
+                <li className="disnon link-contain"><NavLink className="nav-links" to="/legal_resources">Legal Resources</NavLink></li>
             </ul>
             <button className="btn">
                 Help
