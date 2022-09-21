@@ -34,10 +34,10 @@ const Navbar = () => {
                 {clicked && <CancelIcon className="bars" style={{ fontSize: "35px" }} />}
             </div>
             <ul className={!clicked ? 'nav-menu' : 'nav-menu active'}>
-                <li className="link-contain"><a className="nav-links" href="">Home</a></li>
-                <li className="link-contain"><a className="nav-links" href="">View Data</a></li>
+                <li className="link-contain"><NavLink className="nav-links" to="/">Home</NavLink></li>
+                <li className="link-contain"><NavLink className="nav-links" to="/viewdata">View Data</NavLink></li>
                 <li className="link-contain"><NavLink className="nav-links" to="/hospitals">Hospitals near me</NavLink></li>
-                <li className="link-contain"><a className="nav-links" href="">Police Stations near me</a></li>
+                <li className="link-contain"><NavLink className="nav-links" to="/police">Police Stations near me</NavLink></li>
                 <li onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave} className="smalldisnon link-contain">
                     <div className="smalldisnon nav-links" href="">
                         <div className="droptx">More</div>

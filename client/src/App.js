@@ -6,7 +6,8 @@ import {
   Routes,
   Route
 } from "react-router-dom"
-import Hospitals from './components/hospitals/Hospitals'
+import Hospitals from './Pages/Hospitals_Near_Me/Hospitals.jsx'
+import Police_Stations from './Pages/Police_Stations/Police_Stations.js'
 
 const App = () => {
   return (
@@ -14,9 +15,10 @@ const App = () => {
       <BrowserRouter>
         <Routes>
           <Route exact path="/" element={<Home />}></Route>
-          <Route exact path="/home" element={<Home />}></Route>
+          <Route exact path="/" element={<Home />}></Route>
           <Route exact path="/contact" element={<ContactUs />}></Route>
-          <Route exact path="/hospitals" element={<Hospitals/>}></Route>
+          <Route exact path="/hospitals" element={<Hospitals />}></Route>
+          <Route exact path="/police" element={<Police_Stations />}></Route>
         </Routes>
       </BrowserRouter>
     </div>

@@ -1,40 +1,41 @@
 @import url('https://fonts.googleapis.com/css2?family=Mukta+Vaani&display=swap');
 
-.hospitaldetails{
+.policedetails {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    padding:10px;
-    height : max-content;
-    gap:1%;
-    border:3px solid rgb(110, 94, 254);
+    padding: 10px;
+    height: max-content;
+    gap: 1%;
+    border: 3px solid rgb(110, 94, 254);
     border-radius: 5px;
-    width:650px;
+    width: 700px;
     /* position:absolute;
     top:140px; */
-    transform: translate(0,25vh);
-    margin:auto;
- } 
- @media screen and (max-width:960px) {
-     .hospitaldetails{
+    transform: translate(0, 25vh);
+    margin: auto;
+}
+
+@media screen and (max-width:960px) {
+    .policedetails {
         flex-direction: column;
-        width:60vw;
-     }
- }
- 
- .searchimg{
-    background:url('../../images/HospitalsSearch.jpg');
-    width:170px;
+        width: 60vw;
+    }
+}
+
+.plcsearchimg {
+    background: url('../../images/policeStations.png');
+    width: 170px;
     height: 170px;
     background-size: cover;
-    margin:20px;
-    border-radius: 100%;;
-    border:4px solid red;
- } 
+    margin: 20px;
+    border-radius: 100%;
+    ;
+    border: 4px solid red;
+}
 
-.inputForms
-{
+.plcinputForms {
     /* height: 70vh; */
     display: flex;
     /* width:30%; */
@@ -46,20 +47,20 @@
     justify-content: center;
     align-items: start;
 }
-.form
-{
-    color:black;
+
+.plcform {
+    color: black;
     font-family: 'Mukta Vaani', sans-serif;
     font-size: 20px;
-        /* text-align: center; */
+    /* text-align: center; */
 }
 
-.formInput{
+.plcformInput {
     border: none;
-    border-bottom:3px solid rgb(110, 94, 254);
+    border-bottom: 3px solid rgb(110, 94, 254);
     padding: 0 0 8px 8px;
     outline: none;
-    margin:20px 0px;
+    margin: 20px 0px;
     font-size: large;
     width: 98%;
     /* overflow: hidden; */
@@ -68,7 +69,7 @@
     /* padding : 5px; */
 }
 
-.submitBtn {
+.plcsubmitBtn {
     cursor: pointer;
     background: #5155c4;
     background-image: -webkit-linear-gradient(top, #5155c4, #4b81c2);
@@ -89,7 +90,7 @@
     align-items: center;
 }
 
-.submitBtn:hover {
+.plcsubmitBtn:hover {
     background: #3957d1;
     background-image: -webkit-linear-gradient(top, #3957d1, #3498db);
     background-image: -moz-linear-gradient(top, #3957d1, #3498db);
@@ -99,7 +100,7 @@
     text-decoration: none;
 }
 
-.image{
+.plcimage {
     background: url('../../images/Search.jpg');
     height: 68px;
     width: 68px;
