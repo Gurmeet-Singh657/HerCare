@@ -8,6 +8,7 @@ import {
 } from "react-router-dom"
 import Hospitals from './Pages/Hospitals_Near_Me/Hospitals.jsx'
 import Police_Stations from './Pages/Police_Stations/Police_Stations.js'
+import Help from './Pages/Help/Help'
 
 const App = () => {
   return (
@@ -19,6 +20,7 @@ const App = () => {
           <Route exact path="/contact" element={<ContactUs />}></Route>
           <Route exact path="/hospitals" element={<Hospitals />}></Route>
           <Route exact path="/police" element={<Police_Stations />}></Route>
+          <Route exact path="/help" element={<Help />}></Route>
         </Routes>
       </BrowserRouter>
     </div>

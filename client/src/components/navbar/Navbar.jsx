@@ -6,9 +6,10 @@ import PrivacyTipIcon from '@mui/icons-material/PrivacyTip';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import Dropdown from "../Dropdown/Dropdown.js";
 import "./navbar.css"
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 const Navbar = () => {
+    const navigate = useNavigate();
     const [clicked, setClicked] = useState(false);
     const [dropdown, setDropdown] = useState(false);
     const handleClick = () => {
@@ -19,6 +20,10 @@ const Navbar = () => {
     }
     const onMouseLeave = () => {
         setDropdown(false);
+    }
+
+    const helpdirected = () => {
+        navigate("/help");
     }
 
     return (
@@ -43,14 +48,14 @@ const Navbar = () => {
                         <div className="droptx">More</div>
                         <div className="dropicon"><ArrowDropDownIcon /></div></div>
                     {dropdown &&
-                        <Dropdown/>
+                        <Dropdown />
                     }
                 </li>
                 <li className="disnon link-contain"><NavLink className="nav-links" to="/contact">Contact Us</NavLink></li>
                 <li className="disnon link-contain"><NavLink className="nav-links" to="">Faqs</NavLink></li>
                 <li className="disnon link-contain"><NavLink className="nav-links" to="">Legal Resources</NavLink></li>
             </ul>
-            <button className="btn">
+            <button className="btn" onClick={helpdirected}>
                 Help
                 &nbsp;
                 <div className="contentlogo">
