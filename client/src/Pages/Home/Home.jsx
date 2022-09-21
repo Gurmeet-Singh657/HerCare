@@ -1,4 +1,6 @@
+import Hospitals from "../../components/hospitals/Hospitals"
 import Navbar from "../../components/Navbar/Navbar"
+import SideBar from "../../components/sideBar/SideBar"
 import Slider from "../../components/slider/Slider.js"
 
 const home = () => {
@@ -6,6 +8,8 @@ const home = () => {
     <div>
       <Navbar />
       <Slider />
+      {/* <Hospitals/> */}
+      <SideBar/>
     </div>
   )
 }

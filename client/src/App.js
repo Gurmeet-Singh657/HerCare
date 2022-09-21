@@ -6,15 +6,17 @@ import {
   Routes,
   Route
 } from "react-router-dom"
+import Hospitals from './components/hospitals/Hospitals'
 
 const App = () => {
   return (
     <div>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Home />}></Route>
-          <Route path="/home" element={<Home />}></Route>
-          <Route path="/contactus" element={<ContactUs />}></Route>
+          <Route exact path="/" element={<Home />}></Route>
+          <Route exact path="/home" element={<Home />}></Route>
+          <Route exact path="/contact" element={<ContactUs />}></Route>
+          <Route exact path="/hospitals" element={<Hospitals/>}></Route>
         </Routes>
       </BrowserRouter>
     </div>

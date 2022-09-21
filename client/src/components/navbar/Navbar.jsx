@@ -1,4 +1,4 @@
-import { Link } from "@mui/material"
+// import { Link } from "@mui/material"
 import CancelIcon from '@mui/icons-material/Cancel';
 import DehazeIcon from '@mui/icons-material/Dehaze';
 import { useState } from "react";
@@ -6,6 +6,7 @@ import PrivacyTipIcon from '@mui/icons-material/PrivacyTip';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import Dropdown from "../Dropdown/Dropdown.js";
 import "./navbar.css"
+import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
     const [clicked, setClicked] = useState(false);
@@ -35,7 +36,7 @@ const Navbar = () => {
             <ul className={!clicked ? 'nav-menu' : 'nav-menu active'}>
                 <li className="link-contain"><a className="nav-links" href="">Home</a></li>
                 <li className="link-contain"><a className="nav-links" href="">View Data</a></li>
-                <li className="link-contain"><a className="nav-links" href="">Hospitals near me</a></li>
+                <li className="link-contain"><NavLink className="nav-links" to="/hospitals">Hospitals near me</NavLink></li>
                 <li className="link-contain"><a className="nav-links" href="">Police Stations near me</a></li>
                 <li onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave} className="smalldisnon link-contain">
                     <div className="smalldisnon nav-links" href="">
@@ -45,9 +46,9 @@ const Navbar = () => {
                         <Dropdown/>
                     }
                 </li>
-                <li className="disnon link-contain"><a className="nav-links" href="">Faqs</a></li>
-                <li className="disnon link-contain"><a className="nav-links" href="">Contact Us</a></li>
-                <li className="disnon link-contain"><a className="nav-links" href="">Legal Resources</a></li>
+                <li className="disnon link-contain"><NavLink className="nav-links" to="/contact">Contact Us</NavLink></li>
+                <li className="disnon link-contain"><NavLink className="nav-links" to="">Faqs</NavLink></li>
+                <li className="disnon link-contain"><NavLink className="nav-links" to="">Legal Resources</NavLink></li>
             </ul>
             <button className="btn">
                 Help

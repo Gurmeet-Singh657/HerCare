@@ -1,5 +1,5 @@
 import './dropdown.css'
-import { Link } from "react-router-dom"
+import { Link, NavLink } from "react-router-dom"
 import { useState,useEffect } from 'react';
 
 const Dropdown = () => {
@@ -9,9 +9,9 @@ const Dropdown = () => {
     
     return (
         <ul onClick={handleClick} className={!click ? 'dropdown-menu clicked' : 'dropdown-menu active'}>
-            <li><a onClick={() => setClick(false)}>Faqs</a></li>
-            <li><a onClick={() => setClick(false)}>Contact Us</a></li>
-            <li><a onClick={() => setClick(false)}>Legal Resources</a></li>
+            <li><NavLink onClick={() => setClick(false)}>Faqs</NavLink></li>
+            <li><NavLink to="/contact" onClick={() => setClick(false)}>Contact Us</NavLink></li>
+            <li><NavLink onClick={() => setClick(false)}>Legal Resources</NavLink></li>
         </ul>
     )
 }

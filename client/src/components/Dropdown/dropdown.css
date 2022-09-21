@@ -16,6 +16,11 @@
  .dropdown-menu li {
      cursor: pointer;
      padding: 0px 10px;
+}
+
+ .dropdown-menu li a {
+     text-decoration: none;
+     color: white;
  }
 
  .dropdown-menu li:hover {
