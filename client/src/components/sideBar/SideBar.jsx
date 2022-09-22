@@ -21,19 +21,19 @@ const SideBar = () => {
             About HerCare
           </NavLink>
         </li>
-        <li className="nav-item">
-          <NavLink className="nav-link" to="/faqs">
+        <li label="faqs" className="nav-item">
+          <NavLink name="faqs" className="nav-link" to="/faqs">
             FAQs
           </NavLink>
         </li>
         <li className="nav-item">
-          <NavLink className="nav-link" to="/volunteer">
-            Volunteer with HerCare
+          <NavLink className="nav-link" to="/sexual_violence_laws">
+            Sexual Violence Laws
           </NavLink>
         </li>
         <li className="nav-item">
-          <NavLink className="nav-link" to="/donate">
-            Donate to HerCare
+          <NavLink className="nav-link" to="/filing_of_fir">
+            Filing of a FIR
           </NavLink>
         </li>
       </ul>

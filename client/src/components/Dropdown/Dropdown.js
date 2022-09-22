@@ -13,8 +13,8 @@ const Dropdown = () => {
       className={!click ? "dropdown-menu clicked" : "dropdown-menu active"}
     >
       <li>
-        <NavLink to="/faqs" onClick={() => setClick(false)}>
-          Faqs
+        <NavLink to="/legal_resources" onClick={() => setClick(false)}>
+          Legal Resources
         </NavLink>
       </li>
       <li>
@@ -23,10 +23,25 @@ const Dropdown = () => {
         </NavLink>
       </li>
       <li>
-        <NavLink to="/legal_resources" onClick={() => setClick(false)}>
-          Legal Resources
+        <NavLink to="/about" onClick={() => setClick(false)}>
+          About HerCare
         </NavLink>
       </li>
+      <li>
+        <NavLink to="/faqs" onClick={() => setClick(false)}>
+          Faqs
+        </NavLink>
+      </li>
+      {/*<li>
+        <NavLink to="/volunteer" onClick={() => setClick(false)}>
+          Volunteer with HerCare
+        </NavLink>
+      </li>
+      <li>
+        <NavLink to="/donate" onClick={() => setClick(false)}>
+          Donate to HerCare
+        </NavLink>
+      </li> */}
     </ul>
   );
 };

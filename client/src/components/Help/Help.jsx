@@ -1,4 +1,4 @@
-import Navbar from "../../components/navbar/Navbar"
+import Navbar from "../navbar/Navbar"
 import "./Help.css"
 import LocalPoliceIcon from '@mui/icons-material/LocalPolice';
 import FireTruckIcon from '@mui/icons-material/FireTruck';

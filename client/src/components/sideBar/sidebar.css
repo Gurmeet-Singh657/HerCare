@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Mukta+Vaani&display=swap');
 
 .navList {
-    width: max-content;
+    width: 100%;
 }
 
 .nav {
@@ -11,10 +11,12 @@
     /* left: 150px; */
     margin:0 100px;
     list-style: none;
+    overflow: hidden;
 }
 
 .nav-item {
     /* margin: 5% 0; */
+    width:240px;
     border-bottom: 1px solid black;
     padding: 4%;
 }
