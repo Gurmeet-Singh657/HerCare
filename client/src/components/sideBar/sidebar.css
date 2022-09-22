@@ -16,9 +16,9 @@
 
 .nav-item {
     /* margin: 5% 0; */
-    width:240px;
+    width:100%;
     border-bottom: 1px solid black;
-    padding: 4%;
+    padding: 4px;
 }
 
 .nav-link {

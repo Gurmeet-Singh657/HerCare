@@ -11,7 +11,10 @@
   /* transform:translate(-25%,150px); */
 
 }
-
+.card-header{
+  font-size: 30px;
+  font-weight: bold;
+}
 .cardullist{
   list-style: none;
   font-family: 'Mukta Vaani', sans-serif;
