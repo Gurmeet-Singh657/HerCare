@@ -3,6 +3,7 @@ import './slider.css'
 import BtnSlider from './BtnSlider'
 import dataSlider from './dataSlider'
 import ReadMoreIcon from '@mui/icons-material/ReadMore';
+import { NavLink } from 'react-router-dom';
 
 const delay = 2500;
 export default function Slider() {
@@ -64,11 +65,11 @@ export default function Slider() {
               <h1 className='objtitle'>{obj.title}</h1>
             </div>
             <div className="readmore">
-              <a href={obj.links} target="_blank" className="infobtn"><ReadMoreIcon style={{fontSize:"2vw" }} />&nbsp; Read Here</a>
+              <a href={obj.links} target="_blank" className="infobtn"><ReadMoreIcon style={{ fontSize: "2vw" }} />&nbsp; Read Here</a>
+            </div>
           </div>
-          </div>
-  )
-})}
+        )
+      })}
       <BtnSlider moveSlide={nextSlide} direction={"next"} />
       <BtnSlider moveSlide={prevSlide} direction={"prev"} />
 

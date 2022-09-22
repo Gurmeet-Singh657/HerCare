@@ -15,14 +15,20 @@
 
  .dropdown-menu li {
      cursor: pointer;
-     padding: 0px 10px;
-     border-bottom:2px solid white;
-     padding:10px;
-}
+     /* padding: 0px 10px; */
+     border-bottom: 2px solid white;
+     /* padding:10px; */
+ }
 
  .dropdown-menu li a {
-     text-decoration: none;
      color: white;
+     text-decoration: none;
+     display: inline-block;
+     /* padding: 10px 20px; */
+     width: 100%;
+     /* margin: auto; */
+     padding: 10px 6px;
+     cursor: pointer;
  }
 
  .dropdown-menu li:hover {
