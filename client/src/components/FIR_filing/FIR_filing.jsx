@@ -1,31 +1,33 @@
 import React from "react";
-import Navbar from "../../components/navbar/Navbar";
-import SideBar from "../../components/sideBar/SideBar";
-import { data } from "../FIR_filing/data.js";
 import "./fir_filing.css";
-import NestedCard from "../../components/nested card/NestedCard.js";
+import { data } from "./data.js";
+import FirAccordion from "../fir accordion/FirAccordion.js";
+import Navbar from "../navbar/Navbar.jsx";
+import SideBar from "../sideBar/SideBar.jsx";
 
 const FIR_filing = () => {
-    return (
-        <div>
-            <Navbar />
-            <SideBar />
-            <div className="lrcontainer">
-                <h1 className="lrtitle">Filing of a First Information Report (FIR)</h1>
-                <div className="lrcontain">
-                    {data.map((lr) => {
-                        return (
-                            <NestedCard
-                                heading={lr.heading}
-                                sections={lr.sections}
-                                punishment={lr.punishment}
-                            />
-                        );
-                    })}
-                </div>
-            </div>
+  return (
+    <>
+      <Navbar />
+
+      <SideBar />
+      <div className="fircontainer">
+        <h1 className="firtitle">Frequently Asked Questions</h1>
+        <div className="fircontain">
+          {data.map((fir) => {
+            return (
+              <FirAccordion
+                heading={fir.heading}
+                answer={fir.answer}
+                points={fir.points}
+                isTrue={fir.isTrue}
+              />
+            );
+          })}
         </div>
-    );
+      </div>
+    </>
+  );
 };
 
 export default FIR_filing;

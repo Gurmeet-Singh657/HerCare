@@ -9,7 +9,7 @@ import "./nestedCard.css";
 const NestedCard = (props) => {
   return (
     <div>
-      <Accordion style={{ margin: "3% 0", color: "rgb(110, 94, 254)" }}>
+      <Accordion style={{ margin: "3% 0", color: "#d94234" }}>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel1a-content"
@@ -24,7 +24,7 @@ const NestedCard = (props) => {
               aria-controls="panel1a-content"
               id="panel1a-header"
             >
-              <Typography fontSize="1.3rem" color="#d94234">
+              <Typography fontSize="1.3rem" color="rgb(110, 94, 254)">
                 Sections
               </Typography>
             </AccordionSummary>
@@ -44,7 +44,7 @@ const NestedCard = (props) => {
               aria-controls="panel1a-content"
               id="panel1a-header"
             >
-              <Typography fontSize="1.3rem" color="#d94234">
+              <Typography fontSize="1.3rem" color="rgb(110, 94, 254)">
                 Punishments
               </Typography>
             </AccordionSummary>

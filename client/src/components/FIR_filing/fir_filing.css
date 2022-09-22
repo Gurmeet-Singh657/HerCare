@@ -1,26 +1,27 @@
 @import url('https://fonts.googleapis.com/css2?family=Mukta+Vaani&display=swap');
 
-.lrcontainer {
+.fircontainer {
     font-family: 'Mukta Vaani', sans-serif;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: start;
-    position: absolute;
-    top: 100px;
-    right: 0px;
-    margin: 2%;
+    position:absolute;
+    top:100px;
+    right:0px;
+    margin:2%;
     width: 65%;
 }
 
-.lrcontainer>h1 {
+.fircontainer>h1 {
     text-align: left;
 }
 
 @media screen and (max-width:960px) {
-    .lrcontainer {
-        align-items: center;
-        width: 80%;
-        left: 10%;
+    .fircontainer{
+        align-items:center;
+        width:80%;
+        left:10%;
     }
 }
+
