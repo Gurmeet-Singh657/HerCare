@@ -22,6 +22,7 @@ const LegalResources = () => {
       </div>
     </div>
   );
+  return <div></div>;
 };
 
 export default LegalResources;
