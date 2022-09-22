@@ -1,18 +1,15 @@
-import './App.css'
-import Home from './Pages/Home/Home.jsx'
-import ContactUs from './Pages/Contact_Us/Contact_Us.js'
-import {
-  BrowserRouter,
-  Routes,
-  Route
-} from "react-router-dom"
-import Hospitals from './Pages/Hospitals_Near_Me/Hospitals.jsx'
-import Police_Stations from './Pages/Police_Stations/Police_Stations.js'
-import Help from './components/Help/Help'
+import "./App.css";
+import Home from "./Pages/Home/Home.jsx";
+import ContactUs from "./Pages/Contact_Us/Contact_Us.js";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Hospitals from "./Pages/Hospitals_Near_Me/Hospitals.jsx";
+import Police_Stations from "./Pages/Police_Stations/Police_Stations.js";
+import Help from "./components/Help/Help";
 import Faqs from "./Pages/faqs/Faqs.js";
 import LegalResources from "./Pages/legal resources/LegalResources";
-import Sexual_Violence_Laws from './components/Sexual_Violence_Laws/Sexual_Violence_Laws.js'
-import FIR_filing from "./components/FIR_filing/FIR_filing.jsx"
+import Sexual_Violence_Laws from "./components/Sexual_Violence_Laws/Sexual_Violence_Laws.js";
+import FIR_filing from "./components/FIR_filing/FIR_filing.jsx";
+import About from "./Pages/about/About.js";
 
 const App = () => {
   return (
@@ -36,11 +33,8 @@ const App = () => {
             path="/sexual_violence_laws"
             element={<Sexual_Violence_Laws />}
           ></Route>
-          <Route
-            exact
-            path="/filing_of_fir"
-            element={<FIR_filing />}
-          ></Route>
+          <Route exact path="/filing_of_fir" element={<FIR_filing />}></Route>
+          <Route exact path="/about" element={<About />}></Route>
         </Routes>
       </BrowserRouter>
     </div>
