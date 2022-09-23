@@ -1,102 +1,108 @@
-import "./navbar.css"
-import { useEffect, useRef, useState } from "react";
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import Logo from "../../images/mainLogo.png"
-import DehazeIcon from '@mui/icons-material/Dehaze';
+// import { Link } from "@mui/material"
+import CancelIcon from "@mui/icons-material/Cancel";
+import DehazeIcon from "@mui/icons-material/Dehaze";
+import { useState } from "react";
+import PrivacyTipIcon from "@mui/icons-material/PrivacyTip";
+import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
+import Dropdown from "../Dropdown/Dropdown.js";
+import "./navbar.css";
+import { NavLink, useNavigate } from "react-router-dom";
 
 const Navbar = () => {
+  const navigate = useNavigate();
+  const [clicked, setClicked] = useState(false);
+  const [dropdown, setDropdown] = useState(false);
+  const handleClick = () => {
+    setClicked(!clicked);
+  };
+  const onMouseEnter = () => {
+    setDropdown(true);
+  };
+  const onMouseLeave = () => {
+    setDropdown(false);
+  };
 
-    const [open, setOpen] = useState(false)
-    const [navopen, setnavOpen] = useState(false)
+  const helpdirected = () => {
+    navigate("/help");
+  };
 
-    const [whenSmall, setWhenSmall] = useState(false)
-
-
-    const [windowSize, setWindowSize] = useState(window.innerWidth);
-
-    useEffect(() => {
-        function handleWindowResize() {
-            setWindowSize(window.screen.width);
-        }
-
-        if (windowSize < 840){
-            setWhenSmall(true)
-            setOpen(false)
-        }
-        else {
-            setWhenSmall(false)
-            setnavOpen(false)
-        }
-
-        window.addEventListener('resize', handleWindowResize);
-
-        return () => {
-            window.removeEventListener('resize', handleWindowResize);
-        };
-    }, [windowSize]);
-
-    function useOutsideAlerter(ref) {
-        useEffect(() => {
-            function handleClickOutside(event) {
-                if (ref.current && !ref.current.contains(event.target)) {
-                    setOpen(false)
-                    setnavOpen(false);
-                }
-            }
-
-            document.addEventListener("mousedown", handleClickOutside);
-            return () => {
-                document.removeEventListener("mousedown", handleClickOutside);
-            };
-        }, [ref]);
-    }
-
-    const wrapperRef = useRef(null);
-    useOutsideAlerter(wrapperRef);
-    console.log(wrapperRef);
-
-    return (
-        <>
-            <div className='container'>
-                <div className="logoParent"><div className='logo'></div></div>
-                {!whenSmall && <ul className='mainMenu'>
-                    <li className="menuItems">Home</li>
-                    <li className="menuItems">View Data</li>
-                    <li className="menuItems">Hospitals near me</li>
-                    <li className="menuItems">Police Stations near me</li>
-                    <li className="menuItems">
-                        <button className="dropdown" ref={wrapperRef} onClick={() => setOpen(!open)}>
-                            <span className="more">More</span>
-                            <ExpandMoreIcon />
-                        </button>
-                        {open && <div className="options">
-                            <div className="optionItems">Contact Us</div>
-                            <div className="optionItems">Faqs</div>
-                            <div className="optionItems">Legal Resources</div>
-                        </div>}
-                    </li>
-                </ul>}
-                {whenSmall && <div className="smallnav">
-                    <button className="smallwidth" ref={wrapperRef} onClick={() => setnavOpen(!navopen)}>
-                        <span className="more"><DehazeIcon /></span>
-                    </button>
-                </div>}
-                <div className="right">
-                    <button>Help</button>
-                </div>
+  return (
+    <nav className="NavbarItems">
+      <h1 className="navbar-logo">
+        <div className="logo"></div>
+        &nbsp;
+        <div className="logohead">HerCare</div>
+        {/* React */}
+      </h1>
+      <div className="menu-icon" onClick={handleClick}>
+        {!clicked && (
+          <DehazeIcon className="bars" style={{ fontSize: "35px" }} />
+        )}
+        {clicked && (
+          <CancelIcon className="bars" style={{ fontSize: "35px" }} />
+        )}
+      </div>
+      <ul className={!clicked ? "nav-menu" : "nav-menu active"}>
+        <li className="link-contain">
+          <NavLink className="nav-links" to="/">
+            Home
+          </NavLink>
+        </li>
+        <li className="link-contain">
+          <NavLink className="nav-links" to="/viewdata">
+            View Data
+          </NavLink>
+        </li>
+        <li className="link-contain">
+          <NavLink className="nav-links" to="/hospitals">
+            Hospitals near me
+          </NavLink>
+        </li>
+        <li className="link-contain">
+          <NavLink className="nav-links" to="/police">
+            Police Stations near me
+          </NavLink>
+        </li>
+        <li
+          onMouseEnter={onMouseEnter}
+          onMouseLeave={onMouseLeave}
+          onClick={() => {
+            setDropdown(!dropdown);
+          }}
+          className="smalldisnon link-contain"
+        >
+          <div className="smalldisnon nav-links" href="">
+            <div className="droptx">More</div>
+            <div className="dropicon">
+              <ArrowDropDownIcon />
             </div>
-            {navopen && <div className="navopt">
-                <div className="navoptItems">Home</div>
-                <div className="navoptItems">View Data</div>
-                <div className="navoptItems">Hospitals near me</div>
-                <div className="navoptItems">Police Stations near me</div>
-                <div className="navoptItems">Faqs</div>
-                <div className="navoptItems">Contact Us</div>
-                <div className="navoptItems">Legal Resources</div>
-            </div>}
-            <hr />
-        </>
-    )
-}
+          </div>
+          {dropdown && <Dropdown />}
+        </li>
+        <li className="disnon link-contain">
+          <NavLink className="nav-links" to="/contact">
+            Contact Us
+          </NavLink>
+        </li>
+        <li className="disnon link-contain">
+          <NavLink className="nav-links" to="/faqs">
+            Faqs
+          </NavLink>
+        </li>
+        <li className="disnon link-contain">
+          <NavLink className="nav-links" to="/legal_resources">
+            Legal Resources
+          </NavLink>
+        </li>
+      </ul>
+      <button className="btn" onClick={helpdirected}>
+        Help &nbsp;
+        <div className="contentlogo">
+          <PrivacyTipIcon style={{ fontSize: "22px" }} />
+        </div>
+      </button>
+    </nav>
+  );
+};
 
-export default Navbar
+export default Navbar;
