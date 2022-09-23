@@ -33,7 +33,9 @@ const Incident = mongoose.model(
           "Rape/Sexual Assault",
           "Chain Snatching/Robbery",
           "Domestic Violence",
-          "Physical Assault, Stalking, Online Harrasment",
+          "Physical Assault", 
+          "Stalking", 
+          "Online Harrasment"
         ],
       },
       reportToPolice: {
