@@ -15,20 +15,21 @@ function ReportedToPolice({formData, setFormData}) {
       value={formData.reportToPolice}
       exclusive
       onChange={handleChange}
+      fullWidth={true}
     >
-      <ToggleButton value="list" aria-label="list">
+      <ToggleButton value="Yes I did" aria-label="list">
       Yes I did
       </ToggleButton>
-      <ToggleButton value="module" aria-label="module">
+      <ToggleButton value="I will, in the future" aria-label="module">
       I will, in the future
       </ToggleButton>
-      <ToggleButton value="quilt" aria-label="quilt">
+      <ToggleButton value="I am not sure if I want to" aria-label="quilt">
       I am not sure if I want to
       </ToggleButton>
-      <ToggleButton value="no" aria-label="no">
+      <ToggleButton value="No" aria-label="no">
       No
       </ToggleButton>
-      <ToggleButton value="it" aria-label="it">
+      <ToggleButton value="I tried" aria-label="it">
       I tried
       </ToggleButton>
     </ToggleButtonGroup>
