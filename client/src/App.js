@@ -15,6 +15,7 @@ import FIR_filing from "./components/FIR_filing/FIR_filing.jsx";
 import About from "./Pages/about/About.js";
 import Form from './components/incidentForm/Form';
 
+
 const App = () => {
   return (
     <div>
@@ -40,6 +41,7 @@ const App = () => {
           ></Route>
           <Route exact path="/filing_of_fir" element={<FIR_filing />}></Route>
           <Route exact path="/about" element={<About />}></Route>
+          <Route exact path="/shareIncident-form" element={<Form />}></Route>
         </Routes>
       </BrowserRouter>
       {/* <Navbar/> */}

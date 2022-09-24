@@ -9,7 +9,7 @@ function Identity({formData, setFormData}) {
       };
 
   return (
-    <div class='identity-container'>
+    <div className='identity-container'>
         <ToggleButtonGroup
       orientation="vertical"
       value={formData.identity}
@@ -21,6 +21,7 @@ function Identity({formData, setFormData}) {
        Myself
       </ToggleButton>
       <ToggleButton value="Someone Else" aria-label="module">
+
        Someone Else
       </ToggleButton>
     </ToggleButtonGroup>
