@@ -3,6 +3,7 @@ import Navbar from "../../components/navbar/Navbar";
 import Slider from "../../components/slider/Slider.js";
 // import Form from '../../components/incidentForm/Form.js'
 import { useNavigate } from "react-router-dom";
+// import MapHome from "../../components/MapHome/MapHome";
 import MapArea from "../../components/mapArea/MapArea.js";
 
 const Home = () => {
@@ -11,7 +12,7 @@ const Home = () => {
     <div>
       <Navbar />
       <Slider />
-      <MapArea />
+      <MapArea/>
       {/* <Footer/> */}
     </div>
   );
