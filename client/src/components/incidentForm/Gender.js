@@ -15,14 +15,15 @@ function Gender({formData, setFormData}) {
       value={formData.gender}
       exclusive
       onChange={handleChange}
+      fullWidth={true}
     >
-      <ToggleButton value="list" aria-label="list">
+      <ToggleButton value="Male" aria-label="list">
        Male
       </ToggleButton>
-      <ToggleButton value="module" aria-label="module">
+      <ToggleButton value="Female" aria-label="module">
        Female
       </ToggleButton>
-      <ToggleButton value="quilt" aria-label="quilt">
+      <ToggleButton value="Other" aria-label="quilt">
        Other
       </ToggleButton>
     </ToggleButtonGroup>

@@ -4,28 +4,43 @@ import IncidentLocation from './IncidentLocation';
 import Gender from './Gender';
 import Identity from './Identity';
 import Age from './Age';
-import Date from './Date';
-import TypeOfViolence from './TypeOfViolence.js';
-import ReportedToPolice from './ReportedToPolice.js';
-import Progress from '../Progress/Progress.js';
-import "./style.css"
+import Time from './Time';
+import TypeOfViolence from './TypeOfViolence';
+import ReportedToPolice from './ReportedToPolice';
+import "./incidentForm.css";
+import axios from 'axios';
+import { useCallback } from 'react';
+import ProgressBar from '../ProgressBar/Progress'
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';    
 
 function Form() {
-    const [page, setPage] = useState(0);
-    const [formData, setFormData] = useState({
-        age: "",
-        identity: "",
-        gender: "",
-        title: "",
-        message: "",
-        date: "",
-        time: "",
-        typeOfViolence: "",
-        reportToPolice: "",
-    })
-    const FormTitles = ["For Whom You are Sharing For?", "How old are you ?", "Please tell us your gender", "Please share your Incident Here", "Can you tell us when this happened?", "Select type of violence you experienced", "Have you reported the incident to the police?", "Please tell us where the incident took place"];
+  const curDT =  new Date().toLocaleString();
+  const [page, setPage] = useState(0);
+  const [formData, setFormData] = useState({
+     age: "",
+     identity: "",
+     gender: "",
+     title: "",
+     message: "",
+     time: curDT,
+     typeOfViolence: "",
+     reportToPolice: "",
+  })
+
+  const triggerAPI = useCallback(async () => {
+    // Use async await instead of chained promise
+    const res = await axios.post("http://localhost:3000/incident", { formData });
+    console.log(res)
+  }, [formData]);
+
+  const handleSubmit = useCallback((e) => {
+    e.preventDefault()
+    triggerAPI();
+  }, [triggerAPI])
+
+ const FormTitles = ["For Whom You are Sharing For?", "How old are you ?", "Please tell us your gender", "Please share your Incident Here", "Can you tell us when this happened?", "Select type of violence you experienced", "Have you reported the incident to the police?", "Please tell us where the incident took place"];
+
 
     const PageDisplay = () => {
         if (page === 0) {
@@ -37,8 +52,9 @@ function Form() {
         else if (page === 2) {
             return <Age formData={formData} setFormData={setFormData} />
         }
-        else if (page === 3) {
-            return <Date formData={formData} setFormData={setFormData} />
+        else if(page===3){
+            return <Time formData={formData} setFormData={setFormData}/>
+
         }
         else if (page === 4) {
             return <IncidentDescription formData={formData} setFormData={setFormData} />
@@ -53,12 +69,10 @@ function Form() {
             return <IncidentLocation />
         }
     }
-
     return (
         <>
             <div className="IncidentFormContainer">
                 <div className='mainheader'>Share Your Incident Anonymously</div>
-
                 <div className='form-container'>
                     <h1 className='formTitles'>{FormTitles[page]}</h1>
                     <div className='body'>{PageDisplay()}</div>

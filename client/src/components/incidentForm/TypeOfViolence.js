@@ -14,23 +14,24 @@ function TypeOfViolence({formData, setFormData}) {
       value={formData.typeOfViolence}
       exclusive
       onChange={handleChange}
+      fullWidth={true}
     >
-      <ToggleButton value="list" aria-label="list">
+      <ToggleButton value="Rape/Sexual Assault" aria-label="list">
       Rape/Sexual Assault
       </ToggleButton>
-      <ToggleButton value="module" aria-label="module">
+      <ToggleButton value="Chain Snatching/Robbery" aria-label="module">
       Chain Snatching/Robbery
       </ToggleButton>
-      <ToggleButton value="quilt" aria-label="quilt">
+      <ToggleButton value="Domestic Violence" aria-label="quilt">
       Domestic Violence
       </ToggleButton>
-      <ToggleButton value="pa" aria-label="pa">
+      <ToggleButton value="Physical Assault" aria-label="pa">
       Physical Assault
       </ToggleButton>
-      <ToggleButton value="st" aria-label="st">
+      <ToggleButton value="Stalking" aria-label="st">
       Stalking
       </ToggleButton>
-      <ToggleButton value="oh" aria-label="oh">
+      <ToggleButton value="Online Harrasment" aria-label="oh">
       Online Harrasment
       </ToggleButton>
     </ToggleButtonGroup>

@@ -14,12 +14,14 @@ function Identity({formData, setFormData}) {
       orientation="vertical"
       value={formData.identity}
       exclusive
-      onChange={handleChange}
+      onChange={handleChange} 
+      fullWidth={true}
     >
-      <ToggleButton style={{backgroundColor : "white", padding : "10px", color : "black", width : "300px", margin: "3% 0", borderRadius : "8px"}}  value="list" aria-label="list">
+      <ToggleButton value="Myself" aria-label="list">
        Myself
       </ToggleButton>
-      <ToggleButton style={{backgroundColor : "white", padding : "10px", color : "black", width : "300px", margin: "3% 0", borderRadius : "8px"}} value="module" aria-label="module">
+      <ToggleButton value="Someone Else" aria-label="module">
+
        Someone Else
       </ToggleButton>
     </ToggleButtonGroup>

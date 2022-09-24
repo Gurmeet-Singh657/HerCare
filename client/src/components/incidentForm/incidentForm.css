@@ -1,0 +1,178 @@
+.content{
+    /* margin: auto;
+    width: 50%;
+    padding: 15px; */
+    /* border: 3px solid green; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.identity-container{
+    width: 100%;
+    /* border: 2px solid yellow; */
+}
+.body{
+    width: 100%;
+    /* border: 2px solid yellow; */
+    
+}
+.form-container {
+    margin: auto;
+    width: 50%;
+    /* border: 3px solid black; */
+    padding: 15px;
+    margin-top: 5%;
+    align-items: center;
+  } 
+.Form{
+  /* border: 0.2px solid red; */
+  background: hsla(233, 100%, 90%, 1);
+  
+    background: linear-gradient(90deg, hsla(233, 100%, 90%, 1) 0%, hsla(0, 0%, 89%, 1) 100%);
+  
+    background: -moz-linear-gradient(90deg, hsla(233, 100%, 90%, 1) 0%, hsla(0, 0%, 89%, 1) 100%);
+  
+    background: -webkit-linear-gradient(90deg, hsla(233, 100%, 90%, 1) 0%, hsla(0, 0%, 89%, 1) 100%);
+  
+    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr="#CAD0FF", endColorstr="#E3E3E3", GradientType=1);
+  font-family: 'Mukta Vaani', sans-serif;
+    margin: auto;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.header{
+    display: flex;
+    padding-bottom: 5%;
+    align-items: center;
+}
+.button1{
+  background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 10px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    margin-right: 20px;
+}
+
+.button2{
+    background-color: #4CAF50;
+      border: none;
+      color: white;
+      padding: 10px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin-left: 20px ;
+      cursor: pointer;
+  }
+
+.buttons{
+  /* background-color: #4CAF50; */
+  margin: 10px 0%;
+  padding: 5%;
+}
+.age{
+  /* margin: auto; */
+  width: 40%;
+  padding: 10px;
+  margin-left: 30%;
+  height: 10vh;
+  /* border: 2px solid blue; */
+}
+.age input{
+  /* margin-left: 39%; */
+  /* border: 2px solid red; */
+  width: 30%;
+  height: 4vh;
+  /* align-items: center; */
+  /* padding-left: 10%; */
+}
+
+.date{
+  width: 40%;
+  padding: 10px;
+  margin-left: 30%;
+  height: 10vh;
+  display: flex;
+  flex-direction: column;
+  border: 2px solid red;
+  
+}
+
+.date input{
+  width: 50%;
+  height: 4vh;
+  /* margin-top: 10%; */
+}
+
+.progressbar{
+  width: 100%;
+  height: 15px;
+  background-color: white;
+  margin-bottom: 50px;
+  border: 3px solid black;
+}
+
+.progressbar div{
+  width: 12.5%;
+  height: 100%;
+  /* border: 2px solid black; */
+  background-color: red;
+}
+
+.prevBtn {
+  justify-content: start;
+}
+
+.nextBtn {
+  justify-content: end;
+}
+
+.navigateBtn {
+  cursor: pointer;
+  background-color: rgb(110, 94, 254);
+  -webkit-border-radius: 5;
+  -moz-border-radius: 5;
+  border-radius: 7px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 16px;
+  padding: 7.5px 15px 7.5px 15px;
+  text-decoration: none;
+  display: flex;
+  width: 100px;
+  justify-content: center;
+  align-items: center;
+  margin: 0 2%;
+  padding: 5px;
+  border-radius: 5px;
+  border: 2px solid white;
+
+}
+
+.navigateBtn:hover {
+  background-color: rgb(129, 118, 223);
+  -webkit-border-radius: 5;
+  -moz-border-radius: 5;
+}
+
+.IncidentFormBtns {
+  margin-top: 10%;
+  width: 100%;
+}
+
+.IncidentFormBtns {
+  display: flex;
+  flex-direction: row;
+  /* justify-content: start; */
+  justify-content: space-between;
+}
