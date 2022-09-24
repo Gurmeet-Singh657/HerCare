@@ -71,9 +71,9 @@ function Form() {
     }
     return (
         <>
-            <div className="IncidentFormContainer">
-                <div className='mainheader'>Share Your Incident Anonymously</div>
+            <div className="Form">
                 <div className='form-container'>
+                    <div> <ProgressBar done={parseInt(11.6 * page)}/></div>
                     <h1 className='formTitles'>{FormTitles[page]}</h1>
                     <div className='body'>{PageDisplay()}</div>
                     <div className='IncidentFormBtns'>
@@ -91,7 +91,6 @@ function Form() {
                         >Next&nbsp;<ArrowForwardIcon style={{ fontSize: "20px" }} /></button>
                     </div>
                 </div>
-                <Progress done={parseInt(11.6 * page)} />
             </div>
         </>
     )

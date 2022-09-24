@@ -41,7 +41,6 @@ const App = () => {
           ></Route>
           <Route exact path="/filing_of_fir" element={<FIR_filing />}></Route>
           <Route exact path="/about" element={<About />}></Route>
-          <Route exact path="/shareIncident-form" element={<Form />}></Route>
         </Routes>
       </BrowserRouter>
       {/* <Navbar/> */}
