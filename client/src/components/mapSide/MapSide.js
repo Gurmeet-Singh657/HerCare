@@ -1,5 +1,5 @@
-import "./mapSide.css"
-import { useNavigate } from "react-router-dom"
+import "./mapSide.css";
+import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import OpenDialog from "../openDialog/OpenDialog.js";
 
@@ -35,8 +35,6 @@ const MapSide = () => {
             </div>
             {openfilter && <OpenDialog openfilter={openfilter} setOpenFilter={setOpenFilter}/>}
         </>
-
     )
 }
-
-export default MapSide
+export default MapSide;
