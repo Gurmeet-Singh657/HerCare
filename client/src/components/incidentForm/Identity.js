@@ -9,17 +9,17 @@ function Identity({formData, setFormData}) {
       };
 
   return (
-    <div class='identity-container'>
+    <div className='identity-container'>
         <ToggleButtonGroup
       orientation="vertical"
       value={formData.identity}
       exclusive
       onChange={handleChange}
     >
-      <ToggleButton value="list" aria-label="list">
+      <ToggleButton style={{backgroundColor : "white", padding : "10px", color : "black", width : "300px", margin: "3% 0", borderRadius : "8px"}}  value="list" aria-label="list">
        Myself
       </ToggleButton>
-      <ToggleButton value="module" aria-label="module">
+      <ToggleButton style={{backgroundColor : "white", padding : "10px", color : "black", width : "300px", margin: "3% 0", borderRadius : "8px"}} value="module" aria-label="module">
        Someone Else
       </ToggleButton>
     </ToggleButtonGroup>

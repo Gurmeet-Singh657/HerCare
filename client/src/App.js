@@ -1,7 +1,6 @@
 
 import React from 'react'
 // import Navbar from './components/navbar/Navbar'
-import Form from './components/incidentForm/Form'
 import "./App.css";
 import Home from "./Pages/Home/Home.jsx";
 import ContactUs from "./Pages/Contact_Us/Contact_Us.js";
@@ -14,6 +13,7 @@ import LegalResources from "./Pages/legal resources/LegalResources";
 import Sexual_Violence_Laws from "./components/Sexual_Violence_Laws/Sexual_Violence_Laws.js";
 import FIR_filing from "./components/FIR_filing/FIR_filing.jsx";
 import About from "./Pages/about/About.js";
+import Form from './components/incidentForm/Form.js';
 
 const App = () => {
   return (
@@ -39,10 +39,10 @@ const App = () => {
           ></Route>
           <Route exact path="/filing_of_fir" element={<FIR_filing />}></Route>
           <Route exact path="/about" element={<About />}></Route>
+          <Route exact path="/shareIncident-form" element={<Form />}></Route>
         </Routes>
       </BrowserRouter>
       {/* <Navbar/> */}
-      <Form />
     </div>
   );
 };
