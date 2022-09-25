@@ -7,6 +7,9 @@ import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import Chip from "@mui/material/Chip";
+import CancelIcon from "@mui/icons-material/Cancel";
+import _without from "lodash/without";
+import { MouseEvent } from "react";
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -62,11 +65,15 @@ export default function MultipleSelect({ index, heading }) {
       typeof value === "string" ? value.split(",") : value
     );
   };
-
+  const handleDelete = (e: MouseEvent, value: string) => {
+    e.preventDefault();
+    console.log("clicked delete");
+    setPersonName((current) => _without(current, value));
+  };
   return (
     <div>
       <FormControl sx={{ marginBottom: 3, width: "400px" }}>
-        <InputLabel id="demo-multiple-chip-label">{heading}</InputLabel>
+        <InputLabel required={true} id="demo-multiple-chip-label">{heading}</InputLabel>
         <Select
           labelId="demo-multiple-chip-label"
           id="demo-multiple-chip"
@@ -77,7 +84,15 @@ export default function MultipleSelect({ index, heading }) {
           renderValue={(selected) => (
             <Box sx={{ display: "flex", flexWrap: "wrap", gap: 0.5 }}>
               {selected.map((value) => (
-                <Chip key={value} label={value} />
+                <Chip key={value} label={value} clickable
+                  deleteIcon={
+                    <CancelIcon
+                      onMouseDown={(event) => event.stopPropagation()}
+                    />
+                  }
+                  // className={classes.chip}
+                  onDelete={(e) => handleDelete(e, value)}
+                  onClick={() => console.log("clicked chip")} />
               ))}
             </Box>
           )}

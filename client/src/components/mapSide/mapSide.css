@@ -98,6 +98,12 @@
 .filterincidents {
     background: transparent;
     font-weight: bold;
+    color:blue;
+    font-size:medium;
+    cursor:pointer;
+    border:2px solid blue;
+    border-radius:6px;
+    padding:5px 20px;
 }
 
 .clearincidents {
@@ -109,4 +115,9 @@
     font-weight: bold;
     font-size: 15px;
     background-color: white;
+}
+
+.IncidentScroll
+{
+    margin:40px 0px;
 }

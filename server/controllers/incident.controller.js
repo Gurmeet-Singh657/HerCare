@@ -63,3 +63,17 @@ const findByPk = async function (id) {
   return incident;
 };
 module.exports.findIncidentById = findByPk;
+
+const getAllIncidents = async function (req, res) {
+  let err,incident;
+  [err, incident] = await to(Incident.find({}));
+  if (err) {
+    logger.error("Incident Controller - get : Incident not found", err);
+    return ReE(res, err, 422);
+  }
+
+  res.setHeader("Content-Type", "application/json");
+
+  return ReS(res, incident);
+};
+module.exports.getAllIncidents = getAllIncidents;

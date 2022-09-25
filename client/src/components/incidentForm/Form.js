@@ -91,7 +91,7 @@ function Form() {
                         >Next&nbsp;<ArrowForwardIcon style={{ fontSize: "20px" }} /></button>
                     </div>
                 </div>
-                <Progress done={parseInt(11.6 * page)} />
+                <ProgressBar done={parseInt(11.6 * page)} />
             </div>
         </>
     )

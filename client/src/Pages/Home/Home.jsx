@@ -5,6 +5,7 @@ import Slider from "../../components/slider/Slider.js";
 import { useNavigate } from "react-router-dom";
 // import MapHome from "../../components/MapHome/MapHome";
 import MapArea from "../../components/mapArea/MapArea.js";
+import Footer from "../../components/Footer/Footer.jsx"
 
 const Home = () => {
   const navigate = useNavigate();

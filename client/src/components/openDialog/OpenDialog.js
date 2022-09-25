@@ -49,28 +49,23 @@ OpenDialogTitle.propTypes = {
   onClose: PropTypes.func.isRequired,
 };
 
-export default function CustomizedDialogs() {
-  const [open, setOpen] = React.useState(false);
-
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
+export default function CustomizedDialogs({openfilter,setOpenFilter}) {
   const handleClose = () => {
-    setOpen(false);
+    setOpenFilter(false);
   };
 
   return (
     <div>
-      <Button
+      {/* <Button
         style={{ color: "blue", fontWeight: "bold" }}
         onClick={handleClickOpen}
       >
         Filter
-      </Button>
+      </Button> */}
       <OpenDialog
         onClose={handleClose}
         aria-labelledby="customized-dialog-title"
-        open={open}
+        open={openfilter}
       >
         <OpenDialogTitle id="customized-dialog-title" onClose={handleClose}>
           Filters
