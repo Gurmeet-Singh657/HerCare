@@ -10,6 +10,7 @@ import Chip from "@mui/material/Chip";
 import CancelIcon from "@mui/icons-material/Cancel";
 import _without from "lodash/without";
 import { MouseEvent } from "react";
+import { SearchContext } from "../../context/SearchContext";
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -43,10 +44,10 @@ const options = [
   ["Morning", "Afternoon", "Evening", "Night", "Post Mid Night"],
 ];
 
-function getStyles(name, personName, theme) {
+function getStyles(name, typesofassaultopt, theme) {
   return {
     fontWeight:
-      personName.indexOf(name) === -1
+      typesofassaultopt.indexOf(name) === -1
         ? theme.typography.fontWeightRegular
         : theme.typography.fontWeightMedium,
   };
@@ -54,45 +55,55 @@ function getStyles(name, personName, theme) {
 
 export default function MultipleSelect({ index, heading }) {
   const theme = useTheme();
-  const [personName, setPersonName] = React.useState([]);
+  const [typesofassaultopt, settypesofassaultopt] = React.useState([]);
+  const current = React.useContext(SearchContext);
 
-  const handleChange = (event) => {
-    const {
-      target: { value },
-    } = event;
-    setPersonName(
-      // On autofill we get a stringified value.
-      typeof value === "string" ? value.split(",") : value
-    );
-  };
+    const handleChange = (event) => {
+      const {
+        target: { value },
+      } = event;
+      settypesofassaultopt(
+        // On autofill we get a stringified value.
+        typeof value === "string" ? value.split(",") : value
+      );
+      current.typesofassault = typesofassaultopt;
+      // console.log(current);
+      // console.log(current.typesofassault);
+    };
   const handleDelete = (e: MouseEvent, value: string) => {
     e.preventDefault();
     console.log("clicked delete");
-    setPersonName((current) => _without(current, value));
+    settypesofassaultopt((current) => _without(current, value));
+    current.typesofassault = typesofassaultopt;
   };
   return (
     <div>
       <FormControl sx={{ marginBottom: 3, width: "400px" }}>
-        <InputLabel required={true} id="demo-multiple-chip-label">{heading}</InputLabel>
+        <InputLabel required={true} id="demo-multiple-chip-label">
+          {heading}
+        </InputLabel>
         <Select
           labelId="demo-multiple-chip-label"
           id="demo-multiple-chip"
           multiple
-          value={personName}
+          value={typesofassaultopt}
           onChange={handleChange}
           input={<OutlinedInput id="select-multiple-chip" label={heading} />}
           renderValue={(selected) => (
             <Box sx={{ display: "flex", flexWrap: "wrap", gap: 0.5 }}>
               {selected.map((value) => (
-                <Chip key={value} label={value} clickable
+                <Chip
+                  key={value}
+                  label={value}
+                  clickable
                   deleteIcon={
                     <CancelIcon
                       onMouseDown={(event) => event.stopPropagation()}
                     />
                   }
-                  // className={classes.chip}
                   onDelete={(e) => handleDelete(e, value)}
-                  onClick={() => console.log("clicked chip")} />
+                  onClick={() => console.log("clicked chip")}
+                />
               ))}
             </Box>
           )}
@@ -102,7 +113,7 @@ export default function MultipleSelect({ index, heading }) {
             <MenuItem
               key={name}
               value={name}
-              style={getStyles(name, personName, theme)}
+              style={getStyles(name, typesofassaultopt, theme)}
             >
               {name}
             </MenuItem>

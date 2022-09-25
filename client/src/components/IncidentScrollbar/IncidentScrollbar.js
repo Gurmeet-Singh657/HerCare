@@ -18,26 +18,6 @@ function createData(title, location, datetime, desc) {
     return { title, location, datetime, desc };
 }
 
-const rows = [
-    createData("Touching /Groping", "Kashmere Gate", "9 Dec 2022 08:30:00", "I was traveling in yellow line metro when a person tried to group me in mob in the metro while standing _S03476"),
-    createData("Ice cream sandwich", 237, 9.0, 37, 4.3),
-    createData("Eclair", 262, 16.0, 24, 6.0),
-    createData("Cupcake", 305, 3.7, 67, 4.3),
-    createData("Gingerbread", 356, 16.0, 49, 3.9),
-    createData("Gingerbread2", 356, 16.0, 49, 3.9),
-    createData("Gingerbread3", 356, 16.0, 49, 3.9),
-    createData("Gingerbread4", 356, 16.0, 49, 3.9),
-    createData("Gingerbread5", 356, 16.0, 49, 3.9),
-    createData("Gingerbread6", 356, 16.0, 49, 3.9),
-    createData("Gingerbread7", 356, 16.0, 49, 3.9),
-    createData("Gingerbread8", 356, 16.0, 49, 3.9),
-    createData("Gingerbread9", 356, 16.0, 49, 3.9),
-    createData("Gingerbread10", 356, 16.0, 49, 3.9),
-    createData("Gingerbread11", 356, 16.0, 49, 3.9),
-    createData("Gingerbread12", 356, 16.0, 49, 3.9),
-    createData("Gingerbread13", 356, 16.0, 49, 3.9)
-];
-
 export default function SimpleTable() {
     const { data, loading, error } = useFetch("/getAllIncidents");
     const [page, setPage] = useState(0);
