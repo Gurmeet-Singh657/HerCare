@@ -1,4 +1,3 @@
-import * as React from "react";
 import PropTypes from "prop-types";
 import Button from "@mui/material/Button";
 import { styled } from "@mui/material/styles";
@@ -8,8 +7,11 @@ import DialogContent from "@mui/material/DialogContent";
 import DialogActions from "@mui/material/DialogActions";
 import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
-// import Typography from "@mui/material/Typography";
 import TabPanel from "../tabPanel/TabPanel.js";
+import axios from "axios";
+import { useContext } from "react";
+import { SearchContext } from "../../context/SearchContext.js";
+import useFetch from "../../hooks/useFetch.js";
 
 const OpenDialog = styled(Dialog)(({ theme }) => ({
   "& .MuiDialogContent-root": {
@@ -49,28 +51,27 @@ OpenDialogTitle.propTypes = {
   onClose: PropTypes.func.isRequired,
 };
 
-export default function CustomizedDialogs() {
-  const [open, setOpen] = React.useState(false);
 
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
+
+export default function CustomizedDialogs({ openfilter, setOpenFilter }) {
   const handleClose = () => {
-    setOpen(false);
+    setOpenFilter(false);
+  };
+  const { typesofassault, showIncidentfrom, timeoftheday } = useContext(SearchContext);
+  const { data, loading, reFetch } = useFetch(`/getAllIncidents?typesofassault=${typesofassault}&showIncidentfrom=${showIncidentfrom}&timeoftheday=${timeoftheday}`);
+
+  const handleSearch = () => {
+    setOpenFilter(false);
+    reFetch();
+    console.log(data);
   };
 
   return (
     <div>
-      <Button
-        style={{ color: "blue", fontWeight: "bold" }}
-        onClick={handleClickOpen}
-      >
-        Filter
-      </Button>
       <OpenDialog
         onClose={handleClose}
         aria-labelledby="customized-dialog-title"
-        open={open}
+        open={openfilter}
       >
         <OpenDialogTitle id="customized-dialog-title" onClose={handleClose}>
           Filters
@@ -79,7 +80,7 @@ export default function CustomizedDialogs() {
           <TabPanel />
         </DialogContent>
         <DialogActions>
-          <Button autoFocus onClick={handleClose}>
+          <Button autoFocus onClick={handleSearch}>
             Apply
           </Button>
         </DialogActions>

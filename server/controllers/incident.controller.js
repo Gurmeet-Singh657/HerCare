@@ -63,3 +63,24 @@ const findByPk = async function (id) {
   return incident;
 };
 module.exports.findIncidentById = findByPk;
+
+const getAllIncidents = async function (req, res) {
+  const { typesofassault, showIncidentfrom, timeoftheday } = req.query;
+  const searchjson={};
+  if(req.query.typesofassault)
+    searchjson[typeOfViolence]=typesofassault;
+  if(req.query.showIncidentfrom==='Today')
+    searchjson[mindate]=new Date(Date.now());
+  let err, incident;
+  [err, incident] = await to(Incident.find({ typeOfViolence: typesofassault }));
+  console.log(incident);
+  if (err) {
+    logger.error("Incident Controller - get : Incident not found", err);
+    return ReE(res, err, 422);
+  }
+
+  res.setHeader("Content-Type", "application/json");
+
+  return ReS(res, incident);
+};
+module.exports.getAllIncidents = getAllIncidents;

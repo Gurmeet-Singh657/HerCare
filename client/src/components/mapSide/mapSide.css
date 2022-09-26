@@ -37,7 +37,20 @@
     padding: 20px 0px;
 }
 
+.Safetytipstitle {
+    font-size: large;
+    color: blue;
+    font-weight: bold;
+    padding: 20px 0px;
+
+}
+
 .incidentdesc {
+    font-size: medium;
+}
+
+.Safetytipsdesc
+{
     font-size: medium;
 }
 
@@ -47,9 +60,25 @@
     /* text-align: center; */
 }
 
+.Safetytipsbtn{
+    padding:20px 0px;
+    width:100%;
+}
+
 .incidentsharebtn {
     background-color: blue;
     color: white;
+    width: 60%;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    /* margin:auto; */
+    padding: 12px;
+    font-size: 16px;
+}
+.Safetytipssharebtn {
+    background-color: rgb(212, 212, 44);
+    color: black;
     width: 60%;
     border: none;
     border-radius: 8px;
@@ -69,6 +98,12 @@
 .filterincidents {
     background: transparent;
     font-weight: bold;
+    color:blue;
+    font-size:medium;
+    cursor:pointer;
+    border:2px solid blue;
+    border-radius:6px;
+    padding:5px 20px;
 }
 
 .clearincidents {
@@ -80,4 +115,9 @@
     font-weight: bold;
     font-size: 15px;
     background-color: white;
+}
+
+.IncidentScroll
+{
+    margin:40px 0px;
 }
