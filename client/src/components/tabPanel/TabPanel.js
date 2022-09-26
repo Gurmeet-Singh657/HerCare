@@ -55,9 +55,6 @@ function getStyles(name, typesofassaultopt, theme) {
 }
 
 export default function BasicTabs() {
-  // const [typesofassaultValue, setTypesofassaultValue] = useState([]);
-  // const [showIncidentsfromValue, setshowIncidentsfromValue] = useState("");
-  // const [timeofthedayValue, settimeofthedayValue] = useState("");
   const { typesofassault, setTypesofassault, showIncidentfrom, setShowIncidentfrom, timeoftheday, settimeoftheday } = useContext(SearchContext);
 
   const handleshowIncident = (event) => {
@@ -65,15 +62,12 @@ export default function BasicTabs() {
     // console.log(showIncidentfrom);
   }
   const handleTimeOfTheDay = (event) => {
-    // settimeofthedayValue(event.target.value);
     settimeoftheday(event.target.value);
-    // console.log(timeofthedayValue);
   }
 
 
 
   const theme = useTheme();
-  // const current = React.useContext(SearchContext);
 
   const handleChange = (event) => {
     const {
@@ -95,12 +89,7 @@ export default function BasicTabs() {
     e.preventDefault();
     console.log("clicked delete");
     setTypesofassault((current) => _without(current, value));
-    // setTypesofassault(typesofassaultValue);
-    // current.typesofassault = typesofassaultValue;
-    // console.log(typesofassault);
-    // console.log(typesofassaultValue);
-    // console.log(showIncidentsfromValue);
-    // console.log(timeofthedayValue);
+
   };
 
   return (
