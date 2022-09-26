@@ -20,10 +20,10 @@ function createData(title, location, datetime, desc) {
 
 export default function SimpleTable() {
     const { data, loading, error } = useFetch("/getAllIncidents");
+    console.log(data);
     const [page, setPage] = useState(0);
     const [rowsPerPage, setRowsPerPage] = useState(10);
     const handleChangePage = (event, newPage) => {
-        console.log(data);
         setPage(newPage);
     };
 
