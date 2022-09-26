@@ -5,7 +5,7 @@ const logger = require("../lib/logging");
 const create = async function (req, res) {
   res.setHeader("Content-Type", "application/json");
   // const body = JSON.parse(JSON.stringify(req.body));
-  const body = Object.assign({},req.body)
+  const body = Object.assign({}, req.body)
   if (!body.title) {
     logger.error("incident controller - create : Incident Title cannot be empty");
     return ReE(res, new Error("Please enter a valid Incident Title."), 422);
@@ -65,15 +65,41 @@ const findByPk = async function (id) {
 module.exports.findIncidentById = findByPk;
 
 const getAllIncidents = async function (req, res) {
-  // const { typesofassault, showIncidentfrom, timeoftheday } = req.query;
-  // const searchjson = {};
-  // if (req.query.typesofassault)
-  //   searchjson[typeOfViolence] = typesofassault;
+  const { typesofassault, showIncidentfrom, timeoftheday } = req.query;
+  const searchjson = {};
+  let currenttypeofassault = [
+    "Physical Assault",
+    "Rape/Sexual Assault",
+    "Chain Snatching/Robbery",
+    "Domestic Violence",
+    "Stalking",
+    "Ogling/Facial Expressions/Staring",
+    "Taking photos without permission",
+    "Indecent Exposure/Masturbation in public",
+    "Touching /Groping",
+    "Showing Pornography without consent",
+    "Commenting/Sexual Invites",
+    "Online Harassment",
+    "Human Trafficking",
+    "Others"
+  ];
+  console.log(typesofassault);
+  if (typesofassault) {
+    currenttypeofassault = typesofassault;
+    // for (let ele of req.query.typesofassault) {
+    //   currenttypeofassault.push(ele);
+    // }
+    // req.query.typesofassault.split(',').map(row => { return row });
+
+  }
+  console.log(currenttypeofassault);
   // if (req.query.showIncidentfrom === 'Today')
   //   searchjson[mindate] = new Date(Date.now());
+  // else if(req.query.showIncidentfrom==='This Week')
+  // searchjson[mindate]=new Date(Date.now()-7);
   let err, incident;
-  [err, incident] = await to(Incident.find());
-  // console.log(incident);
+  [err, incident] = await to(Incident.find({ typeOfViolence: { $all: currenttypeofassault } }));
+  console.log(incident);
   if (err) {
     logger.error("Incident Controller - get : Incident not found", err);
     return ReE(res, err, 422);

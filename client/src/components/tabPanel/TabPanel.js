@@ -18,7 +18,7 @@ const options = [
     "Rape/Sexual Assault",
     "Chain Snatching/Robbery",
     "Domestic Violence",
-    "Physical assault",
+    "Physical Assault",
     "Stalking",
     "Ogling/Facial Expressions/Staring",
     "Taking photos without permission",
@@ -31,7 +31,7 @@ const options = [
     "Others",
   ],
   ["All time", "Today", "This Week", "This Month", "This Year"],
-  ["Whole day","Morning", "Afternoon", "Evening", "Night", "Post Mid Night"],
+  ["Whole day", "Morning", "Afternoon", "Evening", "Night", "Post Mid Night"],
 ];
 
 const ITEM_HEIGHT = 48;
@@ -62,7 +62,7 @@ export default function BasicTabs() {
 
   const handleshowIncident = (event) => {
     setShowIncidentfrom(event.target.value);
-    console.log(showIncidentfrom);
+    // console.log(showIncidentfrom);
   }
   const handleTimeOfTheDay = (event) => {
     // settimeofthedayValue(event.target.value);
@@ -83,6 +83,7 @@ export default function BasicTabs() {
       // On autofill we get a stringified value.
       typeof value === "string" ? value.split(",") : value
     );
+    console.log(typesofassault[0] + " " + typesofassault[1]);
     // console.log(current);
     // setTypesofassault(typesofassaultValue);
     // console.log(typesofassault);

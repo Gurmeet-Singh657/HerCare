@@ -58,13 +58,13 @@ export default function CustomizedDialogs({ openfilter, setOpenFilter }) {
     setOpenFilter(false);
   };
   const { typesofassault, showIncidentfrom, timeoftheday } = useContext(SearchContext);
-  // const { data, loading, reFetch } = useFetch("/getAllIncidents");
-  // ?typesofassault = ${ typesofassault }& showIncidentfrom=${ showIncidentfrom }& timeoftheday=${ timeoftheday }
+  const { data, loading, reFetch } = useFetch(`/getAllIncidents?typesofassault = ${typesofassault}& showIncidentfrom=${showIncidentfrom}& timeoftheday=${timeoftheday}`);
+
 
   const handleSearch = () => {
     setOpenFilter(false);
-    // reFetch();
-    // console.log(data);
+    reFetch();
+    console.log(data);
   };
 
   return (

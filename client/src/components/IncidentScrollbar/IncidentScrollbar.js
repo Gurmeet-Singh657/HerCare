@@ -12,6 +12,8 @@ import "./incidentScrollbar.css"
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import useFetch from "../../hooks/useFetch";
 import { dateRangePickerToolbarClasses } from "@mui/x-date-pickers-pro";
+import { useContext } from "react";
+import { SearchContext } from "../../context/SearchContext";
 
 
 function createData(title, location, datetime, desc) {
@@ -19,8 +21,11 @@ function createData(title, location, datetime, desc) {
 }
 
 export default function SimpleTable() {
-    const { data, loading, error } = useFetch("/getAllIncidents");
-    console.log(data);
+    // const { data, loading, error } = useFetch("/getAllIncidents");
+    const { typesofassault, showIncidentfrom, timeoftheday } = useContext(SearchContext);
+    const { data, loading, reFetch } = useFetch(`/getAllIncidents?typesofassault=${typesofassault}&showIncidentfrom=${showIncidentfrom}&timeoftheday=${timeoftheday}`);
+    console.log(typesofassault);
+    // reFetch();
     const [page, setPage] = useState(0);
     const [rowsPerPage, setRowsPerPage] = useState(10);
     const handleChangePage = (event, newPage) => {
@@ -65,7 +70,7 @@ export default function SimpleTable() {
                                         {row.title}
                                         {row.time}
                                         {row.typeOfViolence}
-                                        {row.address.city}
+                                        {/* {row.address.city} */}
                                     </TableCell>
                                 </TableRow>
                             ))}
