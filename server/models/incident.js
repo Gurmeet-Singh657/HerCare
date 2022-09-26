@@ -8,7 +8,7 @@ const Incident = mongoose.model(
   "Incident",
   new mongoose.Schema(
     {
-      address: { type: addressSchema, default: () => ({}) },
+      // address: { type: addressSchema, default: () => ({}) },
       age: {
         type: Number,
         min: 18,

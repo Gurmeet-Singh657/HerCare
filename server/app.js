@@ -7,6 +7,7 @@ var logger = require('morgan');
 const config = require("config");
 const swaggerUI = require('swagger-ui-express');
 const swaggerJsDoc = require('swagger-jsdoc');
+
 // require('./cronjob');
 
 
@@ -34,6 +35,8 @@ const specs = swaggerJsDoc(options);
 var indexRouter = require('./routes/index');
 
 var app = express();
+const cors = require('cors');
+app.use(cors());
 //app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(specs));
@@ -48,7 +51,11 @@ app.use('/', indexRouter);
 app.use(function (req, res, next) {
 	next(createError(404));
 });
-
+// const corsOptions ={
+//     origin:'http://localhost:3000', 
+//     credentials:true,            //access-control-allow-credentials:true
+//     optionSuccessStatus:200
+// }
 // error handler
 app.use(function (err, req, res, next) {
 	// set locals, only providing error in development

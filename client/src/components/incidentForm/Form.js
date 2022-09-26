@@ -13,8 +13,10 @@ import { useCallback } from 'react';
 import ProgressBar from '../ProgressBar/Progress'
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';    
+import { useNavigate } from 'react-router-dom';
 
 function Form() {
+  const navigate=useNavigate();  
   const curDT =  new Date().toLocaleString();
   const [page, setPage] = useState(0);
   const [formData, setFormData] = useState({
@@ -28,16 +30,20 @@ function Form() {
      reportToPolice: "",
   })
 
-  const triggerAPI = useCallback(async () => {
-    // Use async await instead of chained promise
-    const res = await axios.post("http://localhost:3000/incident", { formData });
-    console.log(res)
-  }, [formData]);
+//   const triggerAPI = useCallback(async () => {
+//     // Use async await instead of chained promise
+//    axios.post('http://localhost:4000/incident', formData)
+//   }, []);
 
-  const handleSubmit = useCallback((e) => {
+  const handleSubmit = async(e) => {
     e.preventDefault()
-    triggerAPI();
-  }, [triggerAPI])
+    console.log(JSON.stringify(formData))
+    await axios.post("http://localhost:4000/incident", JSON.stringify(formData), {headers: {"Content-Type": "application/json"}})
+    .then((result) => {
+        navigate("/")
+    });
+  }
+
 
  const FormTitles = ["For Whom You are Sharing For?", "How old are you ?", "Please tell us your gender", "Please share your Incident Here", "Can you tell us when this happened?", "Select type of violence you experienced", "Have you reported the incident to the police?", "Please tell us where the incident took place"];
 
@@ -69,6 +75,21 @@ function Form() {
             return <IncidentLocation />
         }
     }
+    const checkPage = () => {
+        if(page===FormTitles.length - 1){
+            return <button className="nextBtn navigateBtn"
+                            onClick= {handleSubmit}
+                        >Submit&nbsp;<ArrowForwardIcon style={{ fontSize: "20px" }} /></button>;
+        }
+        else{
+            return <button className="nextBtn navigateBtn"
+                            onClick={() => {
+                                setPage((currPage) => currPage + 1)
+                            }}
+                        >Next&nbsp;<ArrowForwardIcon style={{ fontSize: "20px" }} /></button>;
+        }
+    }
+
     return (
         <>
             <div className="Form">
@@ -83,12 +104,7 @@ function Form() {
                                 setPage((currPage) => currPage - 1)
                             }}
                         ><ArrowBackIcon style={{ fontSize: "20px" }} />&nbsp;Prev</button>
-                        <button className="nextBtn navigateBtn"
-                            disabled={page === FormTitles.length - 1}
-                            onClick={() => {
-                                setPage((currPage) => currPage + 1)
-                            }}
-                        >Next&nbsp;<ArrowForwardIcon style={{ fontSize: "20px" }} /></button>
+                        {checkPage()}
                     </div>
                 </div>
             </div>

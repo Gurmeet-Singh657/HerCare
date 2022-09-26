@@ -19,7 +19,6 @@ function Time({formData, setFormData}) {
 
   const handleChange = (newValue) => {
     setFormData({...formData, time: newValue})
-    console.log(formData)
   };
 
   return (

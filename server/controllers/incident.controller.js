@@ -4,8 +4,8 @@ const logger = require("../lib/logging");
 
 const create = async function (req, res) {
   res.setHeader("Content-Type", "application/json");
-  const body = req.body;
-
+  // const body = JSON.parse(JSON.stringify(req.body));
+  const body = Object.assign({},req.body)
   if (!body.title) {
     logger.error("incident controller - create : Incident Title cannot be empty");
     return ReE(res, new Error("Please enter a valid Incident Title."), 422);
