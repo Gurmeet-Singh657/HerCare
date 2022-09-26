@@ -11,7 +11,7 @@ import CancelIcon from "@mui/icons-material/Cancel";
 import _without from "lodash/without";
 import { MouseEvent } from "react";
 import { SearchContext } from "../../context/SearchContext";
-import {useContext} from "react"
+import { useContext } from "react"
 
 const options = [
   [
@@ -31,7 +31,7 @@ const options = [
     "Others",
   ],
   ["All time", "Today", "This Week", "This Month", "This Year"],
-  ["Morning", "Afternoon", "Evening", "Night", "Post Mid Night"],
+  ["Whole day","Morning", "Afternoon", "Evening", "Night", "Post Mid Night"],
 ];
 
 const ITEM_HEIGHT = 48;
@@ -55,19 +55,22 @@ function getStyles(name, typesofassaultopt, theme) {
 }
 
 export default function BasicTabs() {
-  // const [showIncidentsfrom, setshowIncidentsfrom] = useState("");
-  // const [timeoftheday, settimeoftheday] = useState("");
-  const [typesofassaultopt, settypesofassaultopt] = React.useState([]);
-
-  const {typesofassault,settypesofassault,showIncidentfrom,setshowIncidentfrom,timeoftheday,settimeoftheday}=useContext(SearchContext);
+  // const [typesofassaultValue, setTypesofassaultValue] = useState([]);
+  // const [showIncidentsfromValue, setshowIncidentsfromValue] = useState("");
+  // const [timeofthedayValue, settimeofthedayValue] = useState("");
+  const { typesofassault, setTypesofassault, showIncidentfrom, setShowIncidentfrom, timeoftheday, settimeoftheday } = useContext(SearchContext);
 
   const handleshowIncident = (event) => {
-    setshowIncidentfrom(event.target.value);
-  };
-
+    setShowIncidentfrom(event.target.value);
+    console.log(showIncidentfrom);
+  }
   const handleTimeOfTheDay = (event) => {
+    // settimeofthedayValue(event.target.value);
     settimeoftheday(event.target.value);
-  };
+    // console.log(timeofthedayValue);
+  }
+
+
 
   const theme = useTheme();
   // const current = React.useContext(SearchContext);
@@ -76,21 +79,27 @@ export default function BasicTabs() {
     const {
       target: { value },
     } = event;
-    // settypesofassaultopt(
-    //   // On autofill we get a stringified value.
-    //   typeof value === "string" ? value.split(",") : value
-    // );
-    settypesofassaultopt(
+    setTypesofassault(
       // On autofill we get a stringified value.
       typeof value === "string" ? value.split(",") : value
     );
-    // console.log(current.typesofassault);
+    // console.log(current);
+    // setTypesofassault(typesofassaultValue);
+    // console.log(typesofassault);
+    // console.log(showIncidentfrom);
+    // console.log(timeoftheday);
+    // console.log(typesofassaultValue);
   };
   const handleDelete = (e: MouseEvent, value: string) => {
     e.preventDefault();
     console.log("clicked delete");
-    // settypesofassaultopt((current) => _without(current, value));
-    settypesofassaultopt((current) => _without(current, value));
+    setTypesofassault((current) => _without(current, value));
+    // setTypesofassault(typesofassaultValue);
+    // current.typesofassault = typesofassaultValue;
+    // console.log(typesofassault);
+    // console.log(typesofassaultValue);
+    // console.log(showIncidentsfromValue);
+    // console.log(timeofthedayValue);
   };
 
   return (
@@ -104,7 +113,7 @@ export default function BasicTabs() {
           labelId="demo-multiple-chip-label"
           id="demo-multiple-chip"
           multiple
-          value={typesofassaultopt}
+          value={typesofassault}
           onChange={handleChange}
           input={
             <OutlinedInput id="select-multiple-chip" label="Types of Assault" />

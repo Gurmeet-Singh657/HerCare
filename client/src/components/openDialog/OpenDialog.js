@@ -7,10 +7,11 @@ import DialogContent from "@mui/material/DialogContent";
 import DialogActions from "@mui/material/DialogActions";
 import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
-// import Typography from "@mui/material/Typography";
 import TabPanel from "../tabPanel/TabPanel.js";
-import { SearchContext } from "../../context/SearchContext";
-import { useContext, useState } from "react";
+import axios from "axios";
+import { useContext } from "react";
+import { SearchContext } from "../../context/SearchContext.js";
+import useFetch from "../../hooks/useFetch.js";
 
 const OpenDialog = styled(Dialog)(({ theme }) => ({
   "& .MuiDialogContent-root": {
@@ -50,33 +51,23 @@ OpenDialogTitle.propTypes = {
   onClose: PropTypes.func.isRequired,
 };
 
+
+
 export default function CustomizedDialogs({ openfilter, setOpenFilter }) {
   const handleClose = () => {
     setOpenFilter(false);
   };
-  const [typesofassault, setTypesofassault] = useState([]);
-  const [timeOfTheDay, setTimeOfTheDay] = useState("");
-  const [showIncidentsfrom, setShowIncidentsfrom] = useState("");
-  const { dispatch } = useContext(SearchContext);
+  const { typesofassault, showIncidentfrom, timeoftheday } = useContext(SearchContext);
+  const { data, loading, reFetch } = useFetch(`/getAllIncidents?typesofassault=${typesofassault}&showIncidentfrom=${showIncidentfrom}&timeoftheday=${timeoftheday}`);
 
   const handleSearch = () => {
-    console.log(typesofassault);
     setOpenFilter(false);
-    dispatch({
-      type: "NEW_SEARCH",
-      payload: { typesofassault, showIncidentsfrom, timeOfTheDay },
-    });
-    // navigate("/hotels", { state: { destination, dates, options } });
+    reFetch();
+    console.log(data);
   };
 
   return (
     <div>
-      {/* <Button
-        style={{ color: "blue", fontWeight: "bold" }}
-        onClick={handleClickOpen}
-      >
-        Filter
-      </Button> */}
       <OpenDialog
         onClose={handleClose}
         aria-labelledby="customized-dialog-title"
