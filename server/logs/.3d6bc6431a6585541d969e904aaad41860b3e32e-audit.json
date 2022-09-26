@@ -51,9 +51,25 @@
             "hash": "5cd2ce9201107530698648a3987a2848045a0c192ebeaa3c72d3f41b43dc78f6"
         },
         {
+<<<<<<< Updated upstream
             "date": 1664176904897,
             "name": "logs\\application-2022-09-26-12.log",
             "hash": "b6ca46459939e7b416991eaad6dacd9bc6dd8f95eacf336d467525a26306d9af"
+=======
+            "date": 1664168002266,
+            "name": "logs\\application-2022-09-26-10.log",
+            "hash": "2f9014d3cfbe9a0277052f65a7a8311df20867e1db41c6e5f6c86cd9f726a4b1"
+        },
+        {
+            "date": 1664173024833,
+            "name": "logs\\application-2022-09-26-11.log",
+            "hash": "101981dbd92b576afc586de1c968da4de0e6e6803687d6e0ee94c90f60c5f8a5"
+        },
+        {
+            "date": 1664173846712,
+            "name": "logs\\application-2022-09-26-12.log",
+            "hash": "bdffe31e817a9575265736ef9e605c9cc3679186dd5951f299a82289c8821b85"
+>>>>>>> Stashed changes
         }
     ],
     "hashType": "sha256"

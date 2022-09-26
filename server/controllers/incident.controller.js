@@ -69,8 +69,8 @@ const getAllIncidents = async function (req, res) {
   const searchjson={};
   if(req.query.typesofassault)
     searchjson[typeOfViolence]=typesofassault;
-  if(req.query.showIncidentfrom==='Today')
-    searchjson[mindate]=new Date(Date.now());
+  // if(req.query.showIncidentfrom==='Today')
+  //   searchjson[mindate]=new Date(Date.now());
   let err, incident;
   [err, incident] = await to(Incident.find({ typeOfViolence: typesofassault }));
   console.log(incident);

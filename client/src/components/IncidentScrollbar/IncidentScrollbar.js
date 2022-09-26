@@ -19,7 +19,7 @@ function createData(title, location, datetime, desc) {
 }
 
 export default function SimpleTable() {
-    const { data, loading, error } = useFetch("/getAllIncidents");
+    const { data, loading, error } = useFetch("/incident/_id=");
     const [page, setPage] = useState(0);
     const [rowsPerPage, setRowsPerPage] = useState(10);
     const handleChangePage = (event, newPage) => {
