@@ -30,9 +30,9 @@ const MapSide = () => {
                         Join the 40000+ people who have shared their experiences to make public spaces safer. Sharing your experience helps us identify patterns and create safer spaces. Information is analysed to engage our communities to find solutions and hold our civic and police officials accountable to have better policies and infrastructure. Your information remains anonymous.
                     </div>
                     <div className="incidentbtn">
-                        <button className="incidentsharebtn" onClick={() => navigate("/shareIncident-form")}>Share Your Incident Anonymously</button>
+                        <button className="incidentsharebtn" onClick={() => navigate("/incidentform")}>Share Your Incident Anonymously</button>
                     </div>
-                    <div className="incidentshared">
+                    <div cl assName="incidentshared">
                         <div className="incidentsharedtitle">Incidents shared by community</div>
                         <div className="filtersection1">
                             <button className="filterincidents" onClick={handlefilter}>Filter</button>
