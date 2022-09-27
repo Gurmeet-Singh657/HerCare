@@ -24,7 +24,7 @@ export default function SimpleTable() {
     // const { data, loading, error } = useFetch("/getAllIncidents");
     const { typesofassault, showIncidentfrom, timeoftheday } = useContext(SearchContext);
     const { data, loading, reFetch } = useFetch(`/getAllIncidents?typesofassault=${typesofassault}&showIncidentfrom=${showIncidentfrom}&timeoftheday=${timeoftheday}`);
-    console.log(typesofassault);
+    // console.log(typesofassault);
     // reFetch();
     const [page, setPage] = useState(0);
     const [rowsPerPage, setRowsPerPage] = useState(10);
@@ -64,20 +64,12 @@ export default function SimpleTable() {
                             .map((row, index) => (
                                 <TableRow key={row.name}>
                                     <TableCell component="th" scope="row">
-                                        {/* {row.title} */}
-                                        {/* {typeOfViolence} */}
-                                        {/* Gurmeet */}
                                         {row.title}
                                         {row.time}
                                         {row.typeOfViolence}
-                                        {/* {row.address.city} */}
                                     </TableCell>
                                 </TableRow>
                             ))}
-
-                        {/* <TableRow>
-                        <TableCell colSpan={1} />
-                        </TableRow> */}
                     </TableBody>
                 </Table>
                 {data.length > 0 && <TablePagination

@@ -5,7 +5,7 @@ import "./App.css";
 import Home from "./Pages/Home/Home.jsx";
 import ContactUs from "./Pages/Contact_Us/Contact_Us.js";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Hospitals from "./Pages/Hospitals_Near_Me/Hospitals.jsx";
+// import Hospitals from "./Pages/Hospitals_Near_Me/Hospitals.jsx";
 import Police_Stations from "./Pages/Police_Stations/Police_Stations.js";
 import Help from "./components/Help/Help";
 import Faqs from "./Pages/faqs/Faqs.js";
@@ -14,6 +14,7 @@ import Sexual_Violence_Laws from "./components/Sexual_Violence_Laws/Sexual_Viole
 import FIR_filing from "./components/FIR_filing/FIR_filing.jsx";
 import About from "./Pages/about/About.js";
 import Form from './components/incidentForm/Form';
+import Hospitals from './Pages/Hospitals/Hospitals.js';
 
 
 const App = () => {

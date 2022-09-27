@@ -31,7 +31,7 @@ const Hospitalnearme = ({ lati, longi, name, rating, isOpen, address }) => {
   var z = Math.floor(Math.random() * 256);
   return (
     <div className="hospitalcard">
-      <Card sx={{ width: "100%", margin: "4vh 0" }}>
+      <Card sx={{ width: "100%", margin: "4vh 5px" }}>
         {/* <CardMedia
         component="img"
         alt="green iguana"
@@ -47,11 +47,19 @@ const Hospitalnearme = ({ lati, longi, name, rating, isOpen, address }) => {
               >
                 {name.charAt(0)}
               </div>
-              <div className="hosname"></div>
+              {/* <div className="hosname"> */}
               {name}
-              <Button className="openbutton">
-                {isOpen === true ? "Open" : "Closed"}
-              </Button>
+              {/* </div> */}
+              {isOpen === true &&
+                <button className="openbutton">
+                  Open
+                </button>
+              }
+              {!isOpen &&
+                <Button className="closebutton">
+                  Closed
+                </Button>
+              }
             </div>
           </Typography>
           <Typography variant="body2" color="text.secondary">
