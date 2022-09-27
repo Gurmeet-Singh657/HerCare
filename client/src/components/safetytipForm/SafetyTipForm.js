@@ -1,13 +1,7 @@
 import React, { useState } from "react";
-import IncidentDescription from "./IncidentDescription";
-import IncidentLocation from "./IncidentLocation";
-import Gender from "./Gender";
-import Identity from "./Identity";
-import Age from "./Age";
-import Time from "./Time";
+import SafetyTipDescription from "./SafetyTipDescription";
 import TypeOfViolence from "./TypeOfViolence";
-import ReportedToPolice from "./ReportedToPolice";
-import "./incidentForm.css";
+// import "./incidentForm.css";
 import axios from "axios";
 import { useCallback } from "react";
 import ProgressBar from "../ProgressBar/Progress";
@@ -17,19 +11,14 @@ import { useNavigate } from "react-router-dom";
 import { display, style } from "@mui/system";
 import { Button } from "@mui/material";
 
-function Form() {
+function SafetyTipForm() {
   const navigate = useNavigate();
   const curDT = new Date().toLocaleString();
   const [page, setPage] = useState(0);
   const [formData, setFormData] = useState({
-    age: "",
-    identity: "",
-    gender: "",
     title: "",
     message: "",
-    time: curDT,
     typeOfViolence: "",
-    reportToPolice: "",
   });
 
   //   const triggerAPI = useCallback(async () => {
@@ -40,78 +29,40 @@ function Form() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log(JSON.stringify(formData));
+    if (page === 1) {
+      if (formData.title === "" || formData.message === "")
+        alert("Please Enter the Title and Message");
+      else{  
     await axios
-      .post("http://localhost:4000/incident", JSON.stringify(formData), {
+      .post("http://localhost:4000/safetytip", JSON.stringify(formData), {
         headers: { "Content-Type": "application/json" },
       })
       .then((result) => {
         navigate("/");
-      });
-  };
+      });}
+  }};
 
   const FormTitles = [
-    "For Whom You are Sharing For?",
-    "How old are you ?",
-    "Please tell us your gender",
-    "Please share your Incident Here",
-    "Can you tell us when this happened?",
-    "Select type of violence you experienced",
-    "Have you reported the incident to the police?",
-    "Please tell us where the incident took place",
+    "Please share your Safety Tip Here",
+    "Select type of violence you are registering for",
   ];
 
   const PageDisplay = () => {
     if (page === 0) {
-      return <Identity formData={formData} setFormData={setFormData} />;
-    } else if (page === 1) {
-      return <Gender formData={formData} setFormData={setFormData} />;
-    } else if (page === 2) {
-      return <Age formData={formData} setFormData={setFormData} />;
-    } else if (page === 3) {
-      return <Time formData={formData} setFormData={setFormData} />;
-    } else if (page === 4) {
-      return (
-        <IncidentDescription formData={formData} setFormData={setFormData} />
-      );
-    } else if (page === 5) {
       return <TypeOfViolence formData={formData} setFormData={setFormData} />;
-    } else if (page === 6) {
-      return <ReportedToPolice formData={formData} setFormData={setFormData} />;
     } else {
-      return <IncidentLocation />;
+      return (
+        <SafetyTipDescription formData={formData} setFormData={setFormData} />
+      );
     }
   };
 
   const handleclick = () => {
-    if (page === 0) {
-      if (formData.identity === "") alert("Please Enter Your Identity");
-      else setPage((currPage) => currPage + 1);
-    } else if (page === 1) {
-      if (formData.gender === "") alert("Please Enter Your Gender");
-      else setPage((currPage) => currPage + 1);
-    } else if (page === 2) {
-      if (formData.age === "") alert("Please Enter Your Age");
-      else if (formData.age < 15) alert("Please Enter a valid Age");
-      else setPage((currPage) => currPage + 1);
-    } else if (page === 3) {
-      setPage((currPage) => currPage + 1);
-    } else if (page === 4) {
-      if (formData.title === "" || formData.message === "")
-        alert("Please Enter the Title and Message");
-      else setPage((currPage) => currPage + 1);
-    } else if (page === 5) {
+     if (page === 0) {
       if (formData.typeOfViolence === "")
         alert("Please Enter Type Of Violence");
       else setPage((currPage) => currPage + 1);
-    } else if (page === 6) {
-      if (formData.reportToPolice === "")
-        alert("Please Enter a Valid Choice!!");
-      else setPage((currPage) => currPage + 1);
     }
-    // else {
-    //   if (formData.identity === "") alert("Please Enter Your Identity");
-    //   else setPage((currPage) => currPage + 1);
-    // }
   };
 
   const checkPage = () => {
@@ -144,7 +95,7 @@ function Form() {
         <div className="form-container">
           <div>
             {" "}
-            <ProgressBar done={parseInt(11.6 * page)} />
+            <ProgressBar done={parseInt(50 * page)} />
           </div>
           <h1 className="formTitles">{FormTitles[page]}</h1>
           <div className="body">{PageDisplay()}</div>
@@ -167,4 +118,4 @@ function Form() {
   );
 }
 
-export default Form;
+export default SafetyTipForm;

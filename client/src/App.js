@@ -1,5 +1,4 @@
-
-import React from 'react'
+import React from "react";
 // import Navbar from './components/navbar/Navbar'
 import "./App.css";
 import Home from "./Pages/Home/Home.jsx";
@@ -13,8 +12,8 @@ import LegalResources from "./Pages/legal resources/LegalResources";
 import Sexual_Violence_Laws from "./components/Sexual_Violence_Laws/Sexual_Violence_Laws.js";
 import FIR_filing from "./components/FIR_filing/FIR_filing.jsx";
 import About from "./Pages/about/About.js";
-import Form from './components/incidentForm/Form';
-
+import Form from "./components/incidentForm/Form";
+import SafetyTipForm from "./components/safetytipForm/SafetyTipForm";
 
 const App = () => {
   return (
@@ -29,6 +28,11 @@ const App = () => {
           <Route exact path="/help" element={<Help />}></Route>
           <Route exact path="/faqs" element={<Faqs />}></Route>
           <Route exact path="/incidentform" element={<Form />}></Route>
+          <Route
+            exact
+            path="/safetytipform"
+            element={<SafetyTipForm />}
+          ></Route>
           <Route
             exact
             path="/legal_resources"

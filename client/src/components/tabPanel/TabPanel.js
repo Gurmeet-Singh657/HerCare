@@ -28,7 +28,6 @@ const options = [
     "Commenting/Sexual Invites",
     "Online Harassment",
     "Human Trafficking",
-    "Others",
   ],
   ["All time", "Today", "This Week", "This Month", "This Year"],
   ["Whole day", "Morning", "Afternoon", "Evening", "Night", "Post Mid Night"],
