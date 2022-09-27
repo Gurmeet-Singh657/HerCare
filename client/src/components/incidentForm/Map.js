@@ -1,10 +1,8 @@
 import React from 'react'
 import { withGoogleMap, GoogleMap, withScriptjs, InfoWindow, Marker } from "react-google-maps";
 import Geocode from "react-geocode";
-
-Geocode.setApiKey(  "6a2500e43amsh3985fbd0c188493p193a7fjsn3f946371f5a6"     );
+Geocode.setApiKey("AIzaSyA-RG4hM7qRh3jHfOwSuUOBexPTn0CZf6w");
 Geocode.enableDebug();
-
 class Map extends React.Component{
 constructor( props ){
   super( props );
@@ -150,7 +148,6 @@ let map;
   if( this.props.center.lat !== undefined ) {
    map = <div>
      <div>
-       {/* <iframe src="https://maps.google.com/maps?q=Tangesir%20Dates%20Products&amp;t=&amp;z=13&amp;ie=UTF8&amp;iwloc=&amp;output=embed" width={800} height={200} allowfullscreen /> */}
       <div className="form-group">
        <label htmlFor="">City</label>
        <input type="text" name="city" className="form-control" onChange={ this.onChange } readOnly="readOnly" value={ this.state.city }/>
@@ -169,8 +166,7 @@ let map;
       </div>
      </div>
      <AsyncMap
-       googleMapURL="https://google-maps28.p.rapidapi.com/maps/api/place/details/json?rapidapi-key=6a2500e43amsh3985fbd0c188493p193a7fjsn3f946371f5a6&place_id=ChIJ37HL3ry3t4kRv3YLbdhpWXE"
-      // googleMapURL="https://mvs.bslmeiyu.com/api/v1/config/geocode-api?lat=45.521563&lng=-122.677433"
+      googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyA-RG4hM7qRh3jHfOwSuUOBexPTn0CZf6w&libraries=places"
       loadingElement={
        <div style={{ height: `100%` }} />
       }
@@ -181,7 +177,6 @@ let map;
        <div style={{ height: `100%` }} />
       }
      />
-     {/* <iframe src="https://maps.google.com/maps?q=Tangesir%20Dates%20Products&amp;t=&amp;z=13&amp;ie=UTF8&amp;iwloc=&amp;output=embed" width={800} height={400} allowfullscreen /> */}
     </div>
 } else {
    map = <div style={{height: this.props.height}} />
@@ -190,4 +185,3 @@ let map;
  }
 }
 export default Map
-

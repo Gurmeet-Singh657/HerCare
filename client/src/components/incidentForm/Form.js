@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import IncidentDescription from "./IncidentDescription";
-import IncidentLocation from "./IncidentLocation";
+import Places from "./Places";
 import Gender from "./Gender";
 import Identity from "./Identity";
 import Age from "./Age";
@@ -78,7 +78,7 @@ function Form() {
     } else if (page === 6) {
       return <ReportedToPolice formData={formData} setFormData={setFormData} />;
     } else {
-      return <IncidentLocation />;
+      return <Places />;
     }
   };
 
