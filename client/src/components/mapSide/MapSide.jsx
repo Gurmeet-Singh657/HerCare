@@ -48,7 +48,7 @@ const MapSide = () => {
                         Have you found a way out of a potentially traumatic experience? Have you identified ways to commute through your city safely? Tell us what you do for your safety so that others can do the same.
                     </div>
                     <div className="Safetytipsbtn">
-                        <button className="Safetytipssharebtn" onClick={() => navigate("/shareIncident-form")}>Share Safety Tip Anonymously</button>
+                        <button className="Safetytipssharebtn" onClick={() => navigate("/safetytipform")}>Share Safety Tip Anonymously</button>
                     </div>
                     <div className="incidentshared">
                         <div className="incidentsharedtitle">Safety Tips shared by community</div>

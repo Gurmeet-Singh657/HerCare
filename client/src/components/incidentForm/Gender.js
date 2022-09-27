@@ -16,14 +16,28 @@ function Gender({formData, setFormData}) {
       exclusive
       onChange={handleChange}
       fullWidth={true}
+        sx={{ gap: 2 }}
+        color="info"
     >
-      <ToggleButton value="Male" aria-label="list">
+        <ToggleButton value="Male" aria-label="list" style={{
+          outlineColor: "#0047ab",
+          outlineWidth: "1px",
+          outlineStyle: "solid",
+        }}>
        Male
       </ToggleButton>
-      <ToggleButton value="Female" aria-label="module">
+        <ToggleButton value="Female" aria-label="module" style={{
+          outlineColor: "#0047ab",
+          outlineWidth: "1px",
+          outlineStyle: "solid",
+        }}>
        Female
       </ToggleButton>
-      <ToggleButton value="Other" aria-label="quilt">
+      <ToggleButton value="Other" aria-label="quilt" style={{
+            outlineColor: "#0047ab",
+            outlineWidth: "1px",
+            outlineStyle: "solid",
+          }}>
        Other
       </ToggleButton>
     </ToggleButtonGroup>

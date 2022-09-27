@@ -15,39 +15,13 @@ const Incident = mongoose.model(
         allowNull: false,
         required: [true, "Age is required"],
       },
-      identity: {
-        type: String,
-        enum: ["Myself", "Someone Else"],
-        default: "Myself",
-      },
-      gender: {
-        type: String,
-        enum: ["Male", "Female", "Other"],
-      },
+      identity: {type: String,},
+      gender: {type: String},
       title: { type: String, allowNull: false },
       message: { type: String, allowNull: false },
       time: { type: Date, allowNull: true },
-      typeOfViolence: {
-        type: String,
-        enum: [
-          "Rape/Sexual Assault",
-          "Chain Snatching/Robbery",
-          "Domestic Violence",
-          "Physical Assault", 
-          "Stalking", 
-          "Online Harrasment"
-        ],
-      },
-      reportToPolice: {
-        type: String,
-        enum: [
-          "Yes I did",
-          "I will, in the future",
-          "I am not sure if I want to",
-          "No",
-          "I tried",
-        ],
-      },
+      typeOfViolence: {type: String},
+      reportToPolice: {type: String},
       status: {
         type: String,
         enum: ["live", "pending", "rejected"],

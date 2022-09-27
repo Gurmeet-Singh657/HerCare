@@ -12,11 +12,11 @@ const Hospitals = () => {
     const [longitude, setLongitude] = React.useState("");
     const [hospitals, setHospitals] = React.useState([]);
 
-    React.useEffect(() => {
-        navigator.geolocation.getCurrentPosition((position) => {
-            setLatitude(position.coords.latitude);
-            setLongitude(position.coords.longitude);
-        });
+  React.useEffect(() => {
+    navigator.geolocation.getCurrentPosition((position) => {
+      setLatitude(position.coords.latitude);
+      setLongitude(position.coords.longitude);
+      console.log(latitude + "  " + longitude)
     });
 
     //   https://www.google.com/maps/place/Hitaishi+Hospital/@28.7056173,77.1224391
