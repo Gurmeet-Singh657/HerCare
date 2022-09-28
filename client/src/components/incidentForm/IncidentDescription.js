@@ -24,7 +24,7 @@ function IncidentDescription({formData, setFormData}) {
       <div>
         <TextField
           id="filled-multiline-static"
-          label="Message"
+          label="Enter Your Description Here"
           multiline
           value={formData.message} onChange={(event) => setFormData({...formData, message: event.target.value})}
           rows={4}

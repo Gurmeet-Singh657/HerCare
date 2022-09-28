@@ -1,5 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Mukta+Vaani&display=swap');
 
+
+.viewdatapage{
+    width:100%;
+    display:flex;
+    flex-direction:row;
+}
 .sidebarshared {
     border: 4px solid rgb(121, 121, 232);
     width: 23%;
@@ -42,4 +48,9 @@
 .togactive {
     background-color: rgb(140, 155, 225);
     color: white;
+}
+
+.cardsofincident{
+    width:100%;
+    margin:30px;
 }

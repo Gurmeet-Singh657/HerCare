@@ -51,10 +51,10 @@ function Form() {
 
   const FormTitles = [
     "For Whom You are Sharing For?",
-    "How old are you ?",
     "Please tell us your gender",
+    "How old are you ?",
     "Please share your Incident Here",
-    "Can you tell us when this happened?",
+    "Can you tell us what happened?",
     "Select type of violence you experienced",
     "Have you reported the incident to the police?",
     "Please tell us where the incident took place",
@@ -96,8 +96,8 @@ function Form() {
     } else if (page === 3) {
       setPage((currPage) => currPage + 1);
     } else if (page === 4) {
-      if (formData.title === "" || formData.message === "")
-        alert("Please Enter the Title and Message");
+      if (formData.title==="" || formData.message === "")
+        alert("Please Enter the Valid Description or Title");
       else setPage((currPage) => currPage + 1);
     } else if (page === 5) {
       if (formData.typeOfViolence === "")

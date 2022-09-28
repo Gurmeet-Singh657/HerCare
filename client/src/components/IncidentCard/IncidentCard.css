@@ -1,0 +1,29 @@
+.Incidentonecard {
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    /* margin: 1vh 0; */
+}
+
+.card_content {
+    /* display: flex; */
+    border: 1px solid red;
+    text-align: center;
+}
+
+.card_content>div {
+    /* display: flex; */
+    /* border: 1px solid red; */
+}
+
+.incidentTitle {
+    text-align: center;
+    border: 2px solid purple;
+    background-color: purple;
+    color: white;
+}
+
+.IncidentHeader{
+    /* padding: 5px; */
+    font-weight: bold;
+}

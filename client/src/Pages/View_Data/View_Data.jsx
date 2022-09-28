@@ -13,7 +13,6 @@ const View_Data = () => {
                     {/* <TabPanel /> */}
                     <Sidenav/>
                     </div>
-                <IncidentScrollbar />
             </div>
         </>
     )

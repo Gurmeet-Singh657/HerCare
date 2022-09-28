@@ -70,7 +70,7 @@ import { LatLonContext } from '../../context/LatLonContext';
 
 export default function Places() {
   const { isLoaded } = useLoadScript({
-    // googleMapsApiKey: "AIzaSyA-RG4hM7qRh3jHfOwSuUOBexPTn0CZf6w",
+    googleMapsApiKey: "AIzaSyA-RG4hM7qRh3jHfOwSuUOBexPTn0CZf6w",
     libraries: ["places"],
   });
 
@@ -80,8 +80,8 @@ export default function Places() {
 
 function Map() {
   const {latitude,longitude}=useContext(LatLonContext);
-  const center = useMemo(() => ({ lat: latitude, lng: longitude }), []);
-  // const center = { lat: 28.6130176, lng: 77.2308992 };
+  // const center = useMemo(() => ({ lat: latitude, lng: longitude }), []);
+  const center = { lat: 28.6130176, lng: 77.2308992 };
   const [selected, setSelected] = useState({ lat: latitude, lng:longitude });
 
   return (

@@ -7,43 +7,41 @@
   flex-direction: column;
   align-items: center;
 }
+
 .identity-container {
   width: 100%;
   /* border: 2px solid yellow; */
 }
+
 .body {
   width: 100%;
   /* border: 2px solid yellow; */
 }
+
 .form-container {
   margin: auto;
   width: 50%;
   /* border: 3px solid black; */
   padding: 15px;
-  margin-top: 5%;
+  margin-top: 6px;
   align-items: center;
 }
+
 .Form {
   /* border: 0.2px solid red; */
   background: hsla(233, 100%, 90%, 1);
 
-  background: linear-gradient(
-    90deg,
-    hsla(233, 100%, 90%, 1) 0%,
-    hsla(0, 0%, 89%, 1) 100%
-  );
+  background: linear-gradient(90deg,
+      hsla(233, 100%, 90%, 1) 0%,
+      hsla(0, 0%, 89%, 1) 100%);
 
-  background: -moz-linear-gradient(
-    90deg,
-    hsla(233, 100%, 90%, 1) 0%,
-    hsla(0, 0%, 89%, 1) 100%
-  );
+  background: -moz-linear-gradient(90deg,
+      hsla(233, 100%, 90%, 1) 0%,
+      hsla(0, 0%, 89%, 1) 100%);
 
-  background: -webkit-linear-gradient(
-    90deg,
-    hsla(233, 100%, 90%, 1) 0%,
-    hsla(0, 0%, 89%, 1) 100%
-  );
+  background: -webkit-linear-gradient(90deg,
+      hsla(233, 100%, 90%, 1) 0%,
+      hsla(0, 0%, 89%, 1) 100%);
 
   filter: progid: DXImageTransform.Microsoft.gradient(startColorstr="#CAD0FF", endColorstr="#E3E3E3", GradientType=1);
   font-family: "Mukta Vaani", sans-serif;
@@ -53,8 +51,9 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 112vh;
+  min-height:100vh;
 }
+
 .formTitles {
   display: flex;
   padding: 5% 0%;
@@ -62,6 +61,7 @@
   align-items: center;
   /* border: 1px solid black; */
 }
+
 .button1 {
   background-color: #4caf50;
   border: none;
@@ -93,6 +93,7 @@
   margin: 10px 0%;
   padding: 5%;
 }
+
 .age {
   /* margin: auto; */
   width: 40%;
@@ -101,6 +102,7 @@
   height: 10vh;
   /* border: 2px solid blue; */
 }
+
 .age input {
   /* margin-left: 39%; */
   /* border: 2px solid red; */
@@ -186,9 +188,9 @@
 .places-container {
   position: absolute;
   top: 110px;
-  width:400px;
-  margin-left:25%;
-  border:2px solid blue;
+  width: 400px;
+  margin-left: 25%;
+  border: 2px solid blue;
   border-radius: 5px;
   /* height:500px; */
   /* transform: translateX(-50%); */

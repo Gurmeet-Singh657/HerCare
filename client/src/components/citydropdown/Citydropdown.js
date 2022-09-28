@@ -95,7 +95,7 @@ export default function Citydropdown() {
     return (
         <Autocomplete
             id="google-map-demo"
-            style={{ width: 300 }}
+            style={{ marginBottom: 22,width: "100%" }}
             getOptionLabel={(option) =>
                 typeof option === "string" ? option : option.description
             }
