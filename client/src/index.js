@@ -8,7 +8,7 @@ root.render(
   <React.StrictMode>
      <LatLonProvider>
     <SearchProvider>
-      <App />
+        <App />
     </SearchProvider>
       </LatLonProvider>
   </React.StrictMode>

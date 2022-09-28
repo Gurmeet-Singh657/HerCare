@@ -66,6 +66,8 @@ module.exports.findIncidentById = findByPk;
 
 const getAllIncidents = async function (req, res) {
   const { typesofassault, showIncidentfrom, timeoftheday } = req.query;
+  console.log(req.query);
+  console.log(typesofassault);
   const searchjson = {};
   let currenttypeofassault = [
     "Physical Assault",
@@ -83,23 +85,29 @@ const getAllIncidents = async function (req, res) {
     "Human Trafficking",
     "Others"
   ];
-  console.log(typesofassault);
+  // console.log(typesofassault);
   if (typesofassault) {
-    currenttypeofassault = typesofassault;
+    // console.log("I am happy");
+    typesofassault.slice(1);
+    currenttypeofassault = typesofassault.split(",");
     // for (let ele of req.query.typesofassault) {
     //   currenttypeofassault.push(ele);
     // }
+
+    // typesofassault.split(',').(obj => {
+    //   currenttypeofassault.push(obj);
+    // })
     // req.query.typesofassault.split(',').map(row => { return row });
 
   }
-  console.log(currenttypeofassault);
+  // console.log(currenttypeofassault);
   // if (req.query.showIncidentfrom === 'Today')
   //   searchjson[mindate] = new Date(Date.now());
   // else if(req.query.showIncidentfrom==='This Week')
   // searchjson[mindate]=new Date(Date.now()-7);
   let err, incident;
-  [err, incident] = await to(Incident.find({ typeOfViolence: { $all: currenttypeofassault } }));
-  console.log(incident);
+  [err, incident] = await to(Incident.find({ typeOfViolence: { $in: currenttypeofassault } }));
+  // console.log(incident);
   if (err) {
     logger.error("Incident Controller - get : Incident not found", err);
     return ReE(res, err, 422);

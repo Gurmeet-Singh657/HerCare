@@ -30,6 +30,13 @@ function Form() {
     time: curDT,
     typeOfViolence: "",
     reportToPolice: "",
+    address:{
+      country: "",
+      state: "",
+      city: "",
+      lat: "",
+      lon: ""
+    }
   });
 
   //   const triggerAPI = useCallback(async () => {
@@ -51,8 +58,8 @@ function Form() {
 
   const FormTitles = [
     "For Whom You are Sharing For?",
-    "How old are you ?",
     "Please tell us your gender",
+    "How old are you ?",
     "Please share your Incident Here",
     "Can you tell us when this happened?",
     "Select type of violence you experienced",
@@ -78,7 +85,7 @@ function Form() {
     } else if (page === 6) {
       return <ReportedToPolice formData={formData} setFormData={setFormData} />;
     } else {
-      return <Places />;
+      return <Places formData={formData} setFormData={setFormData} />;
     }
   };
 

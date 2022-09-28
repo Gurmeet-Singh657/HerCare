@@ -70,8 +70,10 @@
 .logoopen{
     display:flex;
     flex-direction:row;
+    /* justify-content: center; */
+    align-items: center;
     gap:10px;
 }
 .openbutton{
-    justify-self: end;
+    background-color: green;
 }

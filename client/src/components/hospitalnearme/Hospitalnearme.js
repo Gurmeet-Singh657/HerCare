@@ -10,6 +10,9 @@ import * as React from "react";
 import Rating from "@mui/material/Rating";
 import Box from "@mui/material/Box";
 import StarIcon from "@mui/icons-material/Star";
+import { useContext } from "react";
+import { LatLonContext } from "../../context/LatLonContext";
+import Places from "../incidentForm/Places";
 
 const myfunction = (rating) => {
   if (rating <= 0.5) return "Useless";
@@ -25,13 +28,22 @@ const myfunction = (rating) => {
 };
 
 const Hospitalnearme = ({ lati, longi, name, rating, isOpen, address }) => {
+
   //   const { data, loading, error } = useFetch("/hotels?featured=true&limit=4");
+  const { latitude, longitude, setLatitude, setLongitude } = useContext(LatLonContext);
   var x = Math.floor(Math.random() * 256);
   var y = Math.floor(Math.random() * 256);
   var z = Math.floor(Math.random() * 256);
+
+  const updatelatlon = () => {
+    setLatitude(lati);
+    setLongitude(longi);
+    // <Places />
+    console.log(lati + " " + longi + " " + latitude + " " + longitude);
+  }
   return (
-    <div className="hospitalcard">
-      <Card sx={{ width: "100%", margin: "4vh 0" }}>
+    <div className="hospitalcard" onClick={() => updatelatlon()}>
+      <Card sx={{ width: "100%", margin: "4vh 5px" }}>
         {/* <CardMedia
         component="img"
         alt="green iguana"
@@ -47,11 +59,19 @@ const Hospitalnearme = ({ lati, longi, name, rating, isOpen, address }) => {
               >
                 {name.charAt(0)}
               </div>
-              <div className="hosname"></div>
+              {/* <div className="hosname"> */}
               {name}
-              <Button className="openbutton">
-                {isOpen === true ? "Open" : "Closed"}
-              </Button>
+              {/* </div> */}
+              {isOpen === true &&
+                <button className="openbutton">
+                  Open
+                </button>
+              }
+              {!isOpen &&
+                <Button className="closebutton">
+                  Closed
+                </Button>
+              }
             </div>
           </Typography>
           <Typography variant="body2" color="text.secondary">

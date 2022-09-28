@@ -1,0 +1,21 @@
+.hosmapdetails {
+    /* width: 30vw; */
+    /* justify-content: center; */
+    /* flex-direction: column; */
+    /* gap: 200px; */
+    /* justify-content: center; */
+    /* background-color: red; */
+    width: 31vw;
+}
+
+.hosmap {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.sidemap {
+    height: 100vh;
+    width: 69vw;
+    padding: 20px;
+}

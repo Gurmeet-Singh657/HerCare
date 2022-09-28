@@ -1,6 +1,7 @@
 import React,{Component} from 'react'
 import { useState, useMemo } from "react";
 import { GoogleMap, useLoadScript, MarkerF } from "@react-google-maps/api";
+import { useContext} from 'react'
 import "./incidentForm.css";
 import usePlacesAutocomplete, {
   getGeocode,
@@ -14,32 +15,38 @@ import {
   ComboboxOption,
 } from "@reach/combobox";
 import "@reach/combobox/styles.css";
+// import { useContext } from 'react';
+import { LatLonContext } from '../../context/LatLonContext';
+// import { useContext } from 'react';
 
-export default function Places() {
+export default function Places({ formData, setFormData }) {
   const { isLoaded } = useLoadScript({
-    googleMapsApiKey: "AIzaSyA-RG4hM7qRh3jHfOwSuUOBexPTn0CZf6w",
+    // googleMapsApiKey: "AIzaSyA-RG4hM7qRh3jHfOwSuUOBexPTn0CZf6w",
     libraries: ["places"],
   });
 
   if (!isLoaded) return <div>Loading...</div>;
-  return <Map />;
+  return <Map formData={formData} setFormData={setFormData} />;
 }
 
-function Map() {
+
+function Map({ formData, setFormData }) {
   const center = useMemo(() => ({ lat: 28.7166162, lng: 77.1139872 }), []);
   const [selected, setSelected] = useState({ lat: 28.7166162, lng: 77.1139872 });
+
 
   return (
     <>
       <div className="places-container">
-        <PlacesAutocomplete setSelected={setSelected} />
+        <PlacesAutocomplete formData={formData} setFormData={setFormData} setSelected={setSelected} />
       </div>
 
       <GoogleMap
-        zoom={10}
+        zoom={20}
         center={selected}
         mapContainerClassName="map-container"
       >
+
         {/* {selected && <Marker position={selected} />} */}
         <MarkerF position={selected}/>
       </GoogleMap>
@@ -47,7 +54,7 @@ function Map() {
   );
 }
 
-const PlacesAutocomplete = ({ setSelected }) => {
+const PlacesAutocomplete = ({ formData, setFormData, setSelected }) => {
   const {
     ready,
     value,
@@ -61,8 +68,33 @@ const PlacesAutocomplete = ({ setSelected }) => {
     clearSuggestions();
 
     const results = await getGeocode({ address });
+    console.log(results);
     const { lat, lng } = await getLatLng(results[0]);
     setSelected({ lat, lng });
+    
+    var addresss = results[0].address_components;
+    var country,city, state;
+    addresss.forEach(function(component) {
+      var types = component.types;
+      if (types.indexOf('locality') > -1) {
+        city = component.long_name;
+      }
+
+      if (types.indexOf('administrative_area_level_1') > -1) {
+        state = component.long_name;
+      }
+
+      if (types.indexOf('country') > -1) {
+        country = component.long_name;
+      }
+    });
+
+    formData.address.country=country;
+    formData.address.city=city;
+    formData.address.state=state;
+    formData.address.lat=lat;
+    formData.address.lon=lng;
+
   };
 
   return (
