@@ -1,0 +1,46 @@
+.incidentfiltering {
+    width: 90%;
+    margin: auto;
+    margin-top: 40px;
+    padding: 20px;
+}
+
+.searchincidents,
+.deleteincidents {
+    border: none;
+    outline: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 120px;
+    height: 40px;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.searchincidents {
+    background-color: blue;
+    color: white;
+    border-radius: 5px;
+}
+
+.deleteincidents {
+    background-color: red;
+    color: white;
+    border-radius: 5px;
+}
+
+.searchincidents:hover {
+    background-color: rgb(124, 124, 219);
+}
+
+.deleteincidents:hover {
+    background-color: rgb(207, 122, 122);
+}
+
+.incidentbtns {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}

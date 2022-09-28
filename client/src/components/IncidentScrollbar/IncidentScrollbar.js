@@ -24,8 +24,6 @@ export default function SimpleTable() {
     // const { data, loading, error } = useFetch("/getAllIncidents");
     const { typesofassault, showIncidentfrom, timeoftheday } = useContext(SearchContext);
     const { data, loading, reFetch } = useFetch(`/getAllIncidents?typesofassault=${typesofassault}&showIncidentfrom=${showIncidentfrom}&timeoftheday=${timeoftheday}`);
-    // console.log(typesofassault);
-    // reFetch();
     const [page, setPage] = useState(0);
     const [rowsPerPage, setRowsPerPage] = useState(10);
     const handleChangePage = (event, newPage) => {

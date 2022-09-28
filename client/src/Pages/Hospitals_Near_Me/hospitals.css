@@ -5,15 +5,17 @@
     /* gap: 200px; */
     /* justify-content: center; */
     /* background-color: red; */
-    width:31vw;
+    width: 31vw;
 }
-.hosmap{
-    width:100%;
+
+.hosmap {
+    width: 100%;
     display: flex;
     flex-direction: row;
 }
 
 .sidemap {
+    height: 100vh;
     width: 69vw;
-    padding:20px;
+    padding: 20px;
 }

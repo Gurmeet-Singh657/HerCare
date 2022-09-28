@@ -12,8 +12,13 @@ import _without from "lodash/without";
 import { MouseEvent } from "react";
 import { SearchContext } from "../../context/SearchContext";
 import { useContext } from "react"
+import useFetch from "../../hooks/useFetch";
+import TextField from '@mui/material/TextField';
+import Autocomplete from '@mui/material/Autocomplete';
+import axios from "axios";
+import {citydata} from './citydata.js'
 
-const options = [
+const option = [
   [
     "Rape/Sexual Assault",
     "Chain Snatching/Robbery",
@@ -53,15 +58,53 @@ function getStyles(name, typesofassaultopt, theme) {
   };
 }
 
-export default function BasicTabs() {
-  const { typesofassault, setTypesofassault, showIncidentfrom, setShowIncidentfrom, timeoftheday, settimeoftheday } = useContext(SearchContext);
 
-  const handleshowIncident = (event) => {
-    setShowIncidentfrom(event.target.value);
-    // console.log(showIncidentfrom);
+export default function BasicTabs() {
+
+
+  const options = {
+    method: 'GET',
+    url: 'https://referential.p.rapidapi.com/v1/city',
+    params: {
+      fields: 'iso_a2,state_code,state_hasc,timezone,timezone_offset',
+      iso_a2: 'in',
+      lang: 'en',
+      prefix: 'san fr'
+    },
+    headers: {
+      'X-RapidAPI-Key': '245c26abd2msh97f65f07ee8789fp1dd551jsne22ae7a6c008',
+      'X-RapidAPI-Host': 'referential.p.rapidapi.com'
+    }
+  };
+
+  axios.request(options).then(function (response) {
+    console.log(response.data);
+  }).catch(function (error) {
+    console.error(error);
+  });
+  // const { typesofassault, setTypesofassault, showIncidentfrom, setShowIncidentfrom, timeoftheday, settimeoftheday } = useContext(SearchContext);
+  const { typesofassault, setTypesofassault, city, setCity, state, setState } = useContext(SearchContext);
+
+  // const { data, loading, reFetch } = useFetch(`/getAllIncidents?typesofassault=${typesofassault}&showIncidentfrom=${showIncidentfrom}&timeoftheday=${timeoftheday}`);
+  const { data, loading, reFetch } = useFetch(`/getAllIncidents?typesofassault=${typesofassault}&city=${city}&state=${state}`);
+
+  const handleSearch = () => {
+    reFetch();
+    console.log(data);
+  };
+
+  // const handleshowIncident = (event) => {
+  //   setShowIncidentfrom(event.target.value);
+  //   // console.log(showIncidentfrom);
+  // }
+  // const handleTimeOfTheDay = (event) => {
+  //   settimeoftheday(event.target.value);
+  // }
+  const handleCity = (event) => {
+    setCity(event.target.value);
   }
-  const handleTimeOfTheDay = (event) => {
-    settimeoftheday(event.target.value);
+  const handleState = (event) => {
+    setState(event.target.value);
   }
 
 
@@ -128,7 +171,7 @@ export default function BasicTabs() {
           )}
           MenuProps={MenuProps}
         >
-          {options[0].map((name) => (
+          {option[0].map((name) => (
             <MenuItem
               key={name}
               value={name}
@@ -144,16 +187,16 @@ export default function BasicTabs() {
       <Box sx={{ marginBottom: 3, width: "400px" }}>
         <FormControl fullWidth>
           <InputLabel id="demo-simple-select-label">
-            Show Incidents From
+            City
           </InputLabel>
           <Select
             labelId="demo-simple-select-label"
             id="demo-simple-select"
-            value={showIncidentfrom}
-            label="Show Incidents From"
-            onChange={handleshowIncident}
+            value={city}
+            label="City"
+            onChange={handleCity}
           >
-            {options[1].map((option) => {
+            {option[1].map((option) => {
               return <MenuItem value={option}>{option}</MenuItem>;
             })}
           </Select>
@@ -161,22 +204,33 @@ export default function BasicTabs() {
       </Box>
 
       {/* second   singleselect */}
-      <Box sx={{ marginBottom: 3, width: "400px" }}>
+      {/* <Box sx={{ marginBottom: 3, width: "400px" }}>
         <FormControl fullWidth>
-          <InputLabel id="demo-simple-select-label">Time of the day</InputLabel>
+          <InputLabel id="demo-simple-select-label">State</InputLabel>
           <Select
             labelId="demo-simple-select-label"
             id="demo-simple-select"
-            value={timeoftheday}
-            label="Time of the day"
-            onChange={handleTimeOfTheDay}
+            value={state}
+            label="State"
+            onChange={handleState}
           >
-            {options[2].map((option) => {
+            {option[2].map((option) => {
               return <MenuItem value={option}>{option}</MenuItem>;
             })}
           </Select>
         </FormControl>
-      </Box>
+      </Box> */}
+
+      <Autocomplete
+        disablePortal
+        id="combo-box-demo"
+        option={option[2]}
+        sx={{ width: 300 }}
+        renderInput={(params) => <TextField {...params} label="Movie" />}
+      />
+      <button className="searchincidents" onClick={handleSearch}>
+        Search
+      </button>
     </div>
   );
 }

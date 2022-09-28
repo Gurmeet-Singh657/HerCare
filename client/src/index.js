@@ -8,9 +8,7 @@ root.render(
   <React.StrictMode>
      <LatLonProvider>
     <SearchProvider>
-      <ChakraProvider theme={theme}>
         <App />
-      </ChakraProvider>
     </SearchProvider>
       </LatLonProvider>
   </React.StrictMode>

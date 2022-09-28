@@ -14,7 +14,8 @@ import FIR_filing from "./components/FIR_filing/FIR_filing.jsx";
 import About from "./Pages/about/About.js";
 import Form from "./components/incidentForm/Form";
 import SafetyTipForm from "./components/safetytipForm/SafetyTipForm";
-import View_Data from "./Pages/View_Data/View_Data.jsx"
+import View_Data from "./Pages/View_Data/View_Data";
+
 
 const App = () => {
   return (

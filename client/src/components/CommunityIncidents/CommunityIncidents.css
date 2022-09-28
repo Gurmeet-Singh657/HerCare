@@ -1,0 +1,12 @@
+.commincidentcont
+{
+    background: url('../../images/HospitalsSearch.jpg');
+    height:30vh;
+    background-size: cover;
+    width:100%;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    align-items: center;
+    font-size: 50px;
+}
