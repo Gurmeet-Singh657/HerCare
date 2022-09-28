@@ -50,7 +50,7 @@ const Navbar = () => {
         </li>
         <li className="link-contain">
           <NavLink className="nav-links" to="/viewdata">
-            View Data
+            Shared Incidents & Safety Tips
           </NavLink>
         </li>
         <li className="link-contain">

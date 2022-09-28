@@ -1,4 +1,4 @@
-import React,{Component} from 'react'
+import React,{Component, useContext} from 'react'
 // import Map from './Map';
 // import { useContext } from "react";
 // import { LatLonContext } from "../../context/LatLonContext";
@@ -50,6 +50,7 @@ import React,{Component} from 'react'
 
 import { useState, useMemo } from "react";
 import { GoogleMap, useLoadScript, Marker } from "@react-google-maps/api";
+import { MarkerF } from '@react-google-maps/api'
 import "./incidentForm.css";
 import usePlacesAutocomplete, {
   getGeocode,
@@ -63,10 +64,13 @@ import {
   ComboboxOption,
 } from "@reach/combobox";
 import "@reach/combobox/styles.css";
+// import { useContext } from 'react';
+import { LatLonContext } from '../../context/LatLonContext';
+// import { useContext } from 'react';
 
 export default function Places() {
   const { isLoaded } = useLoadScript({
-    googleMapsApiKey: "AIzaSyA-RG4hM7qRh3jHfOwSuUOBexPTn0CZf6w",
+    // googleMapsApiKey: "AIzaSyA-RG4hM7qRh3jHfOwSuUOBexPTn0CZf6w",
     libraries: ["places"],
   });
 
@@ -75,8 +79,10 @@ export default function Places() {
 }
 
 function Map() {
-  const center = useMemo(() => ({ lat: 28.7166162, lng: 77.1139872 }), []);
-  const [selected, setSelected] = useState({ lat: 28.7166162, lng: 77.1139872 });
+  const {latitude,longitude}=useContext(LatLonContext);
+  const center = useMemo(() => ({ lat: latitude, lng: longitude }), []);
+  // const center = { lat: 28.6130176, lng: 77.2308992 };
+  const [selected, setSelected] = useState({ lat: latitude, lng:longitude });
 
   return (
     <>
@@ -85,12 +91,11 @@ function Map() {
       </div>
 
       <GoogleMap
-        zoom={10}
+        zoom={20}
         center={selected}
         mapContainerClassName="map-container"
       >
-        {/* {selected && <Marker position={selected} />} */}
-        <Marker position={selected}/>
+        <MarkerF position={selected}/>
       </GoogleMap>
     </>
   );

@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 // import MapHome from "../../components/MapHome/MapHome";
 import MapArea from "../../components/mapArea/MapArea.js";
 import Footer from "../../components/Footer/Footer.jsx"
+import CommunityIncidents from "../../components/CommunityIncidents/CommunityIncidents";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -14,6 +15,7 @@ const Home = () => {
       <Navbar />
       <Slider />
       <MapArea/>
+      <CommunityIncidents/>
       {/* <Footer/> */}
     </div>
   );

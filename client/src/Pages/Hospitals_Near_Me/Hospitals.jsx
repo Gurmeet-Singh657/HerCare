@@ -5,18 +5,21 @@ import axios from "axios";
 import "./hospitals.css"
 import Hospitalnearme from "../../components/hospitalnearme/Hospitalnearme.js";
 import { hospitalsdata } from "./data.js";
+import { useEffect } from "react";
 // import { Map, GoogleApiWrapper, Marker  } from 'google-maps-react';
+import Places from "../../components/incidentForm/Places.js";
 
 const Hospitals = () => {
     const [latitude, setLatitude] = React.useState("");
     const [longitude, setLongitude] = React.useState("");
     const [hospitals, setHospitals] = React.useState([]);
 
-  React.useEffect(() => {
-    navigator.geolocation.getCurrentPosition((position) => {
-      setLatitude(position.coords.latitude);
-      setLongitude(position.coords.longitude);
-      console.log(latitude + "  " + longitude)
+    useEffect(() => {
+        navigator.geolocation.getCurrentPosition((position) => {
+            setLatitude(position.coords.latitude);
+            setLongitude(position.coords.longitude);
+            console.log(latitude + "  " + longitude);
+        })
     });
 
     //   https://www.google.com/maps/place/Hitaishi+Hospital/@28.7056173,77.1224391
@@ -61,9 +64,9 @@ const Hospitals = () => {
                         const rating = hospital.rating;
                         const address = hospital.vicinity;
 
-                        {
-                            /* const isOpen = hospital.opening_hours.open_now; */
-                        }
+                        // {
+                        /* const isOpen = hospital.opening_hours.open_now; */
+                        // }
 
                         const isOpen = false;
 
@@ -83,11 +86,12 @@ const Hospitals = () => {
                     })}
                 </div>
                 {/* https://maps.google.com/maps?q=mumbai%20hospital&t=&z=13&ie=UTF8&iwloc=&output=embed */}
-                <div className="sidemap">
-                    {/* <iframe width="100%" height="600" id="gmap_canvas" src={`https://maps.google.com/maps?q='+${latitude}+','+${longitude}+'&hl=es&z=14&amp;output=embed`} frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe> */}
-                    {/* <iframe width="100%" height="600" src="https://maps.google.com/maps?q=10.305385,77.923029&hl=es;z=14&amp;output=embed"></iframe> */}
-                    {/* <iframe width="100%" height="600" src={`https://maps.google.com/maps?q=' + ${latitude} + ',' + ${longitude} + '&t=&z=15&ie=UTF8&iwloc=&output=embed`} /> */}
-                </div>
+                {/* <div className="sidemap"> */}
+                {/* <iframe width="100%" height="600" id="gmap_canvas" src={`https://maps.google.com/maps?q='+${latitude}+','+${longitude}+'&hl=es&z=14&amp;output=embed`} frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe> */}
+                {/* <iframe width="100%" height="600" src="https://maps.google.com/maps?q=10.305385,77.923029&hl=es;z=14&amp;output=embed"></iframe> */}
+                {/* <iframe width="100%" height="600" src={`https://maps.google.com/maps?q=' + ${latitude} + ',' + ${longitude} + '&t=&z=15&ie=UTF8&iwloc=&output=embed`} /> */}
+                {/* </div> */}
+                <div className="sidemap"><Places /></div>
             </div>
         </>
     );

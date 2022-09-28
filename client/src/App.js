@@ -4,7 +4,7 @@ import "./App.css";
 import Home from "./Pages/Home/Home.jsx";
 import ContactUs from "./Pages/Contact_Us/Contact_Us.js";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-// import Hospitals from "./Pages/Hospitals_Near_Me/Hospitals.jsx";
+import Hospitals from "./Pages/Hospitals_Near_Me/Hospitals.jsx";
 import Police_Stations from "./Pages/Police_Stations/Police_Stations.js";
 import Help from "./components/Help/Help";
 import Faqs from "./Pages/faqs/Faqs.js";
@@ -14,6 +14,7 @@ import FIR_filing from "./components/FIR_filing/FIR_filing.jsx";
 import About from "./Pages/about/About.js";
 import Form from "./components/incidentForm/Form";
 import SafetyTipForm from "./components/safetytipForm/SafetyTipForm";
+import View_Data from "./Pages/View_Data/View_Data";
 
 const App = () => {
   return (
@@ -45,6 +46,7 @@ const App = () => {
           ></Route>
           <Route exact path="/filing_of_fir" element={<FIR_filing />}></Route>
           <Route exact path="/about" element={<About />}></Route>
+          <Route exact path="/viewdata" element={<View_Data />}></Route>
         </Routes>
       </BrowserRouter>
       {/* <Navbar/> */}
