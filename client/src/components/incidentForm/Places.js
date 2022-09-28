@@ -1,55 +1,6 @@
 import React,{Component} from 'react'
-// import Map from './Map';
-// import { useContext } from "react";
-// import { LatLonContext } from "../../context/LatLonContext";
-
-// function IncidentLocation() {
-  // const [latitude, setLatitude] = React.useState("");
-  // const [longitude, setLongitude] = React.useState("");
-
-  // React.useEffect(() => {
-  //   navigator.geolocation.getCurrentPosition((position) => {
-  //     setLatitude(position.coords.latitude);
-  //     setLongitude(position.coords.longitude);
-  //   });
-  // });
-  
-//   return(
-//         <Map
-//      google={this.props.google}
-//      center={{lat: 18.5204, lng: 73.8567}}
-//      height='300px'
-//      zoom={15}
-//     />
-//       )
-// }
-
-// export default IncidentLocation
-
-
-// class IncidentLocation extends Component {
-//   static latloncontext =LatLonContext
-//   constructor(props) {
-//     super(props);
-//     console.log(this.latloncontext)
-//   }
-//   // static lat lon { latitude, longitude } = useContext(LatLonContext);
-//   render() {
-//     return(
-//         <Map
-//      google={this.props.google}
-//      center={{lat: this.latloncontext.latitude, lng: this.latloncontext.longitude}}
-//      height='300px'
-//      zoom={15}
-//     />
-//       )
-//   }
-// }
-
-// export default IncidentLocation
-
 import { useState, useMemo } from "react";
-import { GoogleMap, useLoadScript, Marker } from "@react-google-maps/api";
+import { GoogleMap, useLoadScript, MarkerF } from "@react-google-maps/api";
 import "./incidentForm.css";
 import usePlacesAutocomplete, {
   getGeocode,
@@ -64,24 +15,24 @@ import {
 } from "@reach/combobox";
 import "@reach/combobox/styles.css";
 
-export default function Places() {
+export default function Places({ formData, setFormData }) {
   const { isLoaded } = useLoadScript({
     googleMapsApiKey: "AIzaSyA-RG4hM7qRh3jHfOwSuUOBexPTn0CZf6w",
     libraries: ["places"],
   });
 
   if (!isLoaded) return <div>Loading...</div>;
-  return <Map />;
+  return <Map formData={formData} setFormData={setFormData} />;
 }
 
-function Map() {
+function Map({ formData, setFormData }) {
   const center = useMemo(() => ({ lat: 28.7166162, lng: 77.1139872 }), []);
   const [selected, setSelected] = useState({ lat: 28.7166162, lng: 77.1139872 });
 
   return (
     <>
       <div className="places-container">
-        <PlacesAutocomplete setSelected={setSelected} />
+        <PlacesAutocomplete formData={formData} setFormData={setFormData} setSelected={setSelected} />
       </div>
 
       <GoogleMap
@@ -90,13 +41,13 @@ function Map() {
         mapContainerClassName="map-container"
       >
         {/* {selected && <Marker position={selected} />} */}
-        <Marker position={selected}/>
+        <MarkerF position={selected}/>
       </GoogleMap>
     </>
   );
 }
 
-const PlacesAutocomplete = ({ setSelected }) => {
+const PlacesAutocomplete = ({ formData, setFormData, setSelected }) => {
   const {
     ready,
     value,
@@ -110,8 +61,33 @@ const PlacesAutocomplete = ({ setSelected }) => {
     clearSuggestions();
 
     const results = await getGeocode({ address });
+    console.log(results);
     const { lat, lng } = await getLatLng(results[0]);
     setSelected({ lat, lng });
+    
+    var addresss = results[0].address_components;
+    var country,city, state;
+    addresss.forEach(function(component) {
+      var types = component.types;
+      if (types.indexOf('locality') > -1) {
+        city = component.long_name;
+      }
+
+      if (types.indexOf('administrative_area_level_1') > -1) {
+        state = component.long_name;
+      }
+
+      if (types.indexOf('country') > -1) {
+        country = component.long_name;
+      }
+    });
+
+    formData.address.country=country;
+    formData.address.city=city;
+    formData.address.state=state;
+    formData.address.lat=lat;
+    formData.address.lon=lng;
+
   };
 
   return (
