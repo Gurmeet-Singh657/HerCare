@@ -14,6 +14,7 @@ import FIR_filing from "./components/FIR_filing/FIR_filing.jsx";
 import About from "./Pages/about/About.js";
 import Form from "./components/incidentForm/Form";
 import SafetyTipForm from "./components/safetytipForm/SafetyTipForm";
+import Sample from "./components/maphome/Sample";
 import View_Data from "./Pages/View_Data/View_Data";
 
 const App = () => {
@@ -46,7 +47,9 @@ const App = () => {
           ></Route>
           <Route exact path="/filing_of_fir" element={<FIR_filing />}></Route>
           <Route exact path="/about" element={<About />}></Route>
+          <Route exact path="/test" element={<Sample/>}></Route>
           <Route exact path="/viewdata" element={<View_Data />}></Route>
+
         </Routes>
       </BrowserRouter>
       {/* <Navbar/> */}

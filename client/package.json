@@ -32,6 +32,7 @@
     "react-google-maps": "^9.4.5",
     "react-icons": "^4.4.0",
     "react-router-dom": "^6.4.1",
+    "react-script-tag": "^1.1.2",
     "react-scripts": "5.0.1",
     "react-window": "^1.8.7",
     "styled-components": "^5.3.5",

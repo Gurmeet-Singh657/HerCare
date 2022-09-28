@@ -30,6 +30,13 @@ function Form() {
     time: curDT,
     typeOfViolence: "",
     reportToPolice: "",
+    address:{
+      country: "",
+      state: "",
+      city: "",
+      lat: "",
+      lon: ""
+    }
   });
 
   //   const triggerAPI = useCallback(async () => {
@@ -78,7 +85,7 @@ function Form() {
     } else if (page === 6) {
       return <ReportedToPolice formData={formData} setFormData={setFormData} />;
     } else {
-      return <Places />;
+      return <Places formData={formData} setFormData={setFormData} />;
     }
   };
 

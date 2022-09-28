@@ -28,7 +28,7 @@ function IncidentDescription({formData, setFormData}) {
           multiline
           value={formData.message} onChange={(event) => setFormData({...formData, message: event.target.value})}
           rows={4}
-          defaultValue="Default Value"
+          // defaultValue="Default Value"
           variant="filled"
         />
       </div>
