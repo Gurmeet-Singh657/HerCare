@@ -16,11 +16,13 @@ import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import { useNavigate } from "react-router-dom";
 import { display, style } from "@mui/system";
 import { Button } from "@mui/material";
+import Consent from "./Consent.js";
 
 function Form() {
   const navigate = useNavigate();
   const curDT = new Date().toLocaleString();
   const [page, setPage] = useState(0);
+  const [consent, setConsent] = useState(false);
   const [formData, setFormData] = useState({
     age: "",
     identity: "",
@@ -45,6 +47,7 @@ function Form() {
   //   }, []);
 
   const handleSubmit = async (e) => {
+    setConsent(false);
     e.preventDefault();
     console.log(JSON.stringify(formData));
     await axios
@@ -57,6 +60,7 @@ function Form() {
   };
 
   const FormTitles = [
+    "Consent Form",
     "For Whom You are Sharing For?",
     "Please tell us your gender",
     "How old are you ?",
@@ -69,20 +73,22 @@ function Form() {
 
   const PageDisplay = () => {
     if (page === 0) {
-      return <Identity formData={formData} setFormData={setFormData} />;
+      return <Consent consent={consent} setConsent={setConsent} />;
     } else if (page === 1) {
-      return <Gender formData={formData} setFormData={setFormData} />;
+      return <Identity formData={formData} setFormData={setFormData} />;
     } else if (page === 2) {
-      return <Age formData={formData} setFormData={setFormData} />;
+      return <Gender formData={formData} setFormData={setFormData} />;
     } else if (page === 3) {
-      return <Time formData={formData} setFormData={setFormData} />;
+      return <Age formData={formData} setFormData={setFormData} />;
     } else if (page === 4) {
+      return <Time formData={formData} setFormData={setFormData} />;
+    } else if (page === 5) {
       return (
         <IncidentDescription formData={formData} setFormData={setFormData} />
       );
-    } else if (page === 5) {
-      return <TypeOfViolence formData={formData} setFormData={setFormData} />;
     } else if (page === 6) {
+      return <TypeOfViolence formData={formData} setFormData={setFormData} />;
+    } else if (page === 7) {
       return <ReportedToPolice formData={formData} setFormData={setFormData} />;
     } else {
       return <Places formData={formData} setFormData={setFormData} />;
@@ -91,18 +97,23 @@ function Form() {
 
   const handleclick = () => {
     if (page === 0) {
+      if (consent === false)
+        alert("Please accept the Consent Form to continue!");
+      else setPage((currPage) => currPage + 1);
+      console.log(formData.consent);
+    } else if (page === 1) {
       if (formData.identity === "") alert("Please Enter Your Identity");
       else setPage((currPage) => currPage + 1);
-    } else if (page === 1) {
+    } else if (page === 2) {
       if (formData.gender === "") alert("Please Enter Your Gender");
       else setPage((currPage) => currPage + 1);
-    } else if (page === 2) {
+    } else if (page === 3) {
       if (formData.age === "") alert("Please Enter Your Age");
       else if (formData.age < 15) alert("Please Enter a valid Age");
       else setPage((currPage) => currPage + 1);
-    } else if (page === 3) {
-      setPage((currPage) => currPage + 1);
     } else if (page === 4) {
+      setPage((currPage) => currPage + 1);
+    } else if (page === 5) {
       if (formData.title === "" || formData.message === "")
         alert("Please Enter the Valid Description or Title");
       else if (formData.message.length < 20)
@@ -116,11 +127,11 @@ function Form() {
           `Please enter ${6 - formData.title.length} more Characters in Title!`
         );
       else setPage((currPage) => currPage + 1);
-    } else if (page === 5) {
+    } else if (page === 6) {
       if (formData.typeOfViolence === "")
         alert("Please Enter Type Of Violence");
       else setPage((currPage) => currPage + 1);
-    } else if (page === 6) {
+    } else if (page === 7) {
       if (formData.reportToPolice === "")
         alert("Please Enter a Valid Choice!!");
       else setPage((currPage) => currPage + 1);
@@ -171,6 +182,7 @@ function Form() {
               disabled={page === 0}
               onClick={() => {
                 setPage((currPage) => currPage - 1);
+                setConsent(false);
               }}
             >
               <ArrowBackIcon style={{ fontSize: "20px" }} />

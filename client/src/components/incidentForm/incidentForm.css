@@ -51,7 +51,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height:100vh;
+  min-height: 100vh;
 }
 
 .formTitles {
@@ -208,7 +208,12 @@
   padding: 0.5rem;
 }
 
-.incidenttitleanddesc{
-  padding:0px 10px;
-  color:blue;
+.incidenttitleanddesc {
+  padding: 0px 10px;
+  color: blue;
+}
+
+.conditions{
+  padding: 8px;
+  margin-bottom: 1%;
 }
