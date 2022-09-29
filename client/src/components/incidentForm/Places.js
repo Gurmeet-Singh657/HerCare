@@ -29,19 +29,11 @@ export default function Places({ formData, setFormData }) {
   return <Map formData={formData} setFormData={setFormData} />;
 }
 
-<<<<<<< HEAD
-function Map() {
-  const {latitude,longitude}=useContext(LatLonContext);
-  // const center = useMemo(() => ({ lat: latitude, lng: longitude }), []);
-  const center = { lat: 28.6130176, lng: 77.2308992 };
-  const [selected, setSelected] = useState({ lat: latitude, lng:longitude });
-=======
 
 function Map({ formData, setFormData }) {
   const center = useMemo(() => ({ lat: 28.7166162, lng: 77.1139872 }), []);
   const [selected, setSelected] = useState({ lat: 28.7166162, lng: 77.1139872 });
 
->>>>>>> 00e9cc3ba034da797a95a11d8975cc2baccdd925
 
   return (
     <>

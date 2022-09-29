@@ -35,8 +35,8 @@ export default function SimpleTable() {
   };
 
   return (
-    <div className="CardsIncident">
-      <div className="Cards">
+    <div className="fullPage">
+      <div className="gridParent">
         {data.length === 0 && (
           <div className="nothinghere">
             No incident to show here&nbsp;&nbsp;
@@ -47,24 +47,20 @@ export default function SimpleTable() {
           data
             .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
             .map((row, index) => (
-              <IncidentCard
+              <IncidentCard className="gridChild"
                 key={index}
                 title={row.title}
-                // year={row.time.$y}
-                // month={row.time.$M}
-                // date={row.time.$D}
-                // hour={row.time.$H}
-                // minutes={row.time.$m}
                 time={row.time}
                 typeOfViolence={row.typeOfViolence}
                 gender={row.gender}
                 age={row.age}
-                city={row.city}
-                state={row.state}
+                city={row.address.city}
+                state={row.address.state}
                 desc={row.message}
               />
             ))}
-        {data.length > 0 && (
+      </div>
+      {data.length > 0 && (
           <TablePagination
             rowsPerPageOptions={[5, 10, 25]}
             component="div"
@@ -75,7 +71,6 @@ export default function SimpleTable() {
             onChangeRowsPerPage={handleChangeRowsPerPage}
           />
         )}
-      </div>
     </div>
   );
 }

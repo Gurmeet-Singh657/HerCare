@@ -157,6 +157,7 @@ export default function BasicTabs() {
                 <Chip
                   key={value}
                   label={value}
+                  size={2}
                   clickable
                   deleteIcon={
                     <CancelIcon

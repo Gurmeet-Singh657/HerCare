@@ -10,14 +10,14 @@
     top:100px;
     right:0px;
     margin:2%;
-    width: 65%;
+    width: 70%;
 }
 
 .fircontainer>h1 {
     text-align: left;
 }
 
-@media screen and (max-width:960px) {
+@media screen and (max-width:1100px) {
     .fircontainer{
         align-items:center;
         width:80%;

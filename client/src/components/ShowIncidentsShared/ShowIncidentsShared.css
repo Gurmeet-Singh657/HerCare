@@ -1,10 +1,18 @@
 .incidentfiltering {
-    width: 90%;
+    width: 350px;
     margin: auto;
-    margin-top: 40px;
+    /* margin-top: 1px; */
     padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap:20px;
 }
-
+.typeofassaultdrop
+{
+    width:100%;
+    /* box-sizing: border-box; */
+    margin:auto;
+}
 .searchincidents,
 .deleteincidents {
     border: none;
@@ -43,4 +51,5 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    gap:20px;
 }

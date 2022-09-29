@@ -20,23 +20,28 @@ import "./ShowIncidentsShared.css";
 import SearchIcon from "@mui/icons-material/Search";
 import DeleteIcon from "@mui/icons-material/Delete";
 import Citydropdown from "../citydropdown/Citydropdown.js";
+import Checkbox from '@mui/material/Checkbox';
+import CheckBoxOutlineBlankIcon from '@mui/icons-material/CheckBoxOutlineBlank';
+import CheckBoxIcon from '@mui/icons-material/CheckBox';
+import Stack from '@mui/material/Stack';
+
+const icon = <CheckBoxOutlineBlankIcon fontSize="small" />;
+const checkedIcon = <CheckBoxIcon fontSize="small" />;
 
 const options = [
-  [
-    "Rape/Sexual Assault",
-    "Chain Snatching/Robbery",
-    "Domestic Violence",
-    "Physical Assault",
-    "Stalking",
-    "Ogling/Facial Expressions/Staring",
-    "Taking photos without permission",
-    "Indecent Exposure/Masturbation in public",
-    "Touching /Groping",
-    "Showing Pornography without consent",
-    "Commenting/Sexual Invites",
-    "Online Harassment",
-    "Human Trafficking",
-  ],
+  "Rape/Sexual Assault",
+  "Chain Snatching/Robbery",
+  "Domestic Violence",
+  "Physical Assault",
+  "Stalking",
+  "Ogling/Facial Expressions/Staring",
+  "Taking photos without permission",
+  "Indecent Exposure/Masturbation in public",
+  "Touching /Groping",
+  "Showing Pornography without consent",
+  "Commenting/Sexual Invites",
+  "Online Harassment",
+  "Human Trafficking"
 ];
 
 const Indiastates = [
@@ -78,6 +83,7 @@ const Indiastates = [
   "Uttarakhand",
   "West Bengal",
 ];
+
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -154,93 +160,33 @@ export default function Showincidentsshared() {
 
   return (
     <div className="incidentfiltering">
-      {/* multi select */}
-      <FormControl sx={{ marginBottom: 3, width: "100%" }}>
-        <InputLabel id="demo-multiple-chip-label">Types of Assault</InputLabel>
-        <Select
-          labelId="demo-multiple-chip-label"
-          id="demo-multiple-chip"
-          multiple
-          value={typeofassault}
-          onChange={handleChange}
-          input={
-            <OutlinedInput id="select-multiple-chip" label="Types of Assault" />
-          }
-          renderValue={(selected) => (
-            <Box sx={{ display: "flex", flexWrap: "wrap", gap: 0.5 }}>
-              {selected.map((value) => (
-                <Chip
-                  key={value}
-                  label={value}
-                  clickable
-                  deleteIcon={
-                    <CancelIcon
-                      onMouseDown={(event) => event.stopPropagation()}
-                    />
-                  }
-                  onDelete={(e) => handleDelete(e, value)}
-                  onClick={() => console.log("clicked chip")}
-                />
-              ))}
-            </Box>
-          )}
-          MenuProps={MenuProps}
-        >
-          {options[0].map((name) => (
-            <MenuItem
-              key={name}
-              value={name}
-              style={getStyles(name, typeofassault, theme)}
-            >
-              {name}
-            </MenuItem>
-          ))}
-        </Select>
-      </FormControl>
 
-      {/* // pehla single // "Show Incidents From" // "Time of the day" */}
-      {/* <Box sx={{ marginBottom: 3, width: "100%" }}>
-                <FormControl fullWidth>
-                    <InputLabel id="demo-simple-select-label">
-                        City
-                    </InputLabel>
-                    <Select
-                        labelId="demo-simple-select-label"
-                        id="demo-simple-select"
-                        value={cities}
-                        label="City"
-                        onChange={handleCity}
-                    >
-                        {options[1].map((option) => {
-                            return <MenuItem value={option}>{option}</MenuItem>;
-                        })}
-                    </Select>
-                </FormControl>
-            </Box> */}
+      <div className="typeofassaultdrop">
+
+        <Autocomplete
+          multiple
+          id="checkboxes-tags-demo"
+          options={options}
+          disableCloseOnSelect
+          getOptionLabel={(option) => option}
+          renderOption={(props, option, { selected }) => (
+            <li {...props}>
+              <Checkbox
+                icon={icon}
+                checkedIcon={checkedIcon}
+                style={{ marginRight: 8 }}
+                checked={selected}
+              />
+              {option}
+            </li>
+          )}
+          style={{ width:"100%" }}
+          renderInput={(params) => (
+            <TextField {...params} label="Type of Violence"/>
+          )}
+        />
+      </div>
       <Citydropdown />
-      {/* <Box sx={{ marginBottom: 3, width: "100%" }}>
-        <FormControl fullWidth>
-          <InputLabel id="demo-simple-select-label">State</InputLabel>
-          <Select
-            labelId="demo-simple-select-label"
-            id="demo-simple-select"
-            value={states}
-            label="State"
-            onChange={handleState}
-          >
-            {Indiastates.map((option) => {
-              return <MenuItem value={option}>{option}</MenuItem>;
-            })}
-          </Select>
-        </FormControl>
-      </Box> */}
-      <Autocomplete
-        disablePortal
-        id="combo-box-demo"
-        options={Indiastates}
-        sx={{ marginBottom: 3, width: "100%" }}
-        renderInput={(params) => <TextField {...params} label="States" />}
-      />
       <div className="incidentbtns">
         <button className="searchincidents" onClick={handleIncidentSearch}>
           Search&nbsp;

@@ -115,7 +115,7 @@ export default function Citydropdown() {
             renderInput={(params) => (
                 <TextField
                     {...params}
-                    label="Add a location"
+                    label="Add City & State"
                     variant="outlined"
                     fullWidth
                 />

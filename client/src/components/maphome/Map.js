@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { GoogleMap, InfoWindow, MarkerF } from "@react-google-maps/api";
-
+/*global google*/
 const markers = [
   {
     id: 1,
@@ -10,7 +10,7 @@ const markers = [
   {
     id: 2,
     name: "Denver, Colorado",
-    position: { lat: 28.7166162, lng: 77.1139872 }  
+    position: { lat: 28.7166162, lng: 77.1139872 }
   },
   {
     id: 3,
@@ -33,8 +33,8 @@ function Map() {
     }
     setActiveMarker(marker);
   };
-
   const handleOnLoad = (map) => {
+
     const bounds = new google.maps.LatLngBounds();
     markers.forEach(({ position }) => bounds.extend(position));
     map.fitBounds(bounds);
@@ -44,7 +44,7 @@ function Map() {
     <GoogleMap
       onLoad={handleOnLoad}
       onClick={() => setActiveMarker(null)}
-      mapContainerStyle={{ width: "100vw", height: "100vh" }}
+      mapContainerStyle={{ width: "100%", height: "100%" }}
     >
       {markers.map(({ id, name, position }) => (
         <MarkerF

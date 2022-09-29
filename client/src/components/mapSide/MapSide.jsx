@@ -1,8 +1,9 @@
 import "./mapSide.css"
 import { useNavigate } from "react-router-dom"
 import { useState } from "react";
-import OpenDialog from "../openDialog/OpenDialog.js";
+import OpenDialog from "../IncidentDialog/IncidentDialog.js";
 import IncidentScrollbar from "../IncidentScrollbar/IncidentScrollbar";
+import IncidentDialog from "../IncidentDialog/IncidentDialog.js";
 
 const MapSide = () => {
     const navigate = useNavigate();
@@ -39,7 +40,7 @@ const MapSide = () => {
                             <button className="clearincidents">Clear</button>
                         </div>
                     </div>
-                    <div className="IncidentScroll"><IncidentScrollbar /></div>
+                    {/* <div className="IncidentScroll"><IncidentScrollbar /></div> */}
                 </>}
                 {!Incident && <><div className="Safetytipstitle">
                     How do you navigate public places safely?
@@ -59,7 +60,7 @@ const MapSide = () => {
                     </div>
                 </>}
             </div>
-            {openfilter && <OpenDialog openfilter={openfilter} setOpenFilter={setOpenFilter} />}
+            {openfilter && <IncidentDialog openfilter={openfilter} setOpenFilter={setOpenFilter} />}
         </>
 
     )
