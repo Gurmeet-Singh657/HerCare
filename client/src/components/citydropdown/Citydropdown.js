@@ -9,147 +9,148 @@ import AutosuggestHighlightParse from "autosuggest-highlight/parse";
 import throttle from "lodash/throttle";
 
 function loadScript(src, position, id) {
-    if (!position) {
-        return;
-    }
+  if (!position) {
+    return;
+  }
 
-    const script = document.createElement("script");
-    script.setAttribute("async", "");
-    script.setAttribute("id", id);
-    script.src = src;
-    position.appendChild(script);
+  const script = document.createElement("script");
+  script.setAttribute("async", "");
+  script.setAttribute("id", id);
+  script.src = src;
+  position.appendChild(script);
 }
 
 const autocompleteService = { current: null };
 
 const useStyles = makeStyles((theme) => ({
-    icon: {
-        color: theme.palette.text.secondary,
-        marginRight: theme.spacing(2)
-    }
+  icon: {
+    color: theme.palette.text.secondary,
+    marginRight: theme.spacing(2),
+  },
 }));
 
 export default function Citydropdown() {
-    const classes = useStyles();
-    const [value, setValue] = React.useState(null);
-    const [inputValue, setInputValue] = React.useState("");
-    const [options, setOptions] = React.useState([]);
-    const loaded = React.useRef(false);
+  const classes = useStyles();
+  const [value, setValue] = React.useState(null);
+  const [inputValue, setInputValue] = React.useState("");
+  const [options, setOptions] = React.useState([]);
+  const loaded = React.useRef(false);
 
-    if (typeof window !== "undefined" && !loaded.current) {
-        if (!document.querySelector("#google-maps")) {
-            loadScript(
-                "https://maps.googleapis.com/maps/api/js?key=AIzaSyA-RG4hM7qRh3jHfOwSuUOBexPTn0CZf6w&libraries=places",
-                document.querySelector("head"),
-                "google-maps"
-            );
-        }
-
-        loaded.current = true;
+  if (typeof window !== "undefined" && !loaded.current) {
+    if (!document.querySelector("#google-maps")) {
+      loadScript(
+        "https://maps.googleapis.com/maps/api/js?key=AIzaSyA-RG4hM7qRh3jHfOwSuUOBexPTn0CZf6w&libraries=places",
+        document.querySelector("head"),
+        "google-maps"
+      );
     }
 
-    const fetch = React.useMemo(
-        () =>
-            throttle((request, callback) => {
-                autocompleteService.current.getPlacePredictions(request, callback);
-            }, 200),
-        []
-    );
+    loaded.current = true;
+  }
 
-    React.useEffect(() => {
-        let active = true;
+  const fetch = React.useMemo(
+    () =>
+      throttle((request, callback) => {
+        autocompleteService.current.getPlacePredictions(request, callback);
+      }, 200),
+    []
+  );
 
-        if (!autocompleteService.current && window.google) {
-            autocompleteService.current = new window.google.maps.places.AutocompleteService();
+  React.useEffect(() => {
+    let active = true;
+
+    if (!autocompleteService.current && window.google) {
+      autocompleteService.current =
+        new window.google.maps.places.AutocompleteService();
+    }
+    if (!autocompleteService.current) {
+      return undefined;
+    }
+
+    if (inputValue === "") {
+      setOptions(value ? [value] : []);
+      return undefined;
+    }
+
+    fetch({ input: inputValue, types: ["(cities)"] }, (results) => {
+      if (active) {
+        let newOptions = [];
+
+        if (value) {
+          newOptions = [value];
         }
-        if (!autocompleteService.current) {
-            return undefined;
+
+        if (results) {
+          newOptions = [...newOptions, ...results];
         }
 
-        if (inputValue === "") {
-            setOptions(value ? [value] : []);
-            return undefined;
-        }
+        setOptions(newOptions);
+      }
+    });
 
-        fetch({ input: inputValue, types: ["(cities)"] }, (results) => {
-            if (active) {
-                let newOptions = [];
+    return () => {
+      active = false;
+    };
+  }, [value, inputValue, fetch]);
 
-                if (value) {
-                    newOptions = [value];
-                }
-
-                if (results) {
-                    newOptions = [...newOptions, ...results];
-                }
-
-                setOptions(newOptions);
-            }
-        });
-
-        return () => {
-            active = false;
-        };
-    }, [value, inputValue, fetch]);
-
-    return (
-        <Autocomplete
-            id="google-map-demo"
-            style={{ marginBottom: 22,width: "100%" }}
-            getOptionLabel={(option) =>
-                typeof option === "string" ? option : option.description
-            }
-            filterOptions={(x) => x}
-            options={options}
-            autoComplete
-            includeInputInList
-            filterSelectedOptions
-            value={value}
-            onChange={(event, newValue) => {
-                setOptions(newValue ? [newValue, ...options] : options);
-                setValue(newValue);
-            }}
-            onInputChange={(event, newInputValue) => {
-                setInputValue(newInputValue);
-            }}
-            renderInput={(params) => (
-                <TextField
-                    {...params}
-                    label="Add City & State"
-                    variant="outlined"
-                    fullWidth
-                />
-            )}
-            renderOption={(option) => {
-                const matches =
-                    option.structured_formatting.main_text_matched_substrings;
-                const parts = AutosuggestHighlightParse(
-                    option.structured_formatting.main_text,
-                    matches.map((match) => [match.offset, match.offset + match.length])
-                );
-
-                return (
-                    <Grid container alignItems="center">
-                        <Grid item>
-                            <LocationOnIcon className={classes.icon} />
-                        </Grid>
-                        <Grid item xs>
-                            {parts.map((part, index) => (
-                                <span
-                                    key={index}
-                                    style={{ fontWeight: part.highlight ? 700 : 400 }}
-                                >
-                                    {part.text}
-                                </span>
-                            ))}
-
-                            <Typography variant="body2" color="textSecondary">
-                                {option.structured_formatting.secondary_text}
-                            </Typography>
-                        </Grid>
-                    </Grid>
-                );
-            }}
+  return (
+    <Autocomplete
+      id="google-map-demo"
+      style={{ marginBottom: 22, width: "100%" }}
+      getOptionLabel={(option) =>
+        typeof option === "string" ? option : option.description
+      }
+      filterOptions={(x) => x}
+      options={options}
+      autoComplete
+      includeInputInList
+      filterSelectedOptions
+      value={value}
+      onChange={(event, newValue) => {
+        setOptions(newValue ? [newValue, ...options] : options);
+        setValue(newValue);
+      }}
+      onInputChange={(event, newInputValue) => {
+        setInputValue(newInputValue);
+      }}
+      renderInput={(params) => (
+        <TextField
+          {...params}
+          label="Add City & State"
+          variant="outlined"
+          fullWidth
         />
-    );
+      )}
+      renderOption={(option) => {
+        const matches =
+          option.structured_formatting.main_text_matched_substrings;
+        const parts = AutosuggestHighlightParse(
+          option.structured_formatting.main_text,
+          matches.map((match) => [match.offset, match.offset + match.length])
+        );
+
+        return (
+          <Grid container alignItems="center">
+            <Grid item>
+              <LocationOnIcon className={classes.icon} />
+            </Grid>
+            <Grid item xs>
+              {parts.map((part, index) => (
+                <span
+                  key={index}
+                  style={{ fontWeight: part.highlight ? 700 : 400 }}
+                >
+                  {part.text}
+                </span>
+              ))}
+
+              <Typography variant="body2" color="textSecondary">
+                {option.structured_formatting.secondary_text}
+              </Typography>
+            </Grid>
+          </Grid>
+        );
+      }}
+    />
+  );
 }

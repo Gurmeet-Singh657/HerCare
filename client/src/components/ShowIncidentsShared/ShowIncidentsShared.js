@@ -20,10 +20,10 @@ import "./ShowIncidentsShared.css";
 import SearchIcon from "@mui/icons-material/Search";
 import DeleteIcon from "@mui/icons-material/Delete";
 import Citydropdown from "../citydropdown/Citydropdown.js";
-import Checkbox from '@mui/material/Checkbox';
-import CheckBoxOutlineBlankIcon from '@mui/icons-material/CheckBoxOutlineBlank';
-import CheckBoxIcon from '@mui/icons-material/CheckBox';
-import Stack from '@mui/material/Stack';
+import Checkbox from "@mui/material/Checkbox";
+import CheckBoxOutlineBlankIcon from "@mui/icons-material/CheckBoxOutlineBlank";
+import CheckBoxIcon from "@mui/icons-material/CheckBox";
+import Stack from "@mui/material/Stack";
 
 const icon = <CheckBoxOutlineBlankIcon fontSize="small" />;
 const checkedIcon = <CheckBoxIcon fontSize="small" />;
@@ -41,7 +41,7 @@ const options = [
   "Showing Pornography without consent",
   "Commenting/Sexual Invites",
   "Online Harassment",
-  "Human Trafficking"
+  "Human Trafficking",
 ];
 
 const Indiastates = [
@@ -83,7 +83,6 @@ const Indiastates = [
   "Uttarakhand",
   "West Bengal",
 ];
-
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -160,9 +159,7 @@ export default function Showincidentsshared() {
 
   return (
     <div className="incidentfiltering">
-
       <div className="typeofassaultdrop">
-
         <Autocomplete
           multiple
           id="checkboxes-tags-demo"
@@ -180,9 +177,9 @@ export default function Showincidentsshared() {
               {option}
             </li>
           )}
-          style={{ width:"100%" }}
+          style={{ width: "100%" }}
           renderInput={(params) => (
-            <TextField {...params} label="Type of Violence"/>
+            <TextField {...params} label="Type of Violence" />
           )}
         />
       </div>

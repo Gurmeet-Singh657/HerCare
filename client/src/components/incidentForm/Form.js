@@ -35,8 +35,8 @@ function Form() {
       state: "",
       city: "",
       lat: "",
-      lon: ""
-    }
+      lon: "",
+    },
   });
 
   //   const triggerAPI = useCallback(async () => {
@@ -106,9 +106,15 @@ function Form() {
       if (formData.title === "" || formData.message === "")
         alert("Please Enter the Valid Description or Title");
       else if (formData.message.length < 20)
-        alert(`Please enter ${20 - formData.message.length} more Characters in Description!`);
+        alert(
+          `Please enter ${
+            20 - formData.message.length
+          } more Characters in Description!`
+        );
       else if (formData.title.length < 6)
-        alert(`Please enter ${6 - formData.title.length} more Characters in Title!`);
+        alert(
+          `Please enter ${6 - formData.title.length} more Characters in Title!`
+        );
       else setPage((currPage) => currPage + 1);
     } else if (page === 5) {
       if (formData.typeOfViolence === "")
