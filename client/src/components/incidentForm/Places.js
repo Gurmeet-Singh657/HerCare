@@ -38,20 +38,18 @@ function Map({ formData, setFormData }) {
 
   return (
     <div className="location">
-      
-
       <GoogleMap
         zoom={10}
         center={selected}
         mapContainerClassName="map-container"
       >
-            <div className="places-container">
+        <div className="places-container">
           <PlacesAutocomplete
             formData={formData}
             setFormData={setFormData}
             setSelected={setSelected}
           />
-          </div>
+        </div>
         {/* {selected && <Marker position={selected} />} */}
         <MarkerF position={selected} />
       </GoogleMap>
@@ -93,12 +91,11 @@ const PlacesAutocomplete = ({ formData, setFormData, setSelected }) => {
         country = component.long_name;
       }
     });
-    formData.address.country=country;
-    formData.address.city=city;
-    formData.address.state=state;
-    formData.address.lat=lat;
-    formData.address.lng=lng;
-
+    formData.address.country = country;
+    formData.address.city = city;
+    formData.address.state = state;
+    formData.address.lat = lat;
+    formData.address.lng = lng;
   };
 
   return (

@@ -24,6 +24,7 @@ import Checkbox from "@mui/material/Checkbox";
 import CheckBoxOutlineBlankIcon from "@mui/icons-material/CheckBoxOutlineBlank";
 import CheckBoxIcon from "@mui/icons-material/CheckBox";
 import Stack from "@mui/material/Stack";
+import ListItemText from "@mui/material/ListItemText";
 
 const icon = <CheckBoxOutlineBlankIcon fontSize="small" />;
 const checkedIcon = <CheckBoxIcon fontSize="small" />;
@@ -43,105 +44,55 @@ const options = [
   "Online Harassment",
   "Human Trafficking",
 ];
-
-const Indiastates = [
-  "Andaman and Nicobar Islands",
-  "Andhra Pradesh",
-  "Arunachal Pradesh",
-  "Assam",
-  "Bihar",
-  "Chandigarh",
-  "Chhattisgarh",
-  "Dadra and Nagar Haveli",
-  "Daman and Diu",
-  "Delhi",
-  "Goa",
-  "Jammu and Kashmir",
-  "Gujarat",
-  "Haryana",
-  "Himachal Pradesh",
-  "Jharkhand",
-  "Karnataka",
-  "Kerala",
-  "Ladakh",
-  "Lakshadweep",
-  "Madhya Pradesh",
-  "Maharashtra",
-  "Manipur",
-  "Meghalaya",
-  "Mizoram",
-  "Nagaland",
-  "Odisha",
-  "Puducherry",
-  "Punjab",
-  "Rajasthan",
-  "Sikkim",
-  "Tamil Nadu",
-  "Telangana",
-  "Tripura",
-  "Uttar Pradesh",
-  "Uttarakhand",
-  "West Bengal",
-];
-
-const ITEM_HEIGHT = 48;
-const ITEM_PADDING_TOP = 8;
-const MenuProps = {
-  PaperProps: {
-    style: {
-      maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
-      width: 250,
-    },
-  },
-};
-
-function getStyles(name, typesofassaultopt, theme) {
-  return {
-    fontWeight:
-      typesofassaultopt.indexOf(name) === -1
-        ? theme.typography.fontWeightRegular
-        : theme.typography.fontWeightMedium,
-  };
-}
+const timeshow = ["All time", "Today", "This Week", "This Month", "This Year"];
 
 export default function Showincidentsshared() {
-  const { typesofassault, setTypesofassault, city, setCity, state, setState } =
-    useContext(SearchContext);
+  const {
+    typesofassault,
+    setTypesofassault,
+    locations,
+    setLocations,
+    showIncidentsWithin,
+    setShowIncidentsWithin,
+  } = useContext(SearchContext);
 
   const { data, loading, reFetch } = useFetch(
-    `/getAllIncidents?typesofassault=${typesofassault}&city=${city}&state=${state}`
+    `/getAllIncidents?typesofassault=${typesofassault}&locations=${locations}&showIncidentsWithin=${showIncidentsWithin}`
   );
 
   const [typeofassault, setTypeofassault] = useState([]);
-  const [cities, setCities] = useState("");
-  const [states, setStates] = useState("");
+  const [location, setLocation] = useState("");
+  const [showIncidentWithin, setShowIncidentWithin] = useState("All time");
 
   const handleIncidentSearch = () => {
-    // reFetch();
-    console.log(data);
     setTypesofassault(typeofassault);
-    setCity(cities);
-    setState(state);
+    setLocations(location);
+    setShowIncidentsWithin(showIncidentWithin);
   };
   const handleIncidentClear = () => {
     setTypesofassault([]);
     setTypeofassault([]);
-    setCity("");
-    setCities("");
-    setState("");
-    setStates("");
-    // reFetch();
+    setLocation("");
+    setLocations("");
+    setShowIncidentWithin("All");
+    setShowIncidentsWithin("All");
   };
-  const handleCity = (event) => {
-    setCities(event.target.value);
+
+  const handleshowincidentwithin = (event) => {
+    setShowIncidentWithin(event.target.value);
   };
-  const handleState = (event) => {
-    setStates(event.target.value);
+  const ITEM_HEIGHT = 48;
+  const ITEM_PADDING_TOP = 8;
+  const MenuProps = {
+    PaperProps: {
+      style: {
+        maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
+        width: 250,
+      },
+    },
   };
-  const theme = useTheme();
 
   const handleChange = (event) => {
-    // console.log(event);
     const {
       target: { value },
     } = event;
@@ -149,41 +100,68 @@ export default function Showincidentsshared() {
       // On autofill we get a stringified value.
       typeof value === "string" ? value.split(",") : value
     );
-    console.log(typeofassault[0] + " " + typeofassault[1]);
-  };
-  const handleDelete = (e: MouseEvent, value: string) => {
-    e.preventDefault();
-    console.log("clicked delete");
-    setTypeofassault((current) => _without(current, value));
   };
 
   return (
     <div className="incidentfiltering">
       <div className="typeofassaultdrop">
-        <Autocomplete
-          multiple
-          id="checkboxes-tags-demo"
-          options={options}
-          disableCloseOnSelect
-          getOptionLabel={(option) => option}
-          renderOption={(props, option, { selected }) => (
-            <li {...props}>
-              <Checkbox
-                icon={icon}
-                checkedIcon={checkedIcon}
-                style={{ marginRight: 8 }}
-                checked={selected}
+        <FormControl
+          className="typeofassaultdrop"
+          sx={{ marginBottom: 3, width: "100%" }}
+        >
+          <InputLabel id="demo-multiple-chip-label">
+            Types of Assault
+          </InputLabel>
+          <Select
+            labelId="demo-multiple-chip-label"
+            id="demo-multiple-chip"
+            multiple
+            value={typeofassault}
+            onChange={handleChange}
+            input={
+              <OutlinedInput
+                id="select-multiple-chip"
+                label="Types of Assault"
               />
-              {option}
-            </li>
-          )}
-          style={{ width: "100%" }}
-          renderInput={(params) => (
-            <TextField {...params} label="Type of Violence" />
-          )}
-        />
+            }
+            MenuProps={MenuProps}
+          >
+            {options[0].map((name) => (
+              <MenuItem
+                key={name}
+                value={name}
+                style={getStyles(name, typeofassault, theme)}
+              >
+                {name}
+              </MenuItem>
+            ))}
+          </Select>
+        </FormControl>
       </div>
       <Citydropdown />
+      <Box sx={{ minWidth: 120 }}>
+        <FormControl fullWidth>
+          <InputLabel
+            id="demo-simple-select-label"
+            placeholder="Show Incidents Within"
+          >
+            Show Incidents Within
+          </InputLabel>
+          <Select
+            labelId="demo-simple-select-label"
+            id="demo-simple-select"
+            value={showIncidentWithin}
+            label="Show Incidents Within"
+            onChange={handleshowincidentwithin}
+          >
+            <MenuItem value="All">All</MenuItem>
+            <MenuItem value="Today">Today</MenuItem>
+            <MenuItem value="This Week">This Week</MenuItem>
+            <MenuItem value="This Month">This Month</MenuItem>
+            <MenuItem value="Last 3 Months">Last 3 Months</MenuItem>
+          </Select>
+        </FormControl>
+      </Box>
       <div className="incidentbtns">
         <button className="searchincidents" onClick={handleIncidentSearch}>
           Search&nbsp;

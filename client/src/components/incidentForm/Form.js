@@ -37,9 +37,8 @@ function Form() {
       state: "",
       city: "",
       lat: "",
-      lng: ""
-    }
-
+      lng: "",
+    },
   });
 
   //   const triggerAPI = useCallback(async () => {
@@ -50,14 +49,20 @@ function Form() {
   const handleSubmit = async (e) => {
     setConsent(false);
     e.preventDefault();
-    console.log(JSON.stringify(formData));
-    await axios
-      .post("http://localhost:4000/incident", JSON.stringify(formData), {
-        headers: { "Content-Type": "application/json" },
-      })
-      .then((result) => {
-        navigate("/");
-      });
+    if (formData.address.city === "")
+      alert(
+        "Please enter the correct location of the incident with City details!"
+      );
+    else {
+      console.log(JSON.stringify(formData));
+      await axios
+        .post("http://localhost:4000/incident", JSON.stringify(formData), {
+          headers: { "Content-Type": "application/json" },
+        })
+        .then((result) => {
+          navigate("/");
+        });
+    }
   };
 
   const FormTitles = [
