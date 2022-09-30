@@ -86,7 +86,7 @@ function Map() {
           onClick={() => handleActiveMarker(_id)}
         >
           {activeMarker === _id ? (
-            <InfoWindow onCloseClick={() => setActiveMarker(null)}>
+            <InfoWindow onCloseClick={() => setActiveMarker(null)} options= {{maxWidth : 500 }}>
               <div>{time}</div>
             </InfoWindow>
           ) : null}
