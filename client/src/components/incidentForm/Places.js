@@ -37,24 +37,25 @@ function Map({ formData, setFormData }) {
   });
 
   return (
-    <>
-      <div className="places-container">
-        <PlacesAutocomplete
-          formData={formData}
-          setFormData={setFormData}
-          setSelected={setSelected}
-        />
-      </div>
+    <div className="location">
+      
 
       <GoogleMap
-        zoom={20}
+        zoom={10}
         center={selected}
         mapContainerClassName="map-container"
       >
+            <div className="places-container">
+          <PlacesAutocomplete
+            formData={formData}
+            setFormData={setFormData}
+            setSelected={setSelected}
+          />
+          </div>
         {/* {selected && <Marker position={selected} />} */}
         <MarkerF position={selected} />
       </GoogleMap>
-    </>
+    </div>
   );
 }
 

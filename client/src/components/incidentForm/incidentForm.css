@@ -15,6 +15,7 @@
 
 .body {
   width: 100%;
+  
   /* border: 2px solid yellow; */
 }
 
@@ -187,7 +188,7 @@
 
 .places-container {
   position: absolute;
-  top: 110px;
+  margin-top: 1.75%;
   width: 400px;
   margin-left: 25%;
   border: 2px solid blue;
@@ -201,6 +202,7 @@
 .map-container {
   width: 100%;
   height: 100%;
+  /* border: 5px solid yellow; */
 }
 
 .combobox-input {
@@ -216,4 +218,8 @@
 .conditions{
   padding: 8px;
   margin-bottom: 1%;
+}
+
+.location{
+  height:70vh;
 }

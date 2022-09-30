@@ -42,7 +42,7 @@ function Map() {
   const markers = []
   for(let i=0; i<data.length; ++i){
     const obj = {
-      _id : data[i].id,
+      _id : data[i]._id,
       time: data[i].time,
       position:{
         lat: parseFloat(data[i].address.lat.$numberDecimal),
