@@ -44,6 +44,7 @@ const options = [
   "Online Harassment",
   "Human Trafficking",
 ];
+<<<<<<< HEAD
 const timeshow = ["All time", "Today", "This Week", "This Month", "This Year"];
 
 export default function Showincidentsshared() {
@@ -92,6 +93,50 @@ export default function Showincidentsshared() {
     },
   };
 
+=======
+const timeshow=[
+  "All time",
+  "Today",
+  "This Week",
+  "This Month",
+  "This Year"
+]
+
+
+export default function Showincidentsshared() {
+  const { typesofassault, setTypesofassault, locations, setLocations, showIncidentsfrom, setShowIncidentsfrom } =
+  useContext(SearchContext);
+  
+  const { data, loading, reFetch } = useFetch(
+    `/getAllIncidents?typesofassault=${typesofassault}&locations=${locations}&showIncidentsfrom=${showIncidentsfrom}`
+    );
+    
+    const [typeofassault, setTypeofassault] = useState([]);
+    const [location, setLocation] = useState("");
+    const [showIncidentfrom, setShowIncidentfrom] = useState("All time");
+    
+    const handleIncidentSearch = () => {
+      // reFetch();
+      console.log(data);
+      setTypesofassault(typeofassault);
+      setLocations(location);
+      setShowIncidentsfrom(showIncidentfrom);
+    };
+    const handleIncidentClear = () => {
+      setTypesofassault([]);
+    setTypeofassault([]);
+    setLocation("");
+    setLocations("");
+    setShowIncidentfrom("All time");
+    setShowIncidentsfrom("All time");
+    // reFetch();
+  };
+  // const handleLocations = (event) => {
+  //   setCities(event.target.value);
+  // };
+  const theme = useTheme();
+  
+>>>>>>> 3cb5aae7fdafd08c0097eaf586f281ec55cdd604
   const handleChange = (event) => {
     const {
       target: { value },
@@ -99,6 +144,7 @@ export default function Showincidentsshared() {
     setTypeofassault(
       // On autofill we get a stringified value.
       typeof value === "string" ? value.split(",") : value
+<<<<<<< HEAD
     );
   };
 
@@ -137,6 +183,43 @@ export default function Showincidentsshared() {
             ))}
           </Select>
         </FormControl>
+=======
+      );
+      console.log(typeofassault[0] + " " + typeofassault[1]);
+    };
+    const handleDelete = (e: MouseEvent, value: string) => {
+      e.preventDefault();
+      console.log("clicked delete");
+      setTypeofassault((current) => _without(current, value));
+    };
+    
+    return (
+      <div className="incidentfiltering">
+      <div className="typeofassaultdrop">
+        <Autocomplete
+          multiple
+          id="checkboxes-tags-demo"
+          options={options}
+          disableCloseOnSelect
+          getOptionLabel={(option) => option}
+          onChange={(event,value)=>setTypeofassault(value)}
+          renderOption={(props, option, { selected }) => (
+            <li {...props}>
+              <Checkbox
+                icon={icon}
+                checkedIcon={checkedIcon}
+                style={{ marginRight: 8 }}
+                checked={selected}
+                />
+              {option}
+            </li>
+          )}
+          style={{ width: "100%" }}
+          renderInput={(params) => (
+            <TextField {...params} label="Type of Violence" />
+            )}
+            />
+>>>>>>> 3cb5aae7fdafd08c0097eaf586f281ec55cdd604
       </div>
       <Citydropdown />
       <Box sx={{ minWidth: 120 }}>
@@ -175,3 +258,43 @@ export default function Showincidentsshared() {
     </div>
   );
 }
+
+// const Indiastates = [
+//   "Andaman and Nicobar Islands",
+//   "Andhra Pradesh",
+//   "Arunachal Pradesh",
+//   "Assam",
+//   "Bihar",
+//   "Chandigarh",
+//   "Chhattisgarh",
+//   "Dadra and Nagar Haveli",
+//   "Daman and Diu",
+//   "Delhi",
+//   "Goa",
+//   "Jammu and Kashmir",
+//   "Gujarat",
+//   "Haryana",
+//   "Himachal Pradesh",
+//   "Jharkhand",
+//   "Karnataka",
+//   "Kerala",
+//   "Ladakh",
+//   "Lakshadweep",
+//   "Madhya Pradesh",
+//   "Maharashtra",
+//   "Manipur",
+//   "Meghalaya",
+//   "Mizoram",
+//   "Nagaland",
+//   "Odisha",
+//   "Puducherry",
+//   "Punjab",
+//   "Rajasthan",
+//   "Sikkim",
+//   "Tamil Nadu",
+//   "Telangana",
+//   "Tripura",
+//   "Uttar Pradesh",
+//   "Uttarakhand",
+//   "West Bengal",
+// ];
