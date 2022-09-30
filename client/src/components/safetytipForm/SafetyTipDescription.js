@@ -19,18 +19,31 @@ function SafetyTipDescription({ formData, setFormData }) {
           value={formData.title} onChange={(event) => setFormData({ ...formData, title: event.target.value })}
           variant="filled"
           fullWidth={true}
+          inputProps={{
+            maxLength: 30,
+          }}
         />
+        <div className='incidenttitleanddesc'>
+          {formData.title.length}/30
+        </div>
       </div>
       <div>
         <TextField
           id="filled-multiline-static"
-          label="Message"
+          label="Description"
           multiline
           value={formData.message} onChange={(event) => setFormData({ ...formData, message: event.target.value })}
           rows={4}
           defaultValue="Default Value"
           variant="filled"
+          inputProps={{
+            maxLength: 300,
+            minLength:10
+          }}
         />
+         <div className='incidenttitleanddesc'>
+        {formData.message.length}/300
+      </div>  
       </div>
     </Box>
 

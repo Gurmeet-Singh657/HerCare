@@ -1,7 +1,9 @@
 import "./mapArea.css"
 import MapSide from '../mapSide/MapSide'
 import { NavLink } from "react-router-dom"
-import Sample from "../maphome/Sample"
+import Sample from '../maphome/Sample.js'
+
+
 const MapArea = () => {
     return (
         <div className="mappArea">

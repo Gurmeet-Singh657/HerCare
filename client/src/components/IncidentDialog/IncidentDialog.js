@@ -12,6 +12,7 @@ import axios from "axios";
 import { useContext } from "react";
 import { SearchContext } from "../../context/SearchContext.js";
 import useFetch from "../../hooks/useFetch.js";
+import ShowIncidentsShared from "../ShowIncidentsShared/ShowIncidentsShared.js";
 
 const OpenDialog = styled(Dialog)(({ theme }) => ({
   "& .MuiDialogContent-root": {
@@ -53,20 +54,11 @@ OpenDialogTitle.propTypes = {
 
 
 
-export default function CustomizedDialogs({ openfilter, setOpenFilter }) {
+export default function IncidentDialog({ openfilter, setOpenFilter }) {
   const handleClose = () => {
     setOpenFilter(false);
   };
   const { typesofassault, showIncidentfrom, timeoftheday } = useContext(SearchContext);
-
-  const { data, loading, reFetch } = useFetch(`/getAllIncidents?typesofassault=${typesofassault}&showIncidentfrom=${showIncidentfrom}&timeoftheday=${timeoftheday}`);
-
-  const handleSearch = () => {
-    setOpenFilter(false);
-    reFetch();
-    console.log(data);
-  };
-
   return (
     <div>
       <OpenDialog
@@ -75,16 +67,11 @@ export default function CustomizedDialogs({ openfilter, setOpenFilter }) {
         open={openfilter}
       >
         <OpenDialogTitle id="customized-dialog-title" onClose={handleClose}>
-          Filters
+          Filters your Incidents
         </OpenDialogTitle>
         <DialogContent dividers>
-          <TabPanel />
+          <ShowIncidentsShared />
         </DialogContent>
-        <DialogActions>
-          <Button autoFocus onClick={handleSearch}>
-            Apply
-          </Button>
-        </DialogActions>
       </OpenDialog>
     </div>
   );

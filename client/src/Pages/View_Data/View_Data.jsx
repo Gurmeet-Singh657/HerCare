@@ -10,10 +10,11 @@ const View_Data = () => {
             <Navbar />
             <div className='viewdatacont'>
                 <div className="sidebar">
-                    {/* <TabPanel /> */}
-                    <Sidenav/>
-                    </div>
-                <IncidentScrollbar />
+                    <Sidenav />
+                </div>
+                <div className="cardsofincident">
+                    <IncidentScrollbar  />
+                </div>
             </div>
         </>
     )
