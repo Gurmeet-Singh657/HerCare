@@ -118,3 +118,18 @@ const getAllIncidents = async function (req, res) {
   return ReS(res, incident);
 };
 module.exports.getAllIncidents = getAllIncidents;
+
+const getIncidentFormData = async function (req, res) {
+  let err, incident;
+  [err, incident] = await to(Incident.find());
+  // console.log(incident);
+  if (err) {
+    logger.error("Incident Controller - get : Incident not found", err);
+    return ReE(res, err, 422);
+  }
+  console.log(incident)
+  res.setHeader("Content-Type", "application/json");
+
+  return ReS(res, incident);
+};
+module.exports.getIncidentFormData = getIncidentFormData;

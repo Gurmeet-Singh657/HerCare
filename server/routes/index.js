@@ -8,4 +8,5 @@ router.get("/safetytip", safetyTipController.get);         //get safetytip
 router.post("/incident", incidentController.create);       //create incident
 router.get("/incident", incidentController.get);           //get incident        
 router.get("/getAllIncidents", incidentController.getAllIncidents);     // get all incidents
+router.get("/getIncidentFormData", incidentController.getIncidentFormData); 
 module.exports = router;

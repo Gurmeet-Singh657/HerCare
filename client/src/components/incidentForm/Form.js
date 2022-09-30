@@ -35,7 +35,7 @@ function Form() {
       state: "",
       city: "",
       lat: "",
-      lon: ""
+      lng: ""
     }
   });
 

@@ -21,7 +21,7 @@ import { LatLonContext } from '../../context/LatLonContext';
 
 export default function Places({ formData, setFormData }) {
   const { isLoaded } = useLoadScript({
-    // googleMapsApiKey: "AIzaSyA-RG4hM7qRh3jHfOwSuUOBexPTn0CZf6w",
+    googleMapsApiKey: "AIzaSyA-RG4hM7qRh3jHfOwSuUOBexPTn0CZf6w",
     libraries: ["places"],
   });
 
@@ -93,7 +93,7 @@ const PlacesAutocomplete = ({ formData, setFormData, setSelected }) => {
     formData.address.city=city;
     formData.address.state=state;
     formData.address.lat=lat;
-    formData.address.lon=lng;
+    formData.address.lng=lng;
 
   };
 
