@@ -43,103 +43,48 @@ const options = [
   "Online Harassment",
   "Human Trafficking",
 ];
+const timeshow=[
+  "All time",
+  "Today",
+  "This Week",
+  "This Month",
+  "This Year"
+]
 
-const Indiastates = [
-  "Andaman and Nicobar Islands",
-  "Andhra Pradesh",
-  "Arunachal Pradesh",
-  "Assam",
-  "Bihar",
-  "Chandigarh",
-  "Chhattisgarh",
-  "Dadra and Nagar Haveli",
-  "Daman and Diu",
-  "Delhi",
-  "Goa",
-  "Jammu and Kashmir",
-  "Gujarat",
-  "Haryana",
-  "Himachal Pradesh",
-  "Jharkhand",
-  "Karnataka",
-  "Kerala",
-  "Ladakh",
-  "Lakshadweep",
-  "Madhya Pradesh",
-  "Maharashtra",
-  "Manipur",
-  "Meghalaya",
-  "Mizoram",
-  "Nagaland",
-  "Odisha",
-  "Puducherry",
-  "Punjab",
-  "Rajasthan",
-  "Sikkim",
-  "Tamil Nadu",
-  "Telangana",
-  "Tripura",
-  "Uttar Pradesh",
-  "Uttarakhand",
-  "West Bengal",
-];
-
-const ITEM_HEIGHT = 48;
-const ITEM_PADDING_TOP = 8;
-const MenuProps = {
-  PaperProps: {
-    style: {
-      maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
-      width: 250,
-    },
-  },
-};
-
-function getStyles(name, typesofassaultopt, theme) {
-  return {
-    fontWeight:
-      typesofassaultopt.indexOf(name) === -1
-        ? theme.typography.fontWeightRegular
-        : theme.typography.fontWeightMedium,
-  };
-}
 
 export default function Showincidentsshared() {
-  const { typesofassault, setTypesofassault, city, setCity, state, setState } =
-    useContext(SearchContext);
-
+  const { typesofassault, setTypesofassault, locations, setLocations, showIncidentsfrom, setShowIncidentsfrom } =
+  useContext(SearchContext);
+  
   const { data, loading, reFetch } = useFetch(
-    `/getAllIncidents?typesofassault=${typesofassault}&city=${city}&state=${state}`
-  );
-
-  const [typeofassault, setTypeofassault] = useState([]);
-  const [cities, setCities] = useState("");
-  const [states, setStates] = useState("");
-
-  const handleIncidentSearch = () => {
-    // reFetch();
-    console.log(data);
-    setTypesofassault(typeofassault);
-    setCity(cities);
-    setState(state);
-  };
-  const handleIncidentClear = () => {
-    setTypesofassault([]);
+    `/getAllIncidents?typesofassault=${typesofassault}&locations=${locations}&showIncidentsfrom=${showIncidentsfrom}`
+    );
+    
+    const [typeofassault, setTypeofassault] = useState([]);
+    const [location, setLocation] = useState("");
+    const [showIncidentfrom, setShowIncidentfrom] = useState("All time");
+    
+    const handleIncidentSearch = () => {
+      // reFetch();
+      console.log(data);
+      setTypesofassault(typeofassault);
+      setLocations(location);
+      setShowIncidentsfrom(showIncidentfrom);
+    };
+    const handleIncidentClear = () => {
+      setTypesofassault([]);
     setTypeofassault([]);
-    setCity("");
-    setCities("");
-    setState("");
-    setStates("");
+    setLocation("");
+    setLocations("");
+    setShowIncidentfrom("All time");
+    setShowIncidentsfrom("All time");
     // reFetch();
   };
-  const handleCity = (event) => {
-    setCities(event.target.value);
-  };
-  const handleState = (event) => {
-    setStates(event.target.value);
-  };
+  // const handleLocations = (event) => {
+  //   setCities(event.target.value);
+  // };
   const theme = useTheme();
-
+  
   const handleChange = (event) => {
     // console.log(event);
     const {
@@ -148,17 +93,17 @@ export default function Showincidentsshared() {
     setTypeofassault(
       // On autofill we get a stringified value.
       typeof value === "string" ? value.split(",") : value
-    );
-    console.log(typeofassault[0] + " " + typeofassault[1]);
-  };
-  const handleDelete = (e: MouseEvent, value: string) => {
-    e.preventDefault();
-    console.log("clicked delete");
-    setTypeofassault((current) => _without(current, value));
-  };
-
-  return (
-    <div className="incidentfiltering">
+      );
+      console.log(typeofassault[0] + " " + typeofassault[1]);
+    };
+    const handleDelete = (e: MouseEvent, value: string) => {
+      e.preventDefault();
+      console.log("clicked delete");
+      setTypeofassault((current) => _without(current, value));
+    };
+    
+    return (
+      <div className="incidentfiltering">
       <div className="typeofassaultdrop">
         <Autocomplete
           multiple
@@ -166,6 +111,7 @@ export default function Showincidentsshared() {
           options={options}
           disableCloseOnSelect
           getOptionLabel={(option) => option}
+          onChange={(event,value)=>setTypeofassault(value)}
           renderOption={(props, option, { selected }) => (
             <li {...props}>
               <Checkbox
@@ -173,15 +119,15 @@ export default function Showincidentsshared() {
                 checkedIcon={checkedIcon}
                 style={{ marginRight: 8 }}
                 checked={selected}
-              />
+                />
               {option}
             </li>
           )}
           style={{ width: "100%" }}
           renderInput={(params) => (
             <TextField {...params} label="Type of Violence" />
-          )}
-        />
+            )}
+            />
       </div>
       <Citydropdown />
       <div className="incidentbtns">
@@ -197,3 +143,43 @@ export default function Showincidentsshared() {
     </div>
   );
 }
+
+// const Indiastates = [
+//   "Andaman and Nicobar Islands",
+//   "Andhra Pradesh",
+//   "Arunachal Pradesh",
+//   "Assam",
+//   "Bihar",
+//   "Chandigarh",
+//   "Chhattisgarh",
+//   "Dadra and Nagar Haveli",
+//   "Daman and Diu",
+//   "Delhi",
+//   "Goa",
+//   "Jammu and Kashmir",
+//   "Gujarat",
+//   "Haryana",
+//   "Himachal Pradesh",
+//   "Jharkhand",
+//   "Karnataka",
+//   "Kerala",
+//   "Ladakh",
+//   "Lakshadweep",
+//   "Madhya Pradesh",
+//   "Maharashtra",
+//   "Manipur",
+//   "Meghalaya",
+//   "Mizoram",
+//   "Nagaland",
+//   "Odisha",
+//   "Puducherry",
+//   "Punjab",
+//   "Rajasthan",
+//   "Sikkim",
+//   "Tamil Nadu",
+//   "Telangana",
+//   "Tripura",
+//   "Uttar Pradesh",
+//   "Uttarakhand",
+//   "West Bengal",
+// ];

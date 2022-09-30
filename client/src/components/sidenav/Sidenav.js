@@ -1,5 +1,5 @@
 import React from "react";
-import "./sidenav.css";
+import "./Sidenav.css";
 import { useState } from "react";
 import Showincidentsshared from "../ShowIncidentsShared/ShowIncidentsShared.js";
 import IncidentScrollbar from "../IncidentScrollbar/IncidentScrollbar.js";
