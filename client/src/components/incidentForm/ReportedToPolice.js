@@ -62,12 +62,15 @@ function ReportedToPolice({ formData, setFormData }) {
         >
           No
         </ToggleButton>
-        <ToggleButton value="I tried" aria-label="it" 
+        <ToggleButton
+          value="I tried"
+          aria-label="it"
           style={{
             outlineColor: "#0047ab",
             outlineWidth: "1px",
             outlineStyle: "solid",
-          }}>
+          }}
+        >
           I tried
         </ToggleButton>
       </ToggleButtonGroup>

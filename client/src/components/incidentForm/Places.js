@@ -1,7 +1,7 @@
-import React,{Component} from 'react'
+import React, { Component } from "react";
 import { useState, useMemo } from "react";
 import { GoogleMap, useLoadScript, MarkerF } from "@react-google-maps/api";
-import { useContext} from 'react'
+import { useContext } from "react";
 import "./incidentForm.css";
 import usePlacesAutocomplete, {
   getGeocode,
@@ -16,7 +16,7 @@ import {
 } from "@reach/combobox";
 import "@reach/combobox/styles.css";
 // import { useContext } from 'react';
-import { LatLonContext } from '../../context/LatLonContext';
+import { LatLonContext } from "../../context/LatLonContext";
 // import { useContext } from 'react';
 
 export default function Places({ formData, setFormData }) {
@@ -29,16 +29,21 @@ export default function Places({ formData, setFormData }) {
   return <Map formData={formData} setFormData={setFormData} />;
 }
 
-
 function Map({ formData, setFormData }) {
   const center = useMemo(() => ({ lat: 28.7166162, lng: 77.1139872 }), []);
-  const [selected, setSelected] = useState({ lat: 28.7166162, lng: 77.1139872 });
-
+  const [selected, setSelected] = useState({
+    lat: 28.7166162,
+    lng: 77.1139872,
+  });
 
   return (
     <>
       <div className="places-container">
-        <PlacesAutocomplete formData={formData} setFormData={setFormData} setSelected={setSelected} />
+        <PlacesAutocomplete
+          formData={formData}
+          setFormData={setFormData}
+          setSelected={setSelected}
+        />
       </div>
 
       <GoogleMap
@@ -46,9 +51,8 @@ function Map({ formData, setFormData }) {
         center={selected}
         mapContainerClassName="map-container"
       >
-
         {/* {selected && <Marker position={selected} />} */}
-        <MarkerF position={selected}/>
+        <MarkerF position={selected} />
       </GoogleMap>
     </>
   );
@@ -71,24 +75,23 @@ const PlacesAutocomplete = ({ formData, setFormData, setSelected }) => {
     console.log(results);
     const { lat, lng } = await getLatLng(results[0]);
     setSelected({ lat, lng });
-    
+
     var addresss = results[0].address_components;
-    var country,city, state;
-    addresss.forEach(function(component) {
+    var country, city, state;
+    addresss.forEach(function (component) {
       var types = component.types;
-      if (types.indexOf('locality') > -1) {
+      if (types.indexOf("locality") > -1) {
         city = component.long_name;
       }
 
-      if (types.indexOf('administrative_area_level_1') > -1) {
+      if (types.indexOf("administrative_area_level_1") > -1) {
         state = component.long_name;
       }
 
-      if (types.indexOf('country') > -1) {
+      if (types.indexOf("country") > -1) {
         country = component.long_name;
       }
     });
-
     formData.address.country=country;
     formData.address.city=city;
     formData.address.state=state;
@@ -117,4 +120,3 @@ const PlacesAutocomplete = ({ formData, setFormData, setSelected }) => {
     </Combobox>
   );
 };
-

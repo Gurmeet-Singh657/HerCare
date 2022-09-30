@@ -36,6 +36,7 @@ import { position } from "@chakra-ui/react";
 // }
 // const markers =  getData()
 
+
 function Map() {
   const {data,loading,reFetch} = useFetch('/getIncidentFormData')
   const markers = []
@@ -62,8 +63,8 @@ function Map() {
     }
     setActiveMarker(marker);
   };
-
   const handleOnLoad = (map) => {
+
     const bounds = new google.maps.LatLngBounds();
     markers.forEach(({ position }) =>{ bounds.extend(parseFloat(position))
       // console.log(position + "Hello");

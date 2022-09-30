@@ -8,78 +8,113 @@ import TableRow from "@material-ui/core/TableRow";
 import TablePagination from "@material-ui/core/TablePagination";
 import Paper from "@material-ui/core/Paper";
 import { useState } from "react";
-import "./incidentScrollbar.css"
-import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
+import "./incidentScrollbar.css";
+import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import useFetch from "../../hooks/useFetch";
 import { dateRangePickerToolbarClasses } from "@mui/x-date-pickers-pro";
 import { useContext } from "react";
 import { SearchContext } from "../../context/SearchContext";
-
-
-function createData(title, location, datetime, desc) {
-    return { title, location, datetime, desc };
-}
+import IncidentCard from "../IncidentCard/IncidentCard.js";
 
 export default function SimpleTable() {
-    // const { data, loading, error } = useFetch("/getAllIncidents");
-    const { typesofassault, showIncidentfrom, timeoftheday } = useContext(SearchContext);
-    const { data, loading, reFetch } = useFetch(`/getAllIncidents?typesofassault=${typesofassault}&showIncidentfrom=${showIncidentfrom}&timeoftheday=${timeoftheday}`);
-    const [page, setPage] = useState(0);
-    const [rowsPerPage, setRowsPerPage] = useState(10);
-    const handleChangePage = (event, newPage) => {
-        setPage(newPage);
-    };
+  // const { data, loading, error } = useFetch("/getAllIncidents");
+  const { typesofassault, showIncidentfrom, timeoftheday } =
+    useContext(SearchContext);
+  const { data, loading, reFetch } = useFetch(
+    `/getAllIncidents?typesofassault=${typesofassault}&showIncidentfrom=${showIncidentfrom}&timeoftheday=${timeoftheday}`
+  );
+  const [page, setPage] = useState(0);
+  const [rowsPerPage, setRowsPerPage] = useState(10);
+  const handleChangePage = (event, newPage) => {
+    setPage(newPage);
+  };
 
-    const handleChangeRowsPerPage = event => {
-        setRowsPerPage(parseInt(event.target.value, 10));
-        setPage(0);
-    };
+  const handleChangeRowsPerPage = (event) => {
+    setRowsPerPage(parseInt(event.target.value, 10));
+    setPage(0);
+  };
 
-    return (
-        <>
-            <TableContainer sx={{
-                "&::-webkit-scrollbar": {
-                    width: 20
-                },
-                "&::-webkit-scrollbar-track": {
-                    backgroundColor: "orange"
-                },
-                "&::-webkit-scrollbar-thumb": {
-                    backgroundColor: "red",
-                    borderRadius: 2
-                }
-            }} style={{ maxHeight: "70vh", height: "maxcontent", marginBottom: "20" }} component={Paper}>
-                {
-                    data.length === 0 &&
-                    <div className="nothinghere">
-                        No incident to show here&nbsp;&nbsp;<VisibilityOffIcon />
-                    </div>
-                }
-                <Table stickyHeader aria-label="simple table">
-                    <TableBody>
-                        {data.length > 0 && data
-                            .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                            .map((row, index) => (
-                                <TableRow key={row.name}>
-                                    <TableCell component="th" scope="row">
-                                        {row.title}
-                                        {row.time}
-                                        {row.typeOfViolence}
-                                    </TableCell>
-                                </TableRow>
-                            ))}
-                    </TableBody>
-                </Table>
-                {data.length > 0 && <TablePagination
-                    rowsPerPageOptions={[5, 10, 25]}
-                    component="div"
-                    count={data.length}
-                    rowsPerPage={rowsPerPage}
-                    page={page}
-                    onChangePage={handleChangePage}
-                    onChangeRowsPerPage={handleChangeRowsPerPage}
-                />}
-            </TableContainer>
-        </>
-    );
+  return (
+    <div className="fullPage">
+      <div className="gridParent">
+        {data.length === 0 && (
+          <div className="nothinghere">
+            No incident to show here&nbsp;&nbsp;
+            <VisibilityOffIcon />
+          </div>
+        )}
+        {data.length > 0 &&
+          data
+            .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+            .map((row, index) => (
+              <IncidentCard className="gridChild"
+                key={index}
+                title={row.title}
+                time={row.time}
+                typeOfViolence={row.typeOfViolence}
+                gender={row.gender}
+                age={row.age}
+                city={row.address.city}
+                state={row.address.state}
+                desc={row.message}
+              />
+            ))}
+      </div>
+      {data.length > 0 && (
+          <TablePagination
+            rowsPerPageOptions={[5, 10, 25]}
+            component="div"
+            count={data.length}
+            rowsPerPage={rowsPerPage}
+            page={page}
+            onChangePage={handleChangePage}
+            onChangeRowsPerPage={handleChangeRowsPerPage}
+          />
+        )}
+    </div>
+  );
 }
+
+// <TableContainer sx={{
+//     "&::-webkit-scrollbar": {
+//         width: 20
+//     },
+//     "&::-webkit-scrollbar-track": {
+//         backgroundColor: "orange"
+//     },
+//     "&::-webkit-scrollbar-thumb": {
+//         backgroundColor: "red",
+//         borderRadius: 2
+//     }
+// }} style={{ maxHeight: "70vh", height: "maxcontent", marginBottom: "20" }} component={Paper}>
+//     {
+//         data.length === 0 &&
+//         <div className="nothinghere">
+//             No incident to show here&nbsp;&nbsp;<VisibilityOffIcon />
+//         </div>
+//     }
+//     <Table stickyHeader aria-label="simple table">
+//         <TableBody>
+//             {data.length > 0 && data
+//                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+//                 .map((row, index) => (
+//                     <TableRow key={row.name}>
+//                         <TableCell component="th" scope="row">
+//                             {row.title}
+//                             {row.time}
+//                             {row.typeOfViolence}
+//                         </TableCell>
+//                     </TableRow>
+//                 ))}
+//         </TableBody>
+//     </Table>
+//     {data.length > 0 && <TablePagination
+//         rowsPerPageOptions={[5, 10, 25]}
+//         component="div"
+//         count={data.length}
+//         rowsPerPage={rowsPerPage}
+//         page={page}
+//         onChangePage={handleChangePage}
+//         onChangeRowsPerPage={handleChangeRowsPerPage}
+//     />}
+// </TableContainer>

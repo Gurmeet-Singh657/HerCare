@@ -31,7 +31,11 @@ function SafetyTipForm() {
     console.log(JSON.stringify(formData));
     if (page === 1) {
       if (formData.title === "" || formData.message === "")
-        alert("Please Enter the Title and Message");
+        alert("Please Enter the Title and Description!");
+        else if (formData.message.length < 20)
+        alert(`Please enter atleast ${20 - formData.message.length} more Characters in Description!`);
+      else if (formData.title.length < 6)
+        alert(`Please enter atleast ${6 - formData.title.length} more Characters in Title!`);
       else{  
     await axios
       .post("http://localhost:4000/safetytip", JSON.stringify(formData), {

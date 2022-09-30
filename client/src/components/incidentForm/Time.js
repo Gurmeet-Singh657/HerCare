@@ -1,12 +1,12 @@
-import React from 'react'
-import dayjs from 'dayjs';
-import Stack from '@mui/material/Stack';
-import TextField from '@mui/material/TextField';
-import { LocalizationProvider } from '@mui/x-date-pickers-pro';
-import { AdapterDayjs } from '@mui/x-date-pickers-pro/AdapterDayjs';
-import { DateTimePicker } from '@mui/x-date-pickers-pro';
+import React from "react";
+import dayjs from "dayjs";
+import Stack from "@mui/material/Stack";
+import TextField from "@mui/material/TextField";
+import { LocalizationProvider } from "@mui/x-date-pickers-pro";
+import { AdapterDayjs } from "@mui/x-date-pickers-pro/AdapterDayjs";
+import { DateTimePicker } from "@mui/x-date-pickers-pro";
 
-function Time({formData, setFormData}) {
+function Time({ formData, setFormData }) {
   // return (
   //   <div className='date'>
   //     <input type="date" placeholder="Date" value={formData.date} onChange={(event) => setFormData({...formData, date: event.target.value})}/>
@@ -14,10 +14,10 @@ function Time({formData, setFormData}) {
   //   </div>
   // )
 
-  const [value, setValue] = React.useState(dayjs('2014-08-18T21:11:54'));
+  const [value, setValue] = React.useState(dayjs("2014-08-18T21:11:54"));
 
   const handleChange = (newValue) => {
-    setFormData({...formData, time: newValue})
+    setFormData({ ...formData, time: newValue });
   };
 
   return (
@@ -32,7 +32,6 @@ function Time({formData, setFormData}) {
       </Stack>
     </LocalizationProvider>
   );
-
 }
 
-export default Time
+export default Time;

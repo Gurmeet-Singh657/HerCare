@@ -16,6 +16,7 @@ function TypeOfViolence({ formData, setFormData }) {
         onChange={handleChange}
         fullWidth={true}
         sx={{ gap: 1 }}
+        className=""
         color="info"
       >
         <ToggleButtonGroup

@@ -1,6 +1,24 @@
+.viewdatacont{
+    position: absolute;
+    top:100px;
+    width:100%;
+    display: flex;
+    flex-direction: row;
+}
 .sidebar
 {
-    margin:20px;
+    margin:10px;
+    margin-right: 0px;
     /* background-color: red; */
-    display: unset;
+    /* display: unset; */
+    width:25vw;
 }
+
+.cardsofincident
+{
+    top:120px;
+    width:55vw;
+    /* border:10px solid rgb(121, 121, 232); */
+    
+}
+

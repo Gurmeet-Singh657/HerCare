@@ -15,13 +15,13 @@ const Incident = mongoose.model(
         allowNull: false,
         required: [true, "Age is required"],
       },
-      identity: {type: String,},
-      gender: {type: String},
-      title: { type: String, allowNull: false },
+      identity: { type: String },
+      gender: { type: String },
+      title:{type:String,allowNull:false},
       message: { type: String, allowNull: false },
       time: { type: Date, allowNull: true },
-      typeOfViolence: {type: String},
-      reportToPolice: {type: String},
+      typeOfViolence: { type: String },
+      reportToPolice: { type: String },
       status: {
         type: String,
         enum: ["live", "pending", "rejected"],
@@ -31,7 +31,6 @@ const Incident = mongoose.model(
     { timestamps: true }
   )
 );
-
 
 const doc = new Incident();
 doc.address;
