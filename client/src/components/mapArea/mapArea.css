@@ -6,9 +6,9 @@
     /* position: absolute;
     top:700px; */
     width: 90vw;
-    height:70vh;
+    height: 70vh;
     margin: auto;
-    margin-top: 100px;
+    margin-top: 70px;
     /* justify-content: start; */
     /* align-items: start; */
 }
@@ -34,8 +34,8 @@
     font-size: 14px;
     margin: auto;
 }
-.linktoviewdata
-{
+
+.linktoviewdata {
     text-decoration: none;
     font-weight: bold;
 }

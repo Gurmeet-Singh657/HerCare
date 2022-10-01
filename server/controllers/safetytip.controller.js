@@ -57,3 +57,52 @@ const get = async function (req, res) {
     return safetytip;
   };
   module.exports.findSafetyTipById = findByPk;
+
+const getAllSafetyTips = async function (req, res) {
+  const { locationsst, showsafetyTipsfrom } = req.query;
+  let val = 100 * 365;
+  if (showsafetyTipsfrom === "Today") {
+    val = 1;
+  } else if (showsafetyTipsfrom === "This Week") {
+    val = 7;
+  } else if (showsafetyTipsfrom === "This Month") {
+    val = 31;
+  } else if (showsafetyTipsfrom === "This Year") {
+    val = 365;
+  }
+  let err, safetyTips;
+  if (locationsst) {
+    [err, safetyTips] = await to(
+      SafetyTip.find({
+        time: {
+          $gte: new Date(
+            new Date(new Date().getTime() - val * 24 * 60 * 60 * 1000)
+          )
+        },
+        "address.state": locationsst
+      })
+        .sort({ time: -1 })
+    );
+  }
+  else {
+    [err, safetyTips] = await to(
+      SafetyTip.find({
+        time: {
+          $gte: new Date(
+            new Date(new Date().getTime() - val * 24 * 60 * 60 * 1000)
+          )
+        }
+      })
+        .sort({ time: -1 })
+    );
+  }
+  if (err) {
+    logger.error("Safety Tips Controller - get : Safety Tips not found", err);
+    return ReE(res, err, 422);
+  }
+
+  res.setHeader("Content-Type", "application/json");
+
+  return ReS(res, safetyTips);
+};
+module.exports.getAllSafetyTips = getAllSafetyTips;

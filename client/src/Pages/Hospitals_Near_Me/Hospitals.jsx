@@ -83,15 +83,6 @@ const Hospitals = () => {
             );
           })}
         </div>
-        {/* https://maps.google.com/maps?q=mumbai%20hospital&t=&z=13&ie=UTF8&iwloc=&output=embed */}
-        {/* <div className="sidemap"> */}
-        {/* <iframe width="100%" height="600" id="gmap_canvas" src={`https://maps.google.com/maps?q='+${latitude}+','+${longitude}+'&hl=es&z=14&amp;output=embed`} frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe> */}
-        {/* <iframe width="100%" height="600" src="https://maps.google.com/maps?q=10.305385,77.923029&hl=es;z=14&amp;output=embed"></iframe> */}
-        {/* <iframe width="100%" height="600" src={`https://maps.google.com/maps?q=' + ${latitude} + ',' + ${longitude} + '&t=&z=15&ie=UTF8&iwloc=&output=embed`} /> */}
-        {/* </div> */}
-        <div className="sidemap">
-          <Places />
-        </div>
       </div>
     </>
   );

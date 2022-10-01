@@ -65,7 +65,7 @@ export default function Slider() {
               <h1 className='objtitle'>{obj.title}</h1>
             </div>
             <div className="readmore">
-              <a href={obj.links} target="_blank" className="infobtn"><ReadMoreIcon style={{ fontSize: "2vw" }} />&nbsp; Read Here</a>
+              <a exact href={obj.links} target="_blank" className="infobtn"><ReadMoreIcon style={{ fontSize: "2vw" }} />&nbsp; Read Here</a>
             </div>
           </div>
         )

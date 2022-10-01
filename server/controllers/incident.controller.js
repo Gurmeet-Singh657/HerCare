@@ -105,19 +105,34 @@ const getAllIncidents = async function (req, res) {
   }
   console.log(val);
   let err, incident;
-  [err, incident] = await to(
-    Incident.find({
-      // time: {
-      //   $gte: new Date(
-      //     new Date(new Date().getTime() - val * 24 * 60 * 60 * 1000)
-      //   ),
-      // },
-      "address.state": "locations",
-      // time: { $gte: val },
-      // typeOfViolence: { $in: currenttypeofassault },
-    })
-    // .sort({ time: -1 })
-  );
+  if (locations) {
+    [err, incident] = await to(
+      Incident.find({
+        time: {
+          $gte: new Date(
+            new Date(new Date().getTime() - val * 24 * 60 * 60 * 1000)
+          )
+        },
+        "address.state": locations,
+        typeOfViolence: { $in: currenttypeofassault },
+      })
+        .sort({ time: -1 })
+    );
+  }
+  else {
+    [err, incident] = await to(
+      Incident.find({
+        time: {
+          $gte: new Date(
+            new Date(new Date().getTime() - val * 24 * 60 * 60 * 1000)
+          )
+        },
+        typeOfViolence: { $in: currenttypeofassault },
+      })
+        .sort({ time: -1 })
+    );
+  }
+  console.log(incident);
   if (err) {
     logger.error("Incident Controller - get : Incident not found", err);
     return ReE(res, err, 422);

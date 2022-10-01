@@ -1,15 +1,16 @@
 .hosmapdetails {
-    /* width: 30vw; */
-    /* justify-content: center; */
-    /* flex-direction: column; */
-    /* gap: 200px; */
-    /* justify-content: center; */
-    /* background-color: red; */
-    width: 31vw;
+    width: 100vw;
+    display: flex;
+    flex-wrap: wrap;
+    height: max-content;
+    margin: auto;
+    /* text-align: center; */
 }
 
 .hosmap {
-    width: 100%;
+    margin-top: 80px;
+    width: 100vw;
+    margin: 80px 0px 0px 0px;
     display: flex;
     flex-direction: row;
 }
@@ -18,4 +19,10 @@
     height: 100vh;
     width: 69vw;
     padding: 20px;
+}
+
+@media screen and (max-width: 1100px) {
+    .hosmap {
+        margin-top: 0px;
+    }
 }

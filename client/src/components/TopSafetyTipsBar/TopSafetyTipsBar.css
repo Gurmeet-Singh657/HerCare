@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Mukta+Vaani&display=swap');
+
+.topSafetyTipsBar {
+    width: 100%;
+    margin: auto;
+    margin-top: 10px;
+    /* border: 2px solid red; */
+    font-family: 'Mukta Vaani', sans-serif;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-bottom: 5px;
+}
+
+.headingsst {
+    /* background-color: black; */
+    /* width: 140px; */
+    height: max-content;
+    border-radius: 10px;
+    padding: 5px;
+    font-weight: bold;
+    font-size: 0.8rem;
+    border: 2px solid rgb(132, 139, 219);
+    color: rgb(132, 139, 219);
+    white-space: nowrap;
+}
+.toptypeofassaultst
+.SafetyTipsstate {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.filterdatast {
+    display: flex;
+    flex-direction: row;
+    /* justify-content: center;
+    align-items: center; */
+    flex-wrap: wrap;
+    gap: 4px;
+    font-size: 0.8rem;
+    /* overflow: hidden; */
+    /* width: 60%; */
+}
+
+.chipcontainerst {
+    background-color: rgb(132, 139, 219);
+    padding: 8px;
+    border-radius: 10px;
+}
+
+.filterSafetyTips {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}

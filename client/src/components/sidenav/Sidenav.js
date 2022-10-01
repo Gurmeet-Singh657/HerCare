@@ -4,6 +4,8 @@ import { useState } from "react";
 import Showincidentsshared from "../ShowIncidentsShared/ShowIncidentsShared.js";
 import IncidentScrollbar from "../IncidentScrollbar/IncidentScrollbar.js";
 import IncidentDialog from '../IncidentDialog/IncidentDialog.js'
+import TopIncidentBar from "../topincidentbar/TopIncidentBar.jsx";
+import TopSafetyTipsBar from "../TopSafetyTipsBar/TopSafetyTipsBar.js"
 
 const Sidenav = () => {
   const [Incident, setIncident] = useState(true);
@@ -33,12 +35,14 @@ const Sidenav = () => {
         </div>
         {Incident && (
           <div className="showincidentsshared">
-            <Showincidentsshared />
+            <TopIncidentBar />
           </div>
         )}
-        {!Incident && <div className="showsafetytipsshared"></div>}
+        {!Incident && (<div className="showsafetytipsshared">
+          <TopSafetyTipsBar />
+        </div>)}
       </div>
-      </div>
+    </div>
   );
 };
 
