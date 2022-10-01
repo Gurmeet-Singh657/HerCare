@@ -16,7 +16,9 @@ import Form from "./components/incidentForm/Form";
 import SafetyTipForm from "./components/safetytipForm/SafetyTipForm";
 import Sample from "./components/maphome/Sample";
 import View_Data from "./Pages/View_Data/View_Data";
-
+import ChartData from "./components/chart/ChartData";
+import ViolenceChart from "./components/chart/ViolenceChart"
+import StateChart from "./components/chart/StateChart";
 const App = () => {
   return (
     <div>
@@ -49,7 +51,8 @@ const App = () => {
           <Route exact path="/about" element={<About />}></Route>
           <Route exact path="/test" element={<Sample/>}></Route>
           <Route exact path="/viewdata" element={<View_Data />}></Route>
-
+          <Route exact path="/chartdata" element={<ViolenceChart />}></Route>
+          <Route exact path="/statedata" element={<StateChart/>}></Route>
         </Routes>
       </BrowserRouter>
       {/* <Navbar/> */}

@@ -82,8 +82,7 @@ const getAllIncidents = async function (req, res) {
     "Showing Pornography without consent",
     "Commenting/Sexual Invites",
     "Online Harassment",
-    "Human Trafficking",
-    "Others"
+    "Human Trafficking"
   ];
   // console.log(typesofassault);
   if (typesofassault) {

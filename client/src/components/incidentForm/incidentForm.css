@@ -190,8 +190,8 @@
   position: absolute;
   margin-top: 1.75%;
   width: 400px;
-  margin-left: 25%;
-  border: 2px solid blue;
+  margin-left: 30%;
+  /* border: 2px solid blue; */
   border-radius: 5px;
   /* height:500px; */
   /* transform: translateX(-50%); */

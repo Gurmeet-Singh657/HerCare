@@ -4,39 +4,6 @@ import useFetch from '../../hooks/useFetch.js'
 import axios from "axios";
 import { position } from "@chakra-ui/react";
 /*global google*/
-// const markers = [
-//   {
-//     id: 1,
-//     name: "Chicago, Illinois",
-//     position: { lat: 41.881832, lng: -87.623177 }
-//   },
-//   {
-//     id: 2,
-//     name: "Denver, Colorado",
-//     position: { lat: 28.7166162, lng: 77.1139872 }  
-//   },
-//   {
-//     id: 3,
-//     name: "Los Angeles, California",
-//     position: { lat: 34.052235, lng: -118.243683 }
-//   },
-//   {
-//     id: 4,
-//     name: "New York, New York",
-//     position: { lat: 40.712776, lng: -74.005974 }
-//   }
-//];
-
-// const getData = async()=>{
-//   await axios
-//       .get("http://localhost:4000/getIncidentFormData")
-//       .then((result) => {
-//         return result.data
-//       });
-// }
-// const markers =  getData()
-
-
 function Map() {
   const {data,loading,reFetch} = useFetch('/getIncidentFormData')
   const markers = []
@@ -44,6 +11,7 @@ function Map() {
     const obj = {
       _id : data[i]._id,
       time: data[i].time,
+      typeOfViolence: data[i].typeOfViolence,
       position:{
         lat: parseFloat(data[i].address.lat.$numberDecimal),
         lng: parseFloat(data[i].address.lng.$numberDecimal)
@@ -79,15 +47,18 @@ function Map() {
       mapContainerStyle={{ width: "100%", height: "100%" }}
       center={{ lat: 28.7166162, lng: 77.1139872 }}
     >
-      {markers.map(({ _id, time, position }) => (
+      {markers.map(({ _id, time, position, typeOfViolence }) => (
         <MarkerF
           key={_id}
           position={position}
           onClick={() => handleActiveMarker(_id)}
         >
           {activeMarker === _id ? (
-            <InfoWindow onCloseClick={() => setActiveMarker(null)} options= {{maxWidth : 500 }}>
-              <div>{time}</div>
+            // onCloseClick={() => setActiveMarker(null)}
+            <InfoWindow  options= {{maxWidth : 300 }}>
+             
+              <div><div>{time}</div><br></br><b><div>{typeOfViolence}</div></b><br></br></div>
+              
             </InfoWindow>
           ) : null}
         </MarkerF>
