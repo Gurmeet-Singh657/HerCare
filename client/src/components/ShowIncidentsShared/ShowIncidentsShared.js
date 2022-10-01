@@ -25,6 +25,7 @@ import CheckBoxOutlineBlankIcon from "@mui/icons-material/CheckBoxOutlineBlank";
 import CheckBoxIcon from "@mui/icons-material/CheckBox";
 import Stack from "@mui/material/Stack";
 import ListItemText from "@mui/material/ListItemText";
+import { makeStyles } from "@material-ui/core";
 
 const icon = <CheckBoxOutlineBlankIcon fontSize="small" />;
 const checkedIcon = <CheckBoxIcon fontSize="small" />;
@@ -44,8 +45,63 @@ const options = [
   "Online Harassment",
   "Human Trafficking",
 ];
-<<<<<<< HEAD
 const timeshow = ["All time", "Today", "This Week", "This Month", "This Year"];
+const Indiastates = [
+  "Andaman and Nicobar Islands",
+  "Andhra Pradesh",
+  "Arunachal Pradesh",
+  "Assam",
+  "Bihar",
+  "Chandigarh",
+  "Chhattisgarh",
+  "Dadra and Nagar Haveli",
+  "Daman and Diu",
+  "Delhi",
+  "Goa",
+  "Jammu and Kashmir",
+  "Gujarat",
+  "Haryana",
+  "Himachal Pradesh",
+  "Jharkhand",
+  "Karnataka",
+  "Kerala",
+  "Ladakh",
+  "Lakshadweep",
+  "Madhya Pradesh",
+  "Maharashtra",
+  "Manipur",
+  "Meghalaya",
+  "Mizoram",
+  "Nagaland",
+  "Odisha",
+  "Puducherry",
+  "Punjab",
+  "Rajasthan",
+  "Sikkim",
+  "Tamil Nadu",
+  "Telangana",
+  "Tripura",
+  "Uttar Pradesh",
+  "Uttarakhand",
+  "West Bengal",
+];
+
+const ITEM_HEIGHT = 48;
+const ITEM_PADDING_TOP = 8;
+const MenuProps = {
+  PaperProps: {
+    style: {
+      maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
+      width: 250,
+    },
+  },
+};
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    whiteSpace: "unset",
+  },
+}));
 
 export default function Showincidentsshared() {
   const {
@@ -53,198 +109,119 @@ export default function Showincidentsshared() {
     setTypesofassault,
     locations,
     setLocations,
-    showIncidentsWithin,
-    setShowIncidentsWithin,
+    showIncidentsfrom,
+    setShowIncidentsfrom,
   } = useContext(SearchContext);
 
   const { data, loading, reFetch } = useFetch(
-    `/getAllIncidents?typesofassault=${typesofassault}&locations=${locations}&showIncidentsWithin=${showIncidentsWithin}`
+    `/getAllIncidents?typesofassault=${typesofassault}&locations=${locations}&showIncidentsfrom=${showIncidentsfrom}`
   );
 
   const [typeofassault, setTypeofassault] = useState([]);
   const [location, setLocation] = useState("");
-  const [showIncidentWithin, setShowIncidentWithin] = useState("All time");
+  const [showIncidentfrom, setShowIncidentfrom] = useState("All time");
 
   const handleIncidentSearch = () => {
+    console.log(data);
     setTypesofassault(typeofassault);
     setLocations(location);
-    setShowIncidentsWithin(showIncidentWithin);
+    setShowIncidentsfrom(showIncidentfrom);
   };
   const handleIncidentClear = () => {
+    console.log()
     setTypesofassault([]);
-    setTypeofassault([]);
-    setLocation("");
-    setLocations("");
-    setShowIncidentWithin("All");
-    setShowIncidentsWithin("All");
-  };
-
-  const handleshowincidentwithin = (event) => {
-    setShowIncidentWithin(event.target.value);
-  };
-  const ITEM_HEIGHT = 48;
-  const ITEM_PADDING_TOP = 8;
-  const MenuProps = {
-    PaperProps: {
-      style: {
-        maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
-        width: 250,
-      },
-    },
-  };
-
-=======
-const timeshow=[
-  "All time",
-  "Today",
-  "This Week",
-  "This Month",
-  "This Year"
-]
-
-
-export default function Showincidentsshared() {
-  const { typesofassault, setTypesofassault, locations, setLocations, showIncidentsfrom, setShowIncidentsfrom } =
-  useContext(SearchContext);
-  
-  const { data, loading, reFetch } = useFetch(
-    `/getAllIncidents?typesofassault=${typesofassault}&locations=${locations}&showIncidentsfrom=${showIncidentsfrom}`
-    );
-    
-    const [typeofassault, setTypeofassault] = useState([]);
-    const [location, setLocation] = useState("");
-    const [showIncidentfrom, setShowIncidentfrom] = useState("All time");
-    
-    const handleIncidentSearch = () => {
-      // reFetch();
-      console.log(data);
-      setTypesofassault(typeofassault);
-      setLocations(location);
-      setShowIncidentsfrom(showIncidentfrom);
-    };
-    const handleIncidentClear = () => {
-      setTypesofassault([]);
     setTypeofassault([]);
     setLocation("");
     setLocations("");
     setShowIncidentfrom("All time");
     setShowIncidentsfrom("All time");
-    // reFetch();
   };
-  // const handleLocations = (event) => {
-  //   setCities(event.target.value);
-  // };
-  const theme = useTheme();
-  
->>>>>>> 3cb5aae7fdafd08c0097eaf586f281ec55cdd604
-  const handleChange = (event) => {
+  const handleTypeofassault = (event) => {
     const {
       target: { value },
     } = event;
     setTypeofassault(
       // On autofill we get a stringified value.
       typeof value === "string" ? value.split(",") : value
-<<<<<<< HEAD
     );
   };
-
+  const handleshowincidentwithin = (event) => {
+    setShowIncidentfrom(event.target.value);
+  };
+  const handleLocation = (event) => {
+    setLocation(event.target.value);
+  };
+  const classes = useStyles();
   return (
     <div className="incidentfiltering">
       <div className="typeofassaultdrop">
-        <FormControl
-          className="typeofassaultdrop"
-          sx={{ marginBottom: 3, width: "100%" }}
-        >
-          <InputLabel id="demo-multiple-chip-label">
+        <FormControl sx={{ m: 1, width: 300 }}>
+          <InputLabel id="demo-multiple-checkbox-label">
             Types of Assault
           </InputLabel>
           <Select
-            labelId="demo-multiple-chip-label"
-            id="demo-multiple-chip"
+            labelId="demo-multiple-checkbox-label"
+            id="demo-multiple-checkbox"
             multiple
             value={typeofassault}
-            onChange={handleChange}
-            input={
-              <OutlinedInput
-                id="select-multiple-chip"
-                label="Types of Assault"
-              />
-            }
+            onChange={handleTypeofassault}
+            input={<OutlinedInput label="Type of Assault" />}
+            renderValue={(selected) => "Types of Assault"}
             MenuProps={MenuProps}
           >
-            {options[0].map((name) => (
+            {options.map((name) => (
               <MenuItem
                 key={name}
                 value={name}
-                style={getStyles(name, typeofassault, theme)}
+                classes={{ root: classes.root }}
               >
-                {name}
+                <Checkbox checked={typeofassault.indexOf(name) > -1} />
+                <ListItemText primary={name} />
               </MenuItem>
             ))}
           </Select>
         </FormControl>
-=======
-      );
-      console.log(typeofassault[0] + " " + typeofassault[1]);
-    };
-    const handleDelete = (e: MouseEvent, value: string) => {
-      e.preventDefault();
-      console.log("clicked delete");
-      setTypeofassault((current) => _without(current, value));
-    };
-    
-    return (
-      <div className="incidentfiltering">
-      <div className="typeofassaultdrop">
-        <Autocomplete
-          multiple
-          id="checkboxes-tags-demo"
-          options={options}
-          disableCloseOnSelect
-          getOptionLabel={(option) => option}
-          onChange={(event,value)=>setTypeofassault(value)}
-          renderOption={(props, option, { selected }) => (
-            <li {...props}>
-              <Checkbox
-                icon={icon}
-                checkedIcon={checkedIcon}
-                style={{ marginRight: 8 }}
-                checked={selected}
-                />
-              {option}
-            </li>
-          )}
-          style={{ width: "100%" }}
-          renderInput={(params) => (
-            <TextField {...params} label="Type of Violence" />
-            )}
-            />
->>>>>>> 3cb5aae7fdafd08c0097eaf586f281ec55cdd604
       </div>
-      <Citydropdown />
-      <Box sx={{ minWidth: 120 }}>
-        <FormControl fullWidth>
-          <InputLabel
-            id="demo-simple-select-label"
-            placeholder="Show Incidents Within"
-          >
-            Show Incidents Within
-          </InputLabel>
-          <Select
-            labelId="demo-simple-select-label"
-            id="demo-simple-select"
-            value={showIncidentWithin}
-            label="Show Incidents Within"
-            onChange={handleshowincidentwithin}
-          >
-            <MenuItem value="All">All</MenuItem>
-            <MenuItem value="Today">Today</MenuItem>
-            <MenuItem value="This Week">This Week</MenuItem>
-            <MenuItem value="This Month">This Month</MenuItem>
-            <MenuItem value="Last 3 Months">Last 3 Months</MenuItem>
-          </Select>
-        </FormControl>
-      </Box>
+      <div className="IndianStatesdrop">
+        <Box>
+          <FormControl fullWidth sx={{ m: 1, width: 300 }}>
+            <InputLabel id="demo-simple-select-label">
+              Select Indian State
+            </InputLabel>
+            <Select
+              labelId="demo-simple-select-label"
+              id="demo-simple-select"
+              value={location}
+              label="Select Indian State"
+              onChange={handleLocation}
+            >
+              {Indiastates.map((state) => {
+                return <MenuItem value={state}>{state}</MenuItem>;
+              })}
+            </Select>
+          </FormControl>
+        </Box>
+      </div>
+      <div className="showIncidentswithin">
+        <Box>
+          <FormControl fullWidth sx={{ m: 1, width: 300 }}>
+            <InputLabel id="demo-simple-select-label">
+              Show Incident Within
+            </InputLabel>
+            <Select
+              labelId="demo-simple-select-label"
+              id="demo-simple-select"
+              value={showIncidentfrom}
+              label="Show Incidents Within"
+              onChange={handleshowincidentwithin}
+            >
+              {timeshow.map((time) => {
+                return <MenuItem value={time}>{time}</MenuItem>;
+              })}
+            </Select>
+          </FormControl>
+        </Box>
+      </div>
       <div className="incidentbtns">
         <button className="searchincidents" onClick={handleIncidentSearch}>
           Search&nbsp;
@@ -258,43 +235,3 @@ export default function Showincidentsshared() {
     </div>
   );
 }
-
-// const Indiastates = [
-//   "Andaman and Nicobar Islands",
-//   "Andhra Pradesh",
-//   "Arunachal Pradesh",
-//   "Assam",
-//   "Bihar",
-//   "Chandigarh",
-//   "Chhattisgarh",
-//   "Dadra and Nagar Haveli",
-//   "Daman and Diu",
-//   "Delhi",
-//   "Goa",
-//   "Jammu and Kashmir",
-//   "Gujarat",
-//   "Haryana",
-//   "Himachal Pradesh",
-//   "Jharkhand",
-//   "Karnataka",
-//   "Kerala",
-//   "Ladakh",
-//   "Lakshadweep",
-//   "Madhya Pradesh",
-//   "Maharashtra",
-//   "Manipur",
-//   "Meghalaya",
-//   "Mizoram",
-//   "Nagaland",
-//   "Odisha",
-//   "Puducherry",
-//   "Punjab",
-//   "Rajasthan",
-//   "Sikkim",
-//   "Tamil Nadu",
-//   "Telangana",
-//   "Tripura",
-//   "Uttar Pradesh",
-//   "Uttarakhand",
-//   "West Bengal",
-// ];
