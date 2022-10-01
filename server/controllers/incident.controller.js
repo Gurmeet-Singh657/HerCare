@@ -5,9 +5,11 @@ const logger = require("../lib/logging");
 const create = async function (req, res) {
   res.setHeader("Content-Type", "application/json");
   // const body = JSON.parse(JSON.stringify(req.body));
-  const body = Object.assign({}, req.body)
+  const body = Object.assign({}, req.body);
   if (!body.title) {
-    logger.error("incident controller - create : Incident Title cannot be empty");
+    logger.error(
+      "incident controller - create : Incident Title cannot be empty"
+    );
     return ReE(res, new Error("Please enter a valid Incident Title."), 422);
   }
 
@@ -22,12 +24,14 @@ const create = async function (req, res) {
 
   return ReS(
     res,
-    { message: "Successfully created new Incident.", incident: incident.toObject() },
+    {
+      message: "Successfully created new Incident.",
+      incident: incident.toObject(),
+    },
     201
   );
 };
 module.exports.create = create;
-
 
 const get = async function (req, res) {
   let incident_id, err, incident;
@@ -65,10 +69,22 @@ const findByPk = async function (id) {
 module.exports.findIncidentById = findByPk;
 
 const getAllIncidents = async function (req, res) {
-  const { typesofassault, showIncidentfrom, timeoftheday } = req.query;
+  const { typesofassault, locations, showIncidentsfrom } = req.query;
   console.log(req.query);
   console.log(typesofassault);
   const searchjson = {};
+  let val = 100 * 365;
+  // console.log(s)
+  if (showIncidentsfrom === "Today") {
+    val = 1;
+  } else if (showIncidentsfrom === "This Week") {
+    val = 7;
+  } else if (showIncidentsfrom === "This Month") {
+    val = 31;
+  } else if (showIncidentsfrom === "This Year") {
+    val = 365;
+  }
+  // console.log(val);
   let currenttypeofassault = [
     "Physical Assault",
     "Rape/Sexual Assault",
@@ -82,32 +98,26 @@ const getAllIncidents = async function (req, res) {
     "Showing Pornography without consent",
     "Commenting/Sexual Invites",
     "Online Harassment",
-    "Human Trafficking",
-    "Others"
+    "Human Trafficking"
   ];
-  // console.log(typesofassault);
   if (typesofassault) {
-    // console.log("I am happy");
-    typesofassault.slice(1);
     currenttypeofassault = typesofassault.split(",");
-    // for (let ele of req.query.typesofassault) {
-    //   currenttypeofassault.push(ele);
-    // }
-
-    // typesofassault.split(',').(obj => {
-    //   currenttypeofassault.push(obj);
-    // })
-    // req.query.typesofassault.split(',').map(row => { return row });
-
   }
-  // console.log(currenttypeofassault);
-  // if (req.query.showIncidentfrom === 'Today')
-  //   searchjson[mindate] = new Date(Date.now());
-  // else if(req.query.showIncidentfrom==='This Week')
-  // searchjson[mindate]=new Date(Date.now()-7);
+  console.log(val);
   let err, incident;
-  [err, incident] = await to(Incident.find({ typeOfViolence: { $in: currenttypeofassault } }));
-  // console.log(incident);
+  [err, incident] = await to(
+    Incident.find({
+      // time: {
+      //   $gte: new Date(
+      //     new Date(new Date().getTime() - val * 24 * 60 * 60 * 1000)
+      //   ),
+      // },
+      "address.state": "locations",
+      // time: { $gte: val },
+      // typeOfViolence: { $in: currenttypeofassault },
+    })
+    // .sort({ time: -1 })
+  );
   if (err) {
     logger.error("Incident Controller - get : Incident not found", err);
     return ReE(res, err, 422);
@@ -127,7 +137,7 @@ const getIncidentFormData = async function (req, res) {
     logger.error("Incident Controller - get : Incident not found", err);
     return ReE(res, err, 422);
   }
-  console.log(incident)
+  console.log(incident);
   res.setHeader("Content-Type", "application/json");
 
   return ReS(res, incident);

@@ -37,9 +37,8 @@ function Form() {
       state: "",
       city: "",
       lat: "",
-      lng: ""
-    }
-
+      lng: "",
+    },
   });
 
   //   const triggerAPI = useCallback(async () => {
@@ -50,6 +49,7 @@ function Form() {
   const handleSubmit = async (e) => {
     setConsent(false);
     e.preventDefault();
+
     console.log(JSON.stringify(formData));
     await axios
       .post("http://localhost:4000/incident", JSON.stringify(formData), {
