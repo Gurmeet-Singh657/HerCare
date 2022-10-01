@@ -15,8 +15,8 @@ const Home = () => {
       <Navbar />
       <Slider />
       <MapArea/>
-      <CommunityIncidents/>
-      {/* <Footer/> */}
+      {/* <CommunityIncidents/> */}
+      <Footer/>
     </div>
   );
 };

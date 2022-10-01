@@ -1,17 +1,11 @@
 .incidentfiltering {
-    width: 350px;
+    width: 100%;
     margin: auto;
     /* margin-top: 1px; */
     padding: 20px;
     display: flex;
     flex-direction: column;
     gap:20px;
-}
-.typeofassaultdrop
-{
-    width:100%;
-    /* box-sizing: border-box; */
-    margin:auto;
 }
 .searchincidents,
 .deleteincidents {
@@ -48,8 +42,16 @@
 
 .incidentbtns {
     display: flex;
-    flex-direction: row;
+    flex-direction: row;    
     justify-content: space-between;
     align-items: center;
     gap:20px;
+}
+
+.IndianStatesdrop,.showIncidentswithin
+{
+    width:100%;
+}
+.typeofassaultdrop{
+    max-width:100%;
 }
