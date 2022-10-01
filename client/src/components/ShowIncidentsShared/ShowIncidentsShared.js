@@ -234,4 +234,8 @@ export default function Showincidentsshared() {
       </div>
     </div>
   );
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 04ef939536c9640a3a4bd31e346702d3f77c16a9

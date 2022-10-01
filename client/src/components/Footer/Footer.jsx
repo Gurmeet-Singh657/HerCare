@@ -1,13 +1,15 @@
-import "./Footer.css"
+import "./Footer.css";
 
 const Footer = () => {
-    return (
-        <>
-            <div className="footer">
-                <div className="fText">Copyright © 2022 HerCare</div>
-            </div>
-        </>
-    )
-}
+  let currentDate = new Date();
+  let cYear = currentDate.getFullYear();
+  return (
+    <>
+      <div className="footer">
+        <div className="fText">Copyright &copy;  {cYear} HerCare</div>
+      </div>
+    </>
+  );
+};
 
-export default Footer
+export default Footer;

@@ -5,34 +5,16 @@
     width: 320px;
     height: 320px;
     display: flex;
-    /* height:max-content; */
     flex-direction: column;
-    /* margin: 1vh 0; */
-    /* text-align: center; */
     border: 2px solid blue;
-    /* background-color: white; */
-    /* background-color: rgb(222, 200, 222); */
-    /* background: hsla(233, 100%, 90%, 1);
-
-    background: linear-gradient(90deg, hsla(233, 100%, 90%, 1) 0%, hsla(0, 0%, 89%, 1) 100%);
-
-    background: -moz-linear-gradient(90deg, hsla(233, 100%, 90%, 1) 0%, hsla(0, 0%, 89%, 1) 100%);
-
-    background: -webkit-linear-gradient(90deg, hsla(233, 100%, 90%, 1) 0%, hsla(0, 0%, 89%, 1) 100%);
-
-    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr="#CAD0FF", endColorstr="#E3E3E3", GradientType=1); */
-    /* background-color: rgb(216, 212, 212); */
     background-color: #fff;
     font-family: 'Mukta Vaani', sans-serif;
-    border-radius: 7px;
+    /* border-radius: 7px; */
+    filter: drop-shadow(2px 5px 10px #000);
     position: relative;
 }
 
 .incidentTitle {
-    /* text-align: center;
-    background: linear-gradient(#e66465, #9198e5);
-    padding : 3px;
-    color: white; */
     color: blue;
     font-size: 20px;
     text-align: left;
@@ -51,8 +33,6 @@
 .incidentlocation {
     display: flex;
     flex-direction: row;
-    /* justify-content: center; */
-    /* align-items: left; */
 }
 
 .incidentTime {
