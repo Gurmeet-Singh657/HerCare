@@ -2,11 +2,13 @@
 
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
+const addressSchema = require("./addressSchema");
 
 const SafetyTip = mongoose.model(
   "SafetyTip",
   new mongoose.Schema(
     {
+      address: { type: addressSchema, default: () => ({}) },
       typeOfViolence: { type: String },
       title: { type: String, allowNull: false },
       message: { type: String, allowNull: false },
