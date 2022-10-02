@@ -54,6 +54,9 @@ const Hospitals = () => {
     <>
       <Navbar />
       <div className="hosmap">
+        <div className="ngostitle">
+          NGOs Near Me
+        </div>
         <div className="hosmapdetails">
           {hospitalsdata.map((hospital, index) => {
             const lati = hospital.geometry.location.lat;
@@ -84,6 +87,7 @@ const Hospitals = () => {
           })}
         </div>
       </div>
+      <Footer />
     </>
   );
 };

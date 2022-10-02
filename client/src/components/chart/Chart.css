@@ -21,3 +21,37 @@
   padding: 10px;
   color: #efc2d6;
 }
+
+.LegendList {
+  width: 100%;
+  position: absolute;
+  top: 20px;
+  /* display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  list-style: none; */
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  /* Remove default bullets */
+}
+
+.LegendList li {
+  /* display: flex;
+  flex-direction: row;
+  justify-content: center; */
+  margin: 20px
+}
+
+.statecharttitle {
+  font-size: 2rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.statecharttitle {
+  position: absolute;
+  top: 10px;
+}

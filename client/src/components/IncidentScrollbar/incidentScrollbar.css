@@ -4,6 +4,8 @@
   /* display: flex; */
   /* justify-content: center;
     align-items: center; */
+  /* position: absolute;
+  top: 300px; */
   display: flex;
   flex-direction: column;
   justify-content: center;

@@ -25,14 +25,16 @@ const options = [
 
 const TopSafetyTipsBar = () => {
     const {
+        typesofassaultst,
+        setTypesofassaultst,
         locationsst,
-        typeOfViolencesst
+        setLocationsst
     } = useContext(SafetyTipsContext);
     const [openfilter, setOpenFilter] = useState(false);
     const handlefilter = () => {
         setOpenFilter(!openfilter);
     }
-
+    console.log(typesofassaultst)
     return (
         <>
             <div className='topSafetyTipsBar'>
@@ -41,10 +43,12 @@ const TopSafetyTipsBar = () => {
                         Type of Assault :
                     </div>
                     <div className="filterdatast">
-                        {typeOfViolencesst.length === 0 && options.map((option, index) =>
-                            <div key={index} className="chipcontainerst">{option}</div>
-                        )}
-                        {typeOfViolencesst.length !== 0 && typeOfViolencesst.map((option, index) =>
+                        {
+                            typesofassaultst.length === 0 &&
+                            options.map((option, index) =>
+                                <div key={index} className="chipcontainerst">{option}</div>
+                            )}
+                        {typesofassaultst.length !== 0 && typesofassaultst.map((option, index) =>
                             <div key={index} className="chipcontainerst">{option}</div>
                         )}
                     </div>
@@ -66,7 +70,7 @@ const TopSafetyTipsBar = () => {
                     <button className="filterSafetyTips" onClick={handlefilter}><FilterAltOffIcon />&nbsp;&nbsp;Filter Safety Tips</button>
                 </div>
             </div>
-            {/* {openfilter && <SafetyTipDialog openfilter={openfilter} setOpenFilter={setOpenFilter} />} */}
+            {openfilter && <SafetyTipDialog openfilter={openfilter} setOpenFilter={setOpenFilter} />}
         </>
     )
 }

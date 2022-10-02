@@ -63,12 +63,12 @@ function Form() {
   const FormTitles = [
     "Consent Form",
     "For Whom You are Sharing For?",
-    "Please tell us your gender",
-    "How old are you ?",
-    "Please share your Incident Here",
+    "Please tell us the gender",
+    "Please Share the Age of the victim ?",
+    "Please share Incident Here",
     "Can you tell us what happened?",
-    "Select type of violence you experienced",
-    "Have you reported the incident to the police?",
+    "Select type of violence experienced",
+    "Have the incident been reported to police?",
     "Please tell us where the incident took place",
   ];
 
@@ -119,8 +119,7 @@ function Form() {
         alert("Please Enter the Valid Description or Title");
       else if (formData.message.length < 20)
         alert(
-          `Please enter ${
-            20 - formData.message.length
+          `Please enter ${20 - formData.message.length
           } more Characters in Description!`
         );
       else if (formData.title.length < 6)

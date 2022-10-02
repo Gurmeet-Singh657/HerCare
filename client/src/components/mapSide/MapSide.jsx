@@ -7,10 +7,10 @@ import IncidentDialog from "../IncidentDialog/IncidentDialog.js";
 
 const MapSide = () => {
     const navigate = useNavigate();
-    const [openfilter, setOpenFilter] = useState(false);
-    const handlefilter = () => {
-        setOpenFilter(!openfilter);
-    }
+    // const [openfilter, setOpenFilter] = useState(false);
+    // const handlefilter = () => {
+    //     setOpenFilter(!openfilter);
+    // }
     const [Incident, setIncident] = useState(true);
 
     const handleIncidents = (status) => {
@@ -33,13 +33,13 @@ const MapSide = () => {
                     <div className="incidentbtn">
                         <button className="incidentsharebtn" onClick={() => navigate("/incidentform")}>Share Your Incident Anonymously</button>
                     </div>
-                    <div cl assName="incidentshared">
+                    {/* <div cl assName="incidentshared">
                         <div className="incidentsharedtitle">Incidents shared by community</div>
                         <div className="filtersection1">
                             <button className="filterincidents" onClick={handlefilter}>Filter</button>
                             <button className="clearincidents">Clear</button>
                         </div>
-                    </div>
+                    </div> */}
                     {/* <div className="IncidentScroll"><IncidentScrollbar /></div> */}
                 </>}
                 {!Incident && <><div className="Safetytipstitle">
@@ -51,16 +51,16 @@ const MapSide = () => {
                     <div className="Safetytipsbtn">
                         <button className="Safetytipssharebtn" onClick={() => navigate("/safetytipform")}>Share Safety Tip Anonymously</button>
                     </div>
-                    <div className="incidentshared">
+                    {/* <div className="incidentshared">
                         <div className="incidentsharedtitle">Safety Tips shared by community</div>
                         <div className="filtersection1">
                             <button className="filterincidents" onClick={handlefilter}>Filter</button>
                             <button className="clearincidents">Clear</button>
                         </div>
-                    </div>
+                    </div> */}
                 </>}
             </div>
-            {openfilter && <IncidentDialog openfilter={openfilter} setOpenFilter={setOpenFilter} />}
+            {/* {openfilter && <IncidentDialog openfilter={openfilter} setOpenFilter={setOpenFilter} />} */}
         </>
 
     )

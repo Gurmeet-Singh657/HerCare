@@ -7,6 +7,7 @@ import { SearchContext } from "../../context/SearchContext";
 import { useState } from "react";
 import IncidentDialog from "../IncidentDialog/IncidentDialog";
 import FilterAltOffIcon from '@mui/icons-material/FilterAltOff';
+import Showincidentsshared from "../ShowSafetyTipsShared/ShowSafetyTipsShared";
 
 const TopIncidentSafetyBar = () => {
   const {
@@ -81,6 +82,7 @@ const TopIncidentSafetyBar = () => {
           <button className="filterincidents" onClick={handlefilter}><FilterAltOffIcon />&nbsp;&nbsp;Filter Incidents</button>
         </div>
       </div>
+      {/* {openfilter && <Showincidentsshared/>} */}
       {openfilter && <IncidentDialog openfilter={openfilter} setOpenFilter={setOpenFilter} />}
     </>
   )

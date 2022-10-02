@@ -6,12 +6,22 @@ import IncidentScrollbar from "../IncidentScrollbar/IncidentScrollbar.js";
 import IncidentDialog from '../IncidentDialog/IncidentDialog.js'
 import TopIncidentBar from "../topincidentbar/TopIncidentBar.jsx";
 import TopSafetyTipsBar from "../TopSafetyTipsBar/TopSafetyTipsBar.js"
+import { useContext } from "react"
+import useFetch from "../../hooks/useFetch";
+import { TogglerContext } from "../../context/Togglercontext";
 
 const Sidenav = () => {
+  const { takeincident, setTakeincident } = useContext(TogglerContext);
   const [Incident, setIncident] = useState(true);
   const handleIncidents = (currstatus) => {
     setIncident(currstatus);
   };
+  if (Incident === false) {
+    setTakeincident(false);
+  }
+  else {
+    setTakeincident(true);
+  }
   return (
     <div className="viewdatapage">
       <div className="sidebarshared">

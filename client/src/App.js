@@ -27,7 +27,7 @@ const App = () => {
           <Route exact path="/" element={<Home />}></Route>
           <Route exact path="/home" element={<Home />}></Route>
           <Route exact path="/contact" element={<ContactUs />}></Route>
-          <Route exact path="/hospitals" element={<Hospitals />}></Route>
+          <Route exact path="/ngos" element={<Hospitals />}></Route>
           <Route exact path="/police" element={<Police_Stations />}></Route>
           <Route exact path="/help" element={<Help />}></Route>
           <Route exact path="/faqs" element={<Faqs />}></Route>
@@ -49,10 +49,10 @@ const App = () => {
           ></Route>
           <Route exact path="/filing_of_fir" element={<FIR_filing />}></Route>
           <Route exact path="/about" element={<About />}></Route>
-          <Route exact path="/test" element={<Sample/>}></Route>
+          <Route exact path="/test" element={<Sample />}></Route>
           <Route exact path="/viewdata" element={<View_Data />}></Route>
           <Route exact path="/chartdata" element={<ViolenceChart />}></Route>
-          <Route exact path="/statedata" element={<StateChart/>}></Route>
+          <Route exact path="/statedata" element={<StateChart />}></Route>
         </Routes>
       </BrowserRouter>
       {/* <Navbar/> */}

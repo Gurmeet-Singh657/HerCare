@@ -19,7 +19,6 @@ import axios from "axios";
 import "./ShowIncidentsShared.css";
 import SearchIcon from "@mui/icons-material/Search";
 import DeleteIcon from "@mui/icons-material/Delete";
-import Citydropdown from "../citydropdown/Citydropdown.js";
 import Checkbox from "@mui/material/Checkbox";
 import CheckBoxOutlineBlankIcon from "@mui/icons-material/CheckBoxOutlineBlank";
 import CheckBoxIcon from "@mui/icons-material/CheckBox";
@@ -167,7 +166,7 @@ export default function Showincidentsshared() {
             value={typeofassault}
             onChange={handleTypeofassault}
             input={<OutlinedInput label="Type of Assault" />}
-            renderValue={(selected) => "Types of Assault"}
+            renderValue={(typeofassault) => typeofassault.join(', ')}
             MenuProps={MenuProps}
           >
             {options.map((name) => (

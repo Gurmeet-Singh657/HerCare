@@ -2,16 +2,16 @@ import React, { useState, createContext } from 'react';
 const SafetyTipsContext = createContext();
 
 const SafetyTipsProvider = (props) => {
-    const [typeOfViolencest, setTypeOfViolencest] = useState([]);
+    const [typesofassaultst, setTypesofassaultst] = useState([]);
     const [locationsst, setLocationsst] = useState("");
 
     return (
         <SafetyTipsContext.Provider
             value={{
+                typesofassaultst,
+                setTypesofassaultst,
                 locationsst,
                 setLocationsst,
-                typeOfViolencest,
-                setTypeOfViolencest
             }}
         >
             {props.children}

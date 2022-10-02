@@ -7,7 +7,6 @@ import DialogContent from "@mui/material/DialogContent";
 import DialogActions from "@mui/material/DialogActions";
 import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
-import TabPanel from "../tabPanel/TabPanel.js";
 import axios from "axios";
 import { useContext } from "react";
 import { SearchContext } from "../../context/SearchContext.js";
@@ -72,8 +71,8 @@ export default function IncidentDialog({ openfilter, setOpenFilter }) {
           Filters your Incidents
         </OpenDialogTitle>
         <DialogContent dividers>
-          <ShowIncidentsShared />
-        </DialogContent>
+      <ShowIncidentsShared />
+      </DialogContent>
       </OpenDialog>
     </div>
   );

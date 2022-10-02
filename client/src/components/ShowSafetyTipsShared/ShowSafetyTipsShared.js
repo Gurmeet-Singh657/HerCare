@@ -18,7 +18,6 @@ import axios from "axios";
 import "./ShowSafetyTipsShared.css";
 import SearchIcon from "@mui/icons-material/Search";
 import DeleteIcon from "@mui/icons-material/Delete";
-import Citydropdown from "../citydropdown/Citydropdown.js";
 import { SafetyTipsContext } from "../../context/SafetyTipsContext";
 import Checkbox from "@mui/material/Checkbox";
 import CheckBoxOutlineBlankIcon from "@mui/icons-material/CheckBoxOutlineBlank";
@@ -30,7 +29,21 @@ import { makeStyles } from "@material-ui/core";
 const icon = <CheckBoxOutlineBlankIcon fontSize="small" />;
 const checkedIcon = <CheckBoxIcon fontSize="small" />;
 
-const timeshow = ["All time", "Today", "This Week", "This Month", "This Year"];
+const options = [
+    "Rape/Sexual Assault",
+    "Chain Snatching/Robbery",
+    "Domestic Violence",
+    "Physical Assault",
+    "Stalking",
+    "Ogling/Facial Expressions/Staring",
+    "Taking photos without permission",
+    "Indecent Exposure/Masturbation in public",
+    "Touching /Groping",
+    "Showing Pornography without consent",
+    "Commenting/Sexual Invites",
+    "Online Harassment",
+    "Human Trafficking",
+];
 const Indiastates = [
     "Andaman and Nicobar Islands",
     "Andhra Pradesh",
@@ -91,32 +104,37 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Showincidentsshared() {
     const {
+        typesofassaultst,
+        setTypesofassaultst,
         locationsst,
         setLocationsst,
-        showsafetyTipsfrom,
-        setShowsafetyTipsfrom
     } = useContext(SafetyTipsContext);
 
     const { data, loading, reFetch } = useFetch(
-        `/getAllSafetyTips?locationsst=${locationsst}&showsafetyTipsfrom=${showsafetyTipsfrom}`
+        `/getAllSafetyTips?typesofassaultst=${typesofassaultst}&locationsst=${locationsst}`
     );
+    const [typeofassaultst, setTypeofassaultst] = useState([]);
     const [locationst, setLocationst] = useState("");
-    const [showsafetyTipfrom, setShowsafetyTipfrom] = useState("All time");
 
+    const handleTypeofassault = (event) => {
+        const {
+            target: { value },
+        } = event;
+        setTypeofassaultst(
+            // On autofill we get a stringified value.
+            typeof value === "string" ? value.split(",") : value
+        );
+    };
     const handleSafetyTipsSearch = () => {
         console.log(data);
         setLocationsst(locationst);
-        setShowsafetyTipsfrom(showsafetyTipfrom);
+        setTypesofassaultst(typeofassaultst);
     };
     const handleSafetyTipsClear = () => {
-        console.log()
-        setLocationst("");
-        setLocationsst("");
-        setShowsafetyTipsfrom("All time");
-        setShowsafetyTipfrom("All time");
-    };
-    const handleshowSafetyTipswithin = (event) => {
-        setShowsafetyTipfrom(event.target.value);
+        setTypeofassaultst(typeofassaultst);
+        setTypesofassaultst(typesofassaultst);
+        setLocationst(locationst);
+        setLocationsst(locationst);
     };
     const handleLocation = (event) => {
         setLocationst(event.target.value);
@@ -124,6 +142,34 @@ export default function Showincidentsshared() {
     const classes = useStyles();
     return (
         <div className="SafetyTipsfiltering">
+            <div className="typeofassaultdrop">
+                <FormControl sx={{ m: 1, width: 300 }}>
+                    <InputLabel id="demo-multiple-checkbox-label">
+                        Types of Assault
+                    </InputLabel>
+                    <Select
+                        labelId="demo-multiple-checkbox-label"
+                        id="demo-multiple-checkbox"
+                        multiple
+                        value={typeofassaultst}
+                        onChange={handleTypeofassault}
+                        input={<OutlinedInput label="Type of Assault" />}
+                        renderValue={(selected) => "Types of Assault"}
+                        MenuProps={MenuProps}
+                    >
+                        {options.map((name) => (
+                            <MenuItem
+                                key={name}
+                                value={name}
+                                classes={{ root: classes.root }}
+                            >
+                                <Checkbox checked={typeofassaultst.indexOf(name) > -1} />
+                                <ListItemText primary={name} />
+                            </MenuItem>
+                        ))}
+                    </Select>
+                </FormControl>
+            </div>
             <div className="IndianStatesdropst">
                 <Box>
                     <FormControl fullWidth sx={{ m: 1, width: 300 }}>
@@ -139,26 +185,6 @@ export default function Showincidentsshared() {
                         >
                             {Indiastates.map((state) => {
                                 return <MenuItem value={state}>{state}</MenuItem>;
-                            })}
-                        </Select>
-                    </FormControl>
-                </Box>
-            </div>
-            <div className="showSafetyTipswithin">
-                <Box>
-                    <FormControl fullWidth sx={{ m: 1, width: 300 }}>
-                        <InputLabel id="demo-simple-select-label">
-                            Show SafetyTips Within
-                        </InputLabel>
-                        <Select
-                            labelId="demo-simple-select-label"
-                            id="demo-simple-select"
-                            value={showsafetyTipfrom}
-                            label="Show Safety Tips Within"
-                            onChange={handleshowSafetyTipswithin}
-                        >
-                            {timeshow.map((time) => {
-                                return <MenuItem value={time}>{time}</MenuItem>;
                             })}
                         </Select>
                     </FormControl>

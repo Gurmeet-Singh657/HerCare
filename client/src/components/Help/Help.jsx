@@ -8,6 +8,7 @@ import CloseIcon from '@mui/icons-material/Close';
 import EmergencyShareIcon from '@mui/icons-material/EmergencyShare';
 import FloodIcon from '@mui/icons-material/Flood';
 import { useNavigate } from "react-router-dom";
+import Footer from "../Footer/Footer";
 
 const Help = () => {
   const navigate = useNavigate();
@@ -16,10 +17,10 @@ const Help = () => {
       <Navbar />
       <div className="help">
 
-        <div className="bigsize hospitalsnearme" onClick={() => navigate("/hospitals")}>
+        {/* <div className="bigsize hospitalsnearme" onClick={() => navigate("/hospitals")}>
           <div className="hostext">Hospitals Near Me</div>
           <LocalHospitalIcon />
-        </div>
+        </div> */}
         <div className="helpcontain">
           <h1 className="helptitle">Emergency Numbers</h1>
           <div className="helpnumbers">
@@ -53,7 +54,7 @@ const Help = () => {
             </div>
           </div>
         </div>
-        <div className="bigsize policestationsnearme" onClick={() => navigate("/police")}>
+        {/* <div className="bigsize policestationsnearme" onClick={() => navigate("/police")}>
           <div className="policetext">Police Stations Near Me</div>
           <LocalPoliceIcon />
         </div>
@@ -65,7 +66,10 @@ const Help = () => {
         <div className="policestationsnearmesm" onClick={() => navigate("/police")}>
           <div className="policetext">Police Stations Near Me</div>
           <LocalPoliceIcon />
-        </div>
+        </div> */}
+      </div>
+      <div className="footerhelp">
+        <Footer />
       </div>
     </>
   )

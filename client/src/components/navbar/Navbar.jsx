@@ -7,19 +7,31 @@ import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import Dropdown from "../Dropdown/Dropdown.js";
 import "./navbar.css";
 import { NavLink, useNavigate } from "react-router-dom";
+import Analytics from "../Analytics/Analytics.jsx";
 
 const Navbar = () => {
   const navigate = useNavigate();
   const [clicked, setClicked] = useState(false);
   const [dropdown, setDropdown] = useState(false);
+  const [analytics, setAnalytics] = useState(false);
+  const [analyticsclicked, setAnalyticsclicked] = useState(false);
   const handleClick = () => {
     setClicked(!clicked);
+  };
+  const handleanalyticsclicked = () => {
+    setAnalyticsclicked(!clicked);
   };
   const onMouseEnter = () => {
     setDropdown(true);
   };
   const onMouseLeave = () => {
     setDropdown(false);
+  };
+  const onMouseEnterAnalytics = () => {
+    setAnalytics(true);
+  };
+  const onMouseLeaveAnalytics = () => {
+    setAnalytics(false);
   };
 
   const helpdirected = () => {
@@ -54,14 +66,26 @@ const Navbar = () => {
           </NavLink>
         </li>
         <li className="link-contain">
-          <NavLink className="nav-links" to="/hospitals">
-            Hospitals near me
+          <NavLink className="nav-links" to="/ngos">
+            NGOs Near Me
           </NavLink>
         </li>
-        <li className="link-contain">
-          <NavLink className="nav-links" to="/police">
-            Police Stations near me
-          </NavLink>
+        <li
+          onMouseEnter={onMouseEnterAnalytics}
+          onMouseLeave={onMouseLeaveAnalytics}
+          onClick={() => {
+            setAnalytics(!analytics);
+            // handleanalyticsclicked()
+          }}
+          className="smalldisnon link-contain"
+        >
+          <div className="smalldisnon nav-links" href="">
+            <div className="droptx">Analytics</div>
+            <div className="dropicon">
+              <ArrowDropDownIcon />
+            </div>
+          </div>
+          {analytics && <Analytics />}
         </li>
         <li
           onMouseEnter={onMouseEnter}

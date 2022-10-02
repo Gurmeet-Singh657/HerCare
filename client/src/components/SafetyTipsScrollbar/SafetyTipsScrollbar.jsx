@@ -9,14 +9,14 @@ import SafetyTipsCard from "../SafetyTipsCard/SafetyTipsCard.jsx";
 
 export default function SimpleTable() {
     const {
+        typesofassaultst,
+        setTypesofassaultst,
         locationsst,
         setLocationsst,
-        showsafetyTipsfrom,
-        setShowsafetyTipsfrom
     } = useContext(SafetyTipsContext);
 
     const { data, loading, reFetch } = useFetch(
-        `/getAllSafetyTips?locationsst=${locationsst}&showSafetyTipsfrom=${showsafetyTipsfrom}`
+        `/getAllSafetyTips?typesofassaultst=${typesofassaultst}&locationsst=${locationsst}`
     );
 
     const [page, setPage] = useState(0);
@@ -48,6 +48,8 @@ export default function SimpleTable() {
                                     title={row.title}
                                     typeOfViolence={row.typeOfViolence}
                                     desc={row.message}
+                                    city={row.address.city}
+                                    state={row.address.state}
                                 />
                             ))}
                 </div>
