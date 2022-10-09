@@ -1,10 +1,10 @@
 {
-	"dbconfig": {
-		"url": "mongodb://127.0.0.1:27017/hercare"
-	},
-	"logging": {
-		"level": "error",
-		"fileLocation": "./logs/"
-	},
-	"environment": "dev"
+  "dbconfig": {
+    "url": "mongodb+srv://admin:VW3lN4t28YqUseeo@cluster0.zqmionk.mongodb.net/hercare?retryWrites=true&w=majority"
+  },
+  "logging": {
+    "level": "error",
+    "fileLocation": "./logs/"
+  },
+  "environment": "dev"
 }

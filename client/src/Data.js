@@ -1,7 +1,4 @@
-// import useFetch from './hooks/useFetch'
-// import useFetch from  '../../client/src/hooks/useFetch'
-// const {data,loading,reFetch} = useFetch('/getIncidentFormData')
-// console.log(data)
+
 export const UserData = [
     {
       id: 1,

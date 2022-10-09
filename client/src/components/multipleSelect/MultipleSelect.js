@@ -58,18 +58,18 @@ export default function MultipleSelect({ index, heading }) {
   const [typesofassaultopt, settypesofassaultopt] = React.useState([]);
   const current = React.useContext(SearchContext);
 
-    const handleChange = (event) => {
-      const {
-        target: { value },
-      } = event;
-      settypesofassaultopt(
-        // On autofill we get a stringified value.
-        typeof value === "string" ? value.split(",") : value
-      );
-      current.typesofassault = typesofassaultopt;
-      // console.log(current);
-      // console.log(current.typesofassault);
-    };
+  const handleChange = (event) => {
+    const {
+      target: { value },
+    } = event;
+    settypesofassaultopt(
+      // On autofill we get a stringified value.
+      typeof value === "string" ? value.split(",") : value
+    );
+    current.typesofassault = typesofassaultopt;
+    // console.log(current);
+    // console.log(current.typesofassault);
+  };
   const handleDelete = (e: MouseEvent, value: string) => {
     e.preventDefault();
     console.log("clicked delete");

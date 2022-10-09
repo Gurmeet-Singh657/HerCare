@@ -69,6 +69,5 @@
   "main": "index.js",
   "author": "",
   "license": "ISC",
-  "description": "",
-  "proxy": "http://localhost:4000/"
+  "description": ""
 }

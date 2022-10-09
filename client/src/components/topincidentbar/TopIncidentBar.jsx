@@ -1,24 +1,17 @@
-import "./topIncidentBar.css"
-import Chip from '@mui/material/Chip';
-import Stack from '@mui/material/Stack';
-import useFetch from "../../hooks/useFetch";
+import "./topIncidentBar.css";
 import { useContext } from "react";
 import { SearchContext } from "../../context/SearchContext";
 import { useState } from "react";
 import IncidentDialog from "../IncidentDialog/IncidentDialog";
-import FilterAltOffIcon from '@mui/icons-material/FilterAltOff';
-import Showincidentsshared from "../ShowSafetyTipsShared/ShowSafetyTipsShared";
+import FilterAltOffIcon from "@mui/icons-material/FilterAltOff";
 
 const TopIncidentSafetyBar = () => {
-  const {
-    typesofassault,
-    locations,
-    showIncidentsfrom,
-  } = useContext(SearchContext);
+  const { typesofassault, locations, showIncidentsfrom } =
+    useContext(SearchContext);
   const [openfilter, setOpenFilter] = useState(false);
   const handlefilter = () => {
     setOpenFilter(!openfilter);
-  }
+  };
   const options = [
     "Rape/Sexual Assault",
     "Chain Snatching/Robbery",
@@ -44,29 +37,30 @@ const TopIncidentSafetyBar = () => {
 
   return (
     <>
-      <div className='topIncidentBar'>
+      <div className="topIncidentBar">
         <div className="toptypeofassault">
-          <div className="headings">
-            Type of Assault :
-          </div>
+          <div className="headings">Type of Assault :</div>
           <div className="filterdata">
-            {typesofassault.length === 0 && options.map((option, index) =>
-              <div key={index} className="chipcontainer">{option}</div>
-            )}
-            {typesofassault.length !== 0 && typesofassault.map((option, index) =>
-              <div key={index} className="chipcontainer">{option}</div>
-            )}
+            {typesofassault.length === 0 &&
+              options.map((option, index) => (
+                <div key={index} className="chipcontainer">
+                  {option}
+                </div>
+              ))}
+            {typesofassault.length !== 0 &&
+              typesofassault.map((option, index) => (
+                <div key={index} className="chipcontainer">
+                  {option}
+                </div>
+              ))}
           </div>
         </div>
         <div className="state">
           <div className="headings">State : </div>
           <div className="filterdata">
             <div className="filterdata">
-              {locations &&
-                <div className="chipcontainer">{locations}</div>
-              }
-              {!locations &&
-                <div className="chipcontainer">All</div>}
+              {locations && <div className="chipcontainer">{locations}</div>}
+              {!locations && <div className="chipcontainer">All</div>}
             </div>
           </div>
         </div>
@@ -79,13 +73,18 @@ const TopIncidentSafetyBar = () => {
           </div>
         </div>
         <div className="openIncidentDialog">
-          <button className="filterincidents" onClick={handlefilter}><FilterAltOffIcon />&nbsp;&nbsp;Filter Incidents</button>
+          <button className="filterincidents" onClick={handlefilter}>
+            <FilterAltOffIcon />
+            &nbsp;&nbsp;Filter Incidents
+          </button>
         </div>
       </div>
       {/* {openfilter && <Showincidentsshared/>} */}
-      {openfilter && <IncidentDialog openfilter={openfilter} setOpenFilter={setOpenFilter} />}
+      {openfilter && (
+        <IncidentDialog openfilter={openfilter} setOpenFilter={setOpenFilter} />
+      )}
     </>
-  )
-}
+  );
+};
 
-export default TopIncidentSafetyBar
+export default TopIncidentSafetyBar;

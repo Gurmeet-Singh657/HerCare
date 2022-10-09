@@ -28,7 +28,7 @@ export default function SimpleTable() {
   } = useContext(SearchContext);
 
   const { data, loading, reFetch } = useFetch(
-    `/getAllIncidents?typesofassault=${typesofassault}&locations=${locations}&showIncidentsfrom=${showIncidentsfrom}`
+    `https://hercare.herokuapp.com/getAllIncidents?typesofassault=${typesofassault}&locations=${locations}&showIncidentsfrom=${showIncidentsfrom}`
   );
 
   const [page, setPage] = useState(0);
@@ -56,7 +56,8 @@ export default function SimpleTable() {
             data
               .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
               .map((row, index) => (
-                <IncidentCard className="gridChild"
+                <IncidentCard
+                  className="gridChild"
                   key={index}
                   title={row.title}
                   time={row.time}
@@ -86,4 +87,3 @@ export default function SimpleTable() {
     </>
   );
 }
-

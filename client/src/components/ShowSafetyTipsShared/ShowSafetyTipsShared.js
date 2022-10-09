@@ -111,7 +111,7 @@ export default function Showincidentsshared() {
     } = useContext(SafetyTipsContext);
 
     const { data, loading, reFetch } = useFetch(
-        `/getAllSafetyTips?typesofassaultst=${typesofassaultst}&locationsst=${locationsst}`
+        `https://hercare.herokuapp.com/getAllSafetyTips?typesofassaultst=${typesofassaultst}&locationsst=${locationsst}`
     );
     const [typeofassaultst, setTypeofassaultst] = useState([]);
     const [locationst, setLocationst] = useState("");

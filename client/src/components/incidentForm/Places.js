@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { useState, useMemo } from "react";
 import { GoogleMap, useLoadScript, MarkerF } from "@react-google-maps/api";
-import { useContext } from "react";
+// import { useContext } from "react";
 import "./incidentForm.css";
 import usePlacesAutocomplete, {
   getGeocode,
@@ -15,13 +15,15 @@ import {
   ComboboxOption,
 } from "@reach/combobox";
 import "@reach/combobox/styles.css";
+// global google
+
 // import { useContext } from 'react';
-import { LatLonContext } from "../../context/LatLonContext";
+// import { LatLonContext } from "../../context/LatLonContext";
 // import { useContext } from 'react';
 
 export default function Places({ formData, setFormData }) {
   const { isLoaded } = useLoadScript({
-    googleMapsApiKey: REACT_APP_GOOGLE_MAPS_API_KEY,
+    googleMapsApiKey: "AIzaSyA-RG4hM7qRh3jHfOwSuUOBexPTn0CZf6w",
     libraries: ["places"],
   });
 

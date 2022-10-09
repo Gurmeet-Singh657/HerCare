@@ -41,20 +41,19 @@ function Form() {
     },
   });
 
-  //   const triggerAPI = useCallback(async () => {
-  //     // Use async await instead of chained promise
-  //    axios.post('http://localhost:4000/incident', formData)
-  //   }, []);
-
   const handleSubmit = async (e) => {
     setConsent(false);
     e.preventDefault();
 
     console.log(JSON.stringify(formData));
     await axios
-      .post("http://localhost:4000/incident", JSON.stringify(formData), {
-        headers: { "Content-Type": "application/json" },
-      })
+      .post(
+        "https://hercare.herokuapp.com/incident",
+        JSON.stringify(formData),
+        {
+          headers: { "Content-Type": "application/json" },
+        }
+      )
       .then((result) => {
         navigate("/");
       });
@@ -119,7 +118,8 @@ function Form() {
         alert("Please Enter the Valid Description or Title");
       else if (formData.message.length < 20)
         alert(
-          `Please enter ${20 - formData.message.length
+          `Please enter ${
+            20 - formData.message.length
           } more Characters in Description!`
         );
       else if (formData.title.length < 6)

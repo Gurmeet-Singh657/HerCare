@@ -53,13 +53,12 @@ OpenDialogTitle.propTypes = {
   onClose: PropTypes.func.isRequired,
 };
 
-
-
 export default function IncidentDialog({ openfilter, setOpenFilter }) {
   const handleClose = () => {
     setOpenFilter(false);
   };
-  const { typesofassault, showIncidentfrom, timeoftheday } = useContext(SearchContext);
+  const { typesofassault, showIncidentfrom, timeoftheday } =
+    useContext(SearchContext);
   return (
     <div>
       <OpenDialog
@@ -71,8 +70,8 @@ export default function IncidentDialog({ openfilter, setOpenFilter }) {
           Filters your Incidents
         </OpenDialogTitle>
         <DialogContent dividers>
-      <ShowIncidentsShared />
-      </DialogContent>
+          <ShowIncidentsShared />
+        </DialogContent>
       </OpenDialog>
     </div>
   );

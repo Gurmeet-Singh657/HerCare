@@ -21,7 +21,9 @@ import { useState } from "react";
 
 const StateChart = ({ aspect, title }) => {
   // const COLORS = ['#0088FE', 'hsla(0, 100%, 90%, 0.3)', 'rgba(255, 0, 0, 0.6)', '#ac88c3', '#93c0d3','#efc2d6','#665191','#a05195','#d45087','#f95d6a','#ff7c43','#ffa600'];
-  const { data, loading, reFetch } = useFetch("/getIncidentFormData");
+  const { data, loading, reFetch } = useFetch(
+    "https://hercare.herokuapp.com/getIncidentFormData"
+  );
   let StateData = [];
   const map = new Map([
     ["Andaman and Nicobar Islands", 0],

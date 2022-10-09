@@ -21,7 +21,8 @@ import { LatLonContext } from "../../context/LatLonContext";
 
 export default function Places({ formData, setFormData }) {
   const { isLoaded } = useLoadScript({
-    googleMapsApiKey: REACT_APP_GOOGLE_MAPS_API_KEY,
+    // googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
+    googleMapsApiKey: "AIzaSyA-RG4hM7qRh3jHfOwSuUOBexPTn0CZf6w",
     libraries: ["places"],
   });
 
@@ -38,8 +39,6 @@ function Map({ formData, setFormData }) {
 
   return (
     <div className="location">
-
-
       <GoogleMap
         zoom={10}
         center={selected}
@@ -98,7 +97,6 @@ const PlacesAutocomplete = ({ formData, setFormData, setSelected }) => {
     formData.address.state = state;
     formData.address.lat = lat;
     formData.address.lng = lng;
-
   };
 
   return (

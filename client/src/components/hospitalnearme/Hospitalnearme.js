@@ -1,5 +1,4 @@
 import "./hospitalnearme.css";
-// import useFetch from "../../hooks/useFetch";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
@@ -28,9 +27,9 @@ const myfunction = (rating) => {
 };
 
 const Hospitalnearme = ({ lati, longi, name, rating, isOpen, address }) => {
-
   //   const { data, loading, error } = useFetch("/hotels?featured=true&limit=4");
-  const { latitude, longitude, setLatitude, setLongitude } = useContext(LatLonContext);
+  const { latitude, longitude, setLatitude, setLongitude } =
+    useContext(LatLonContext);
   var x = Math.floor(Math.random() * 256);
   var y = Math.floor(Math.random() * 256);
   var z = Math.floor(Math.random() * 256);
@@ -40,7 +39,7 @@ const Hospitalnearme = ({ lati, longi, name, rating, isOpen, address }) => {
     setLongitude(longi);
     // <Places />
     console.log(lati + " " + longi + " " + latitude + " " + longitude);
-  }
+  };
   return (
     <div className="hospitalcard" onClick={() => updatelatlon()}>
       <Card sx={{ width: "100%", margin: "4vh 5px" }}>
@@ -62,16 +61,8 @@ const Hospitalnearme = ({ lati, longi, name, rating, isOpen, address }) => {
               {/* <div className="hosname"> */}
               {name}
               {/* </div> */}
-              {isOpen === true &&
-                <button className="openbutton">
-                  Open
-                </button>
-              }
-              {!isOpen &&
-                <Button className="closebutton">
-                  Closed
-                </Button>
-              }
+              {isOpen === true && <button className="openbutton">Open</button>}
+              {!isOpen && <Button className="closebutton">Closed</Button>}
             </div>
           </Typography>
           <Typography variant="body2" color="text.secondary">

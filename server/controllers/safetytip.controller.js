@@ -1,19 +1,19 @@
 const { to, ReE, ReS } = require('../services/util.service');
 const { SafetyTip } = require('../models');
-const logger = require('../lib/logging');
+// const logger = require('../lib/logging');
 
 const create = async function (req, res) {
   res.setHeader('Content-Type', 'application/json');
   const body = req.body;
 
   if (!body.title) {
-    logger.error("SafetyTip controller - create : SafetyTip title cannot be empty");
+    // logger.error("SafetyTip controller - create : SafetyTip title cannot be empty");
     return ReE(res, new Error('Please enter a valid SafetyTip title.'), 422);
   }
 
   [err, safetytip] = await to(SafetyTip.create(body));
   if (err) {
-    logger.error("SafetyTip Controller - create : SafetyTip could not be created", err);
+    // logger.error("SafetyTip Controller - create : SafetyTip could not be created", err);
     return ReE(res, err, 422);
   }
 
@@ -26,7 +26,7 @@ module.exports.create = create;
 const get = async function (req, res) {
   let safetytip_id, err, safetytip;
   if (!req.query._id) {
-    logger.error("SafetyTip Controller - get : SafetyTip Id is empty");
+    // logger.error("SafetyTip Controller - get : SafetyTip Id is empty");
     return ReE(res, new Error("SafetyTip Id is empty"), 422);
   }
 
@@ -34,7 +34,7 @@ const get = async function (req, res) {
 
   [err, safetytip] = await to(findByPk(safetytip_id));
   if (err) {
-    logger.error("SafetyTip Controller - get : SafetyTip not found", err);
+    // logger.error("SafetyTip Controller - get : SafetyTip not found", err);
     return ReE(res, err, 422);
   }
 
@@ -51,7 +51,7 @@ const findByPk = async function (id) {
   [err, safetytip] = await to(SafetyTip.findById(safetytip_id));
 
   if (err || !safetytip) {
-    logger.error("SafetyTip Controller - findbypk : SafetyTip not found");
+    // logger.error("SafetyTip Controller - findbypk : SafetyTip not found");
     throw new Error(" not found");
   }
   return safetytip;
@@ -98,7 +98,7 @@ const getAllSafetyTips = async function (req, res) {
     );
   }
   if (err) {
-    logger.error("Safety Tips Controller - get : Safety Tips not found", err);
+    // logger.error("Safety Tips Controller - get : Safety Tips not found", err);
     return ReE(res, err, 422);
   }
 

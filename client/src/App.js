@@ -17,7 +17,7 @@ import SafetyTipForm from "./components/safetytipForm/SafetyTipForm";
 import Sample from "./components/maphome/Sample";
 import View_Data from "./Pages/View_Data/View_Data";
 import ChartData from "./components/chart/ChartData";
-import ViolenceChart from "./components/chart/ViolenceChart"
+import ViolenceChart from "./components/chart/ViolenceChart";
 import StateChart from "./components/chart/StateChart";
 const App = () => {
   return (

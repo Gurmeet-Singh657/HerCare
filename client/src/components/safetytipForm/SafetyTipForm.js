@@ -25,44 +25,41 @@ function SafetyTipForm() {
       state: "",
       city: "",
       lat: "",
-      lng: ""
-    }
+      lng: "",
+    },
   });
 
-  //   const triggerAPI = useCallback(async () => {
-  //     // Use async await instead of chained promise
-  //    axios.post('http://localhost:4000/incident', formData)
-  //   }, []);
-
   const handleSubmit = async (e) => {
-
     e.preventDefault();
     console.log(JSON.stringify(formData));
     await axios
-      .post("http://localhost:4000/safetytip", JSON.stringify(formData), {
-        headers: { "Content-Type": "application/json" },
-      })
+      .post(
+        "https://hercare.herokuapp.com/safetytip",
+        JSON.stringify(formData),
+        {
+          headers: { "Content-Type": "application/json" },
+        }
+      )
       .then((result) => {
         navigate("/");
       });
-
   };
 
   const FormTitles = [
     "Please share your Safety Tip Here",
     "Select type of violence you are registering for",
-    "Please tell us for where you want to enter the safety tip"
+    "Please tell us for where you want to enter the safety tip",
   ];
 
   const PageDisplay = () => {
     if (page === 0) {
       return <TypeOfViolence formData={formData} setFormData={setFormData} />;
-    } else if(page === 1) {
+    } else if (page === 1) {
       return (
         <SafetyTipDescription formData={formData} setFormData={setFormData} />
       );
     } else {
-      return <Places formData={formData} setFormData={setFormData} />
+      return <Places formData={formData} setFormData={setFormData} />;
     }
   };
 
@@ -86,8 +83,7 @@ function SafetyTipForm() {
         );
       else setPage((currPage) => currPage + 1);
     } else {
-      if (formData.address === "")
-        alert("Please Enter a Valid Location!!");
+      if (formData.address === "") alert("Please Enter a Valid Location!!");
       else setPage((currPage) => currPage + 1);
     }
   };
