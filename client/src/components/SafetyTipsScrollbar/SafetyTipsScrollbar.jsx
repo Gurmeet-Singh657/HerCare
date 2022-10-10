@@ -1,4 +1,4 @@
-import TablePagination from "@material-ui/core/TablePagination";
+import TablePagination from '@mui/material/TablePagination';
 import { useState } from "react";
 import "./SafetyTipsScrollbar.css";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
@@ -12,7 +12,7 @@ export default function SimpleTable() {
     useContext(SafetyTipsContext);
 
   const { data, loading, reFetch } = useFetch(
-    `https://hercare.herokuapp.com/getAllSafetyTips?typesofassaultst=${typesofassaultst}&locationsst=${locationsst}` 
+    `https://hercare.herokuapp.com/getAllSafetyTips?typesofassaultst=${typesofassaultst}&locationsst=${locationsst}`
   );
 
   const [page, setPage] = useState(0);
@@ -56,10 +56,11 @@ export default function SimpleTable() {
               rowsPerPageOptions={[5, 10, 25]}
               component="div"
               count={data.length}
-              rowsPerPage={rowsPerPage}
+              labelRowsPerPage='Safety Tips Per Page'
               page={page}
-              onChangePage={handleChangePage}
-              onChangeRowsPerPage={handleChangeRowsPerPage}
+              onPageChange={handleChangePage}
+              rowsPerPage={rowsPerPage}
+              onRowsPerPageChange={handleChangeRowsPerPage}
             />
           )}
         </div>

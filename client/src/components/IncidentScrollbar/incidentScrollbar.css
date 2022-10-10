@@ -11,6 +11,8 @@
   justify-content: center;
   align-items: center;
   width: 98%;
+  overflow: hidden;
+  margin: auto;
   /* position: absolute;
   top: 20px; */
 }
@@ -48,4 +50,25 @@
   /* min-height: 200px; */
   background-color: #eee;
   width: 10px;
+}
+
+.incidentnextarrow,
+.incidentbackarrow {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(125, 125, 235);
+  width: max-content;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  color: white;
+}
+
+.incidentpagination {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }

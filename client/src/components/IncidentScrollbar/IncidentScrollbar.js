@@ -1,21 +1,14 @@
 import React from "react";
-import Table from "@material-ui/core/Table";
-import TableBody from "@material-ui/core/TableBody";
-import TableCell from "@material-ui/core/TableCell";
-import TableContainer from "@material-ui/core/TableContainer";
-import TableHead from "@material-ui/core/TableHead";
-import TableRow from "@material-ui/core/TableRow";
-import TablePagination from "@material-ui/core/TablePagination";
-import Paper from "@material-ui/core/Paper";
+import TablePagination from '@mui/material/TablePagination';
 import { useState } from "react";
 import "./incidentScrollbar.css";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import useFetch from "../../hooks/useFetch";
-import { dateRangePickerToolbarClasses } from "@mui/x-date-pickers-pro";
 import { useContext } from "react";
 import { SearchContext } from "../../context/SearchContext";
 import IncidentCard from "../IncidentCard/IncidentCard.js";
-import { useEffect } from "react";
+import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
 export default function SimpleTable() {
   const {
@@ -76,10 +69,11 @@ export default function SimpleTable() {
               rowsPerPageOptions={[5, 10, 25]}
               component="div"
               count={data.length}
-              rowsPerPage={rowsPerPage}
+              labelRowsPerPage='Incidents Per Page'
               page={page}
-              onChangePage={handleChangePage}
-              onChangeRowsPerPage={handleChangeRowsPerPage}
+              onPageChange={handleChangePage}
+              rowsPerPage={rowsPerPage}
+              onRowsPerPageChange={handleChangeRowsPerPage}
             />
           )}
         </div>

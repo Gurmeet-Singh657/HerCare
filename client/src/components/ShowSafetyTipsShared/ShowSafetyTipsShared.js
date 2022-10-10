@@ -6,15 +6,9 @@ import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
-import Chip from "@mui/material/Chip";
-import CancelIcon from "@mui/icons-material/Cancel";
 import _without from "lodash/without";
-import { MouseEvent } from "react";
 import { useContext } from "react";
 import useFetch from "../../hooks/useFetch";
-import TextField from "@mui/material/TextField";
-import Autocomplete from "@mui/material/Autocomplete";
-import axios from "axios";
 import "./ShowSafetyTipsShared.css";
 import SearchIcon from "@mui/icons-material/Search";
 import DeleteIcon from "@mui/icons-material/Delete";
@@ -22,9 +16,7 @@ import { SafetyTipsContext } from "../../context/SafetyTipsContext";
 import Checkbox from "@mui/material/Checkbox";
 import CheckBoxOutlineBlankIcon from "@mui/icons-material/CheckBoxOutlineBlank";
 import CheckBoxIcon from "@mui/icons-material/CheckBox";
-import Stack from "@mui/material/Stack";
 import ListItemText from "@mui/material/ListItemText";
-import { makeStyles } from "@material-ui/core";
 
 const icon = <CheckBoxOutlineBlankIcon fontSize="small" />;
 const checkedIcon = <CheckBoxIcon fontSize="small" />;
@@ -95,13 +87,6 @@ const MenuProps = {
     },
 };
 
-const useStyles = makeStyles((theme) => ({
-    root: {
-        whiteSpace: "unset",
-        wordBreak: "break-all"
-    },
-}));
-
 export default function Showincidentsshared() {
     const {
         typesofassaultst,
@@ -131,19 +116,18 @@ export default function Showincidentsshared() {
         setTypesofassaultst(typeofassaultst);
     };
     const handleSafetyTipsClear = () => {
-        setTypeofassaultst(typeofassaultst);
-        setTypesofassaultst(typesofassaultst);
-        setLocationst(locationst);
-        setLocationsst(locationst);
+        setTypeofassaultst([]);
+        setTypesofassaultst([]);
+        setLocationst("");
+        setLocationsst("");
     };
     const handleLocation = (event) => {
         setLocationst(event.target.value);
     };
-    const classes = useStyles();
     return (
         <div className="SafetyTipsfiltering">
             <div className="typeofassaultdrop">
-                <FormControl sx={{ m: 1, width: 300 }}>
+                <FormControl sx={{ m: 1, width: "100%" }}>
                     <InputLabel id="demo-multiple-checkbox-label">
                         Types of Assault
                     </InputLabel>
@@ -161,7 +145,7 @@ export default function Showincidentsshared() {
                             <MenuItem
                                 key={name}
                                 value={name}
-                                classes={{ root: classes.root }}
+                                style={{ whiteSpace: "unset", wordBreak: "break-all" }}
                             >
                                 <Checkbox checked={typeofassaultst.indexOf(name) > -1} />
                                 <ListItemText primary={name} />
@@ -172,7 +156,7 @@ export default function Showincidentsshared() {
             </div>
             <div className="IndianStatesdropst">
                 <Box>
-                    <FormControl fullWidth sx={{ m: 1, width: 300 }}>
+                    <FormControl fullWidth sx={{ m: 1, width: "100%" }}>
                         <InputLabel id="demo-simple-select-label">
                             Select Indian State
                         </InputLabel>

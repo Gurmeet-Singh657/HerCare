@@ -7,13 +7,14 @@ import SafetyTipsScrollbar from "../../components/SafetyTipsScrollbar/SafetyTips
 import { useContext } from "react";
 import { TogglerContext } from '../../context/Togglercontext.js'
 import IncidentDialog from '../../components/SafetyTipDialog/SafetyTipDialog.jsx'
+import Footer from '../../components/Footer/Footer.jsx'
 const View_Data = () => {
     const { takeincident, setTakeincident } = useContext(TogglerContext);
     return (
         <>
             <Navbar />
             <div className='viewdatacont'>
-                <div className="sidebar">
+                <div className="topfilterbar">
                     <Sidenav />
                 </div>
                 <div className="cardsofincident">
@@ -21,6 +22,9 @@ const View_Data = () => {
                     {takeincident && <IncidentScrollbar />}
                     {!takeincident && <SafetyTipsScrollbar />}
                 </div>
+            </div>
+            <div className="viewdatafooter">
+                <Footer />
             </div>
         </>
     )

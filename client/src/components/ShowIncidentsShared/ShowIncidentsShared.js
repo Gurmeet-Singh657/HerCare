@@ -6,25 +6,17 @@ import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
-import Chip from "@mui/material/Chip";
-import CancelIcon from "@mui/icons-material/Cancel";
 import _without from "lodash/without";
-import { MouseEvent } from "react";
 import { SearchContext } from "../../context/SearchContext";
 import { useContext } from "react";
 import useFetch from "../../hooks/useFetch";
-import TextField from "@mui/material/TextField";
-import Autocomplete from "@mui/material/Autocomplete";
-import axios from "axios";
 import "./ShowIncidentsShared.css";
 import SearchIcon from "@mui/icons-material/Search";
 import DeleteIcon from "@mui/icons-material/Delete";
 import Checkbox from "@mui/material/Checkbox";
 import CheckBoxOutlineBlankIcon from "@mui/icons-material/CheckBoxOutlineBlank";
 import CheckBoxIcon from "@mui/icons-material/CheckBox";
-import Stack from "@mui/material/Stack";
 import ListItemText from "@mui/material/ListItemText";
-import { makeStyles } from "@material-ui/core";
 
 const icon = <CheckBoxOutlineBlankIcon fontSize="small" />;
 const checkedIcon = <CheckBoxIcon fontSize="small" />;
@@ -96,12 +88,6 @@ const MenuProps = {
   },
 };
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    whiteSpace: "unset",
-    wordBreak: "break-all"
-  },
-}));
 
 export default function Showincidentsshared() {
   const {
@@ -151,11 +137,10 @@ export default function Showincidentsshared() {
   const handleLocation = (event) => {
     setLocation(event.target.value);
   };
-  const classes = useStyles();
   return (
     <div className="incidentfiltering">
       <div className="typeofassaultdrop">
-        <FormControl sx={{ m: 1, width: 300 }}>
+        <FormControl sx={{ m: 1, width: "100%" }}>
           <InputLabel id="demo-multiple-checkbox-label">
             Types of Assault
           </InputLabel>
@@ -166,14 +151,14 @@ export default function Showincidentsshared() {
             value={typeofassault}
             onChange={handleTypeofassault}
             input={<OutlinedInput label="Type of Assault" />}
-            renderValue={(typeofassault) => typeofassault.join(', ')}
+            renderValue={(typeofassault) => "Types of Assault"}
             MenuProps={MenuProps}
           >
             {options.map((name) => (
               <MenuItem
                 key={name}
                 value={name}
-                classes={{ root: classes.root }}
+                style={{ whiteSpace: "unset", wordBreak: "break-all" }}
               >
                 <Checkbox checked={typeofassault.indexOf(name) > -1} />
                 <ListItemText primary={name} />
@@ -184,7 +169,7 @@ export default function Showincidentsshared() {
       </div>
       <div className="IndianStatesdrop">
         <Box>
-          <FormControl fullWidth sx={{ m: 1, width: 300 }}>
+          <FormControl sx={{ m: 1, width: "100%" }}>
             <InputLabel id="demo-simple-select-label">
               Select Indian State
             </InputLabel>
@@ -204,7 +189,7 @@ export default function Showincidentsshared() {
       </div>
       <div className="showIncidentswithin">
         <Box>
-          <FormControl fullWidth sx={{ m: 1, width: 300 }}>
+          <FormControl sx={{ m: 1, width: "100%" }}>
             <InputLabel id="demo-simple-select-label">
               Show Incident Within
             </InputLabel>

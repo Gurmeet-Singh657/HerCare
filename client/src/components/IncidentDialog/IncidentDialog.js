@@ -60,7 +60,7 @@ export default function IncidentDialog({ openfilter, setOpenFilter }) {
   const { typesofassault, showIncidentfrom, timeoftheday } =
     useContext(SearchContext);
   return (
-    <div>
+    <div className="dialogofincident">
       <OpenDialog
         onClose={handleClose}
         aria-labelledby="customized-dialog-title"

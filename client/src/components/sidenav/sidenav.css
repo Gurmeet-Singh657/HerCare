@@ -25,9 +25,10 @@
     width: 98%;
     margin: auto;
 }
-.showsafetytipsshared{
-    width:98%;
-    margin:auto;
+
+.showsafetytipsshared {
+    width: 98%;
+    margin: auto;
 }
 
 .sidenav {
@@ -62,10 +63,4 @@
 .togactive {
     background-color: rgb(140, 155, 225);
     color: white;
-}
-
-.cardsofincident {
-    width: 100%;
-    margin: 30px;
-    padding: 10px;
 }

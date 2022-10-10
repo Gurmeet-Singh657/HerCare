@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Mukta+Vaani&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@500&display=swap');
+
+.Ngosdata {
+    text-align: center;
+    justify-content: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    gap: 80px;
+    margin: 10px;
+}
+
+.ngodetails {
+    transform: translateY(90px);
+}
+
+.ngoheader {
+    font-family: 'Caveat', cursive;
+    font-weight: bold;
+    font-size: 2.5rem;
+    color: rgb(125, 125, 205);
+    text-align: center;
+    margin: 40px 0px;
+    padding: 10px;
+}
+
+.ngocard {
+    width: 400px;
+    border: 4px solid rgb(129, 129, 212);
+    border-radius: 5px;
+    position: relative;
+}
+
+.ngobtn {
+    font-family: 'Mukta Vaani', sans-serif;
+    background-color: rgb(141, 141, 223);
+    color: white;
+    width: max-content;
+    padding: 3px 7px;
+    margin: 3px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    position: absolute;
+    bottom: 2px;
+    left: 5px;
+}
+
+.ngobtn>a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+.ngotitle {
+    font-family: 'Mukta Vaani', sans-serif;
+    font-size: 20px;
+    text-align: center;
+    background-color: rgb(95, 95, 232);
+    color: white;
+}
+
+.ngoimg {
+    width: 392px;
+    height: 130px;
+}
+
+.ngodesc {
+    font-family: 'Mukta Vaani', sans-serif;
+    line-height: 20px;
+    padding: 10px;
+}
+
+.makebtnspace {
+    height: 40px;
+}
+
+@media screen and (max-width:500px) {
+    .ngocard {
+        width: 270px;
+    }
+}
+
+@media screen and (max-width:614px) {
+    .ngoimg {
+        width: 262px;
+        height: 130px;
+    }
+}

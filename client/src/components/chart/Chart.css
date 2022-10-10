@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mukta+Vaani&display=swap');
+
 .chart {
   flex: 4;
   -webkit-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
@@ -5,8 +8,9 @@
   padding: 10px;
   color: red;
   border: 1px solid black;
-  height: 100vh;
-  width: 100vw
+  height: 70vh;
+  width: 90vw;
+  margin: auto;
 }
 
 .chart.title {
@@ -54,4 +58,123 @@
 .statecharttitle {
   position: absolute;
   top: 10px;
+}
+
+.Violencewisechart {
+  /* position: absolute;
+  top:0px; */
+}
+
+.Violenceanaly {
+  font-weight: bold;
+  font-size: 2.5rem;
+  font-family: 'Caveat', cursive;
+  color: rgb(139, 139, 231);
+  display: flex;
+  /* flex-direction: row; */
+  justify-content: center;
+  align-items: center;
+}
+
+.Violenceanlyarrow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media screen and (max-width:1042px) {
+
+  .Violenceanlyarrow {
+    display: none;
+  }
+}
+
+.Violencegraph {
+  /* border: 2px solid rgb(67, 67, 225); */
+  border-radius: 20px;
+  width: max-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  gap: 50px;
+  margin: auto;
+  /* padding:10px; */
+}
+
+.XYChartheader {
+  font-weight: bold;
+  font-size: 2.5rem;
+  font-family: 'Caveat', cursive;
+  color: rgb(139, 139, 231);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.XYChartCont {
+  height: max-content;
+}
+
+.ViolenceWiseChartanaly {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.ViolenceTable {
+  display: flex;
+  flex-direction: row;
+  width: 50vw;
+  padding: 20px;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.violencedetails {
+  display: flex;
+  flex-direction: row;
+  height: max-content;
+}
+
+.violencetableheader {
+  padding: 10px;
+  border-radius: 5px;
+  border-bottom-right-radius: 0px;
+  border-top-right-radius: 0px;
+  font-family: 'Mukta Vaani', sans-serif;
+
+}
+
+.violencegraphanddisplay {
+  display: flex;
+  flex-direction: row;
+  gap: 100px;
+  color: white;
+}
+
+.violencetablenum {
+  background-color: rgb(219, 154, 154);
+  padding: 10px;
+  display: flex;
+  border-radius: 5px;
+  border-bottom-left-radius: 0px;
+  border-top-left-radius: 0px;
+  justify-content: center;
+  align-items: center;
+}
+
+@media screen and (max-width:840px) {
+  .violencegraphanddisplay {
+    gap: 0px;
+  }
+}
+
+@media screen and (max-width:950px) {
+  .violencegraphanddisplay {
+    display: flex;
+    flex-direction: column;
+  }
 }

@@ -18,8 +18,8 @@ const Home = () => {
         <Slider />
         <MapArea />
         {/* <CommunityIncidents/> */}
-        <Footer />
       </div>
+      <Footer />
     </div>
   );
 };

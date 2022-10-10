@@ -66,26 +66,16 @@ const Navbar = () => {
           </NavLink>
         </li>
         <li className="link-contain">
-          <NavLink className="nav-links" to="/ngos">
-            NGOs Near Me
+          <NavLink className="nav-links" to="/TenNgos">
+            Top NGOs
           </NavLink>
         </li>
         <li
-          onMouseEnter={onMouseEnterAnalytics}
-          onMouseLeave={onMouseLeaveAnalytics}
-          onClick={() => {
-            setAnalytics(!analytics);
-            // handleanalyticsclicked()
-          }}
-          className="smalldisnon link-contain"
+          className="link-contain"
         >
-          <div className="smalldisnon nav-links" href="">
-            <div className="droptx">Analytics</div>
-            <div className="dropicon">
-              <ArrowDropDownIcon />
-            </div>
-          </div>
-          {analytics && <Analytics />}
+          <NavLink className="nav-links" to="/Analytics">
+            Analytics
+          </NavLink>
         </li>
         <li
           onMouseEnter={onMouseEnter}

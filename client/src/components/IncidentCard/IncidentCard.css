@@ -2,7 +2,7 @@
 
 .Incidentonecard {
     padding: 10px;
-    width: 320px;
+    width: 340px;
     height: 320px;
     display: flex;
     flex-direction: column;
@@ -10,8 +10,14 @@
     background-color: #fff;
     font-family: 'Mukta Vaani', sans-serif;
     /* border-radius: 7px; */
-    filter: drop-shadow(2px 5px 10px #000);
+    filter: drop-shadow(1px 5px 3px rgb(136, 133, 133));
     position: relative;
+}
+
+@media screen and (max-width:425px) {
+    .Incidentonecard {
+        height: max-content;
+    }
 }
 
 .incidentTitle {
@@ -45,7 +51,10 @@
     flex-direction: row;
 }
 
-.incidentlocandatetime {
-    position: absolute;
-    bottom: 10px;
+@media screen and(min-width:425px) {
+
+    .incidentlocandatetime {
+        position: absolute;
+        bottom: 10px;
+    }
 }
