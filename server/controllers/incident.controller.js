@@ -97,7 +97,7 @@ const getAllIncidents = async function (req, res) {
     "Touching /Groping",
     "Showing Pornography without consent",
     "Commenting/Sexual Invites",
-    "Online Harassment",
+    "Online Harrasment",
     "Human Trafficking",
   ];
   if (typesofassault) {
