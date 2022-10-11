@@ -11,10 +11,6 @@
 }
 
 .topfilterbar {
-    /* margin: 10px; */
-    /* margin-right: 0px; */
-    /* background-color: red; */
-    /* display: unset; */
     width: 98vw;
     margin: auto;
 }
@@ -22,8 +18,6 @@
 .cardsofincident {
     margin: 30px;
     padding: 10px;
-    /* border:10px solid rgb(121, 121, 232); */
-
 }
 
 .viewdatafooter {

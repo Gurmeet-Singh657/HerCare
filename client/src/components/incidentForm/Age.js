@@ -15,10 +15,6 @@ function Age({ formData, setFormData }) {
           setFormData({ ...formData, age: event.target.value })
         }
       />
-      {/* {if(formData.age <18){
-        alert("Enter a age greater than 18 !!");
-
-      }} */}
     </div>
   );
 }

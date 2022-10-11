@@ -42,7 +42,6 @@
 }
 
 .contentlogo {
-    /* height: max-content; */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -50,19 +49,15 @@
 }
 
 .btn:hover {
-    /* padding: 8px 20px; */
     margin: -1px;
-    /* transition: all 0.3s ease-out; */
     border: 1px solid #d0d0d0;
     background-color: red;
-    /* transition: 250ms; */
 }
 
 .logo {
     border-radius: 50%;
     height: 49px;
     width: 49px;
-    /* border:2px solid red; */
     background: url('../../images/logo.jfif');
     background-size: cover;
     cursor: pointer;
@@ -74,7 +69,6 @@
 .logohead {
     font-size: 28px;
     line-height: 28px;
-    /* font-weight: normal; */
     font-family: 'Caveat', cursive;
 }
 
@@ -135,7 +129,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    /* border:2px solid white; */
 }
 
 

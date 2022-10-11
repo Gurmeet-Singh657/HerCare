@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { useState, useMemo } from "react";
 import { GoogleMap, useLoadScript, MarkerF } from "@react-google-maps/api";
-// import { useContext } from "react";
 import "./incidentForm.css";
 import usePlacesAutocomplete, {
   getGeocode,
@@ -17,9 +16,6 @@ import {
 import "@reach/combobox/styles.css";
 // global google
 
-// import { useContext } from 'react';
-// import { LatLonContext } from "../../context/LatLonContext";
-// import { useContext } from 'react';
 
 export default function Places({ formData, setFormData }) {
   const { isLoaded } = useLoadScript({
@@ -52,7 +48,6 @@ function Map({ formData, setFormData }) {
             setSelected={setSelected}
           />
         </div>
-        {/* {selected && <Marker position={selected} />} */}
         <MarkerF position={selected} />
       </GoogleMap>
     </div>

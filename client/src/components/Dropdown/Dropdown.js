@@ -32,16 +32,6 @@ const Dropdown = () => {
           Faqs
         </NavLink>
       </li>
-      {/*<li>
-        <NavLink to="/volunteer" onClick={() => setClick(false)}>
-          Volunteer with HerCare
-        </NavLink>
-      </li>
-      <li>
-        <NavLink to="/donate" onClick={() => setClick(false)}>
-          Donate to HerCare
-        </NavLink>
-      </li> */}
     </ul>
   );
 };

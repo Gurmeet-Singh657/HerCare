@@ -7,8 +7,6 @@ import useFetch from "../../hooks/useFetch";
 import { useContext } from "react";
 import { SearchContext } from "../../context/SearchContext";
 import IncidentCard from "../IncidentCard/IncidentCard.js";
-import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
-import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
 export default function SimpleTable() {
   const {

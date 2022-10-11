@@ -17,7 +17,6 @@
 
 .safetytips,
 .incidentsnearme {
-    /* width: max-content; */
     color: black;
     font-weight: bold;
     padding: 10px 20px;
@@ -72,7 +71,6 @@
     border: none;
     border-radius: 8px;
     cursor: pointer;
-    /* margin:auto; */
     padding: 12px;
     font-size: 16px;
 }
@@ -83,7 +81,6 @@
     border: none;
     border-radius: 8px;
     cursor: pointer;
-    /* margin:auto; */
     padding: 12px;
     font-size: 16px;
 }
@@ -120,8 +117,4 @@
 .IncidentScroll
 {
     margin:40px 0px;
-}
-
-.incidentpages{
-    
 }

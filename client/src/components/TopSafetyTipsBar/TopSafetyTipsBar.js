@@ -19,7 +19,7 @@ const options = [
   "Touching /Groping",
   "Showing Pornography without consent",
   "Commenting/Sexual Invites",
-  "Online Harassment",
+  "Online Harrasment",
   "Human Trafficking",
 ];
 

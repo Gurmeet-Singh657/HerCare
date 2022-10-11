@@ -1,16 +1,9 @@
 import "./mapSide.css";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import OpenDialog from "../IncidentDialog/IncidentDialog.js";
-import IncidentScrollbar from "../IncidentScrollbar/IncidentScrollbar";
-import IncidentDialog from "../IncidentDialog/IncidentDialog.js";
 
 const MapSide = () => {
   const navigate = useNavigate();
-  // const [openfilter, setOpenFilter] = useState(false);
-  // const handlefilter = () => {
-  //     setOpenFilter(!openfilter);
-  // }
   const [Incident, setIncident] = useState(true);
 
   const handleIncidents = (status) => {
@@ -57,14 +50,6 @@ const MapSide = () => {
                 Share Your Incident Anonymously
               </button>
             </div>
-            {/* <div cl assName="incidentshared">
-                        <div className="incidentsharedtitle">Incidents shared by community</div>
-                        <div className="filtersection1">
-                            <button className="filterincidents" onClick={handlefilter}>Filter</button>
-                            <button className="clearincidents">Clear</button>
-                        </div>
-                    </div> */}
-            {/* <div className="IncidentScroll"><IncidentScrollbar /></div> */}
           </>
         )}
         {!Incident && (
@@ -85,17 +70,9 @@ const MapSide = () => {
                 Share Safety Tip Anonymously
               </button>
             </div>
-            {/* <div className="incidentshared">
-                        <div className="incidentsharedtitle">Safety Tips shared by community</div>
-                        <div className="filtersection1">
-                            <button className="filterincidents" onClick={handlefilter}>Filter</button>
-                            <button className="clearincidents">Clear</button>
-                        </div>
-                    </div> */}
           </>
         )}
       </div>
-      {/* {openfilter && <IncidentDialog openfilter={openfilter} setOpenFilter={setOpenFilter} />} */}
     </>
   );
 };

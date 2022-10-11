@@ -1,4 +1,3 @@
-// import { Link } from "@mui/material"
 import CancelIcon from "@mui/icons-material/Cancel";
 import DehazeIcon from "@mui/icons-material/Dehaze";
 import { useState } from "react";
@@ -7,19 +6,13 @@ import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import Dropdown from "../Dropdown/Dropdown.js";
 import "./navbar.css";
 import { NavLink, useNavigate } from "react-router-dom";
-import Analytics from "../Analytics/Analytics.jsx";
 
 const Navbar = () => {
   const navigate = useNavigate();
   const [clicked, setClicked] = useState(false);
   const [dropdown, setDropdown] = useState(false);
-  const [analytics, setAnalytics] = useState(false);
-  const [analyticsclicked, setAnalyticsclicked] = useState(false);
   const handleClick = () => {
     setClicked(!clicked);
-  };
-  const handleanalyticsclicked = () => {
-    setAnalyticsclicked(!clicked);
   };
   const onMouseEnter = () => {
     setDropdown(true);
@@ -27,13 +20,6 @@ const Navbar = () => {
   const onMouseLeave = () => {
     setDropdown(false);
   };
-  const onMouseEnterAnalytics = () => {
-    setAnalytics(true);
-  };
-  const onMouseLeaveAnalytics = () => {
-    setAnalytics(false);
-  };
-
   const helpdirected = () => {
     navigate("/help");
   };
@@ -44,7 +30,6 @@ const Navbar = () => {
         <div className="logo"></div>
         &nbsp;
         <div className="logohead">HerCare</div>
-        {/* React */}
       </h1>
       <div className="menu-icon" onClick={handleClick}>
         {!clicked && (

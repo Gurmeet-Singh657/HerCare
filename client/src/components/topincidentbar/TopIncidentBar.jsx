@@ -24,16 +24,9 @@ const TopIncidentSafetyBar = () => {
     "Touching /Groping",
     "Showing Pornography without consent",
     "Commenting/Sexual Invites",
-    "Online Harassment",
+    "Online Harrasment",
     "Human Trafficking",
   ];
-  // if (typesofassault.length === 0) {
-  //   setFullassault(false);
-  //   console.log("hello");
-  // }
-  // else {
-  //   setFullassault(true);
-  // }
 
   return (
     <>
@@ -79,7 +72,6 @@ const TopIncidentSafetyBar = () => {
           </button>
         </div>
       </div>
-      {/* {openfilter && <Showincidentsshared/>} */}
       {openfilter && (
         <IncidentDialog openfilter={openfilter} setOpenFilter={setOpenFilter} />
       )}

@@ -1,9 +1,6 @@
 .analyticspage {
-    /* position: absolute;
-    top:90px; */
     transform: translateY(90px);
     width: 100%;
-    /* height:1024px; */
     margin: auto;
 }
 

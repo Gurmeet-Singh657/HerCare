@@ -7,12 +7,6 @@ import { AdapterDayjs } from "@mui/x-date-pickers-pro/AdapterDayjs";
 import { DateTimePicker } from "@mui/x-date-pickers-pro";
 
 function Time({ formData, setFormData }) {
-  // return (
-  //   <div className='date'>
-  //     <input type="date" placeholder="Date" value={formData.date} onChange={(event) => setFormData({...formData, date: event.target.value})}/>
-  //     <input type="time" placeholder="TIme" value={formData.time} onChange={(event) => setFormData({...formData, time: event.target.value})}/>
-  //   </div>
-  // )
 
   const [value, setValue] = React.useState(dayjs("2014-08-18T21:11:54"));
 

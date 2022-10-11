@@ -19,8 +19,6 @@ import useFetch from "../../hooks/useFetch.js";
     markers.push(obj);
     console.log(obj);
   }
-  // console.log(data[0].address.position);
-  // console.log(markers + "marker")
   const [activeMarker, setActiveMarker] = useState(null);
 
   const handleActiveMarker = (marker) => {
@@ -33,7 +31,6 @@ import useFetch from "../../hooks/useFetch.js";
     const bounds = new google.maps.LatLngBounds();
     markers.forEach(({ position }) => {
       bounds.extend(parseFloat(position));
-      // console.log(position + "Hello");
     });
     map.fitBounds(bounds);
   };
@@ -52,7 +49,6 @@ import useFetch from "../../hooks/useFetch.js";
           onClick={() => handleActiveMarker(_id)}
         >
           {activeMarker === _id ? (
-            // onCloseClick={() => setActiveMarker(null)}
             <InfoWindow options={{ maxWidth: 300 }}>
               <div>
                 <div>{time}</div>

@@ -3,23 +3,16 @@
 .mappArea {
     display: flex;
     flex-direction: row;
-    /* position: absolute;
-    top:700px; */
     width: 90vw;
     margin-top: 70px;
     height: max-content;
     margin: 40px auto;
-    /* justify-content: start; */
-    /* align-items: start; */
 }
 
 .maparea {
     margin: auto;
-    /* position: absolute; */
     height: 60vh;
     width: 95%;
-    /* margin: auto; */
-    /* background-color: black; */
     border: 2px solid black;
 }
 

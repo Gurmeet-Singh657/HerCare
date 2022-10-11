@@ -1,15 +1,4 @@
-import { Box, Stack, Typography } from '@mui/material';
-import { useEffect, useState } from 'react';
 import { PieChart, Pie, Cell, Tooltip } from 'recharts';
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
-import Paper from '@mui/material/Paper';
-import ForwardIcon from '@mui/icons-material/Forward';
-// import { useValue } from '../../../context/ContextProvider';
 import "./Chart.css"
 import useFetch from "../../hooks/useFetch";
 const COLORS = [
@@ -27,8 +16,6 @@ const COLORS = [
     "#6495ED",
     "#CDB79E",
 ];
-
-// const COLORS = ['#00C49F', '#0088FE', '#FFBB28', '#FF8042'];
 
 const RADIAN = Math.PI / 180;
 const renderCustomizedLabel = ({
@@ -52,12 +39,11 @@ const renderCustomizedLabel = ({
             dominantBaseline="central"
         >
             {`${(percent * 100).toFixed(0)}%`}
-            {/* {`${value}`} */}
         </text>
     );
 };
 export default function ViolenceWiseChart() {
-    const { data, loading, reFetch } = useFetch('/getIncidentFormData')
+    const { data, loading, reFetch } = useFetch('https://hercare.herokuapp.com/getIncidentFormData')
     const ViolenceData = []
     const Violence = new Map([
         ["Physical Assault", 0],
@@ -71,7 +57,7 @@ export default function ViolenceWiseChart() {
         ["Touching /Groping", 0],
         ["Showing Pornography without consent", 0],
         ["Commenting/Sexual Invites", 0],
-        ["Online Harassment", 0],
+        ["Online Harrasment", 0],
         ["Human Trafficking", 0]
     ]);
     for (let i = 0; i < data.length; ++i) {
@@ -79,7 +65,6 @@ export default function ViolenceWiseChart() {
     }
     let idx = 0;
     for (let [key, value] of Violence.entries()) {
-        // console.log(key + " " + value)
         const obj = {
             id: idx,
             name: key,
@@ -114,7 +99,7 @@ export default function ViolenceWiseChart() {
                 <div className="ViolenceTable">
                     {ViolenceData.map((entry, index) => (
                         <>
-                            {index <= 12 &&
+                            {
                                 <div className="violencedetails">
                                     <div key={index} style={{ backgroundColor: COLORS[index % COLORS.length] }} className="violencetableheader">{entry.name}&nbsp;&nbsp;
                                     </div>

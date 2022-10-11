@@ -29,7 +29,7 @@ export const ngosdata = [{
     link: "https://sskkamreli.org/"
 }, {
     title: "International Foundation for Crime Prevention and Victim Care (PCVC)",
-    img: "http://acronymsandslang.com/acronym_image/309/acc2aa1316e4621a88499421e2aed5d9.jpg",
+    img: "https://scontent.fdel3-2.fna.fbcdn.net/v/t1.6435-9/39295016_887615101432696_903978697550200832_n.png?_nc_cat=101&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=SdWqSN_Bq6IAX8dBIL7&_nc_ht=scontent.fdel3-2.fna&oh=00_AT_aXY1-pGlwTkrhdl0sZrP1SoPopQXPNvecwMWIlVypGg&oe=6368FF8E",
     desc: "International Foundation for Crime Prevention and Victim Care was set up in response to the need for a support agency for victims and survivors of domestic violence. This NGO for women provides several necessary services like crisis management, legal advocacy, support and resource services. PCVC started the national domestic violence hotline to help women who are struggling with different forms of abuse. The organization also provides victims with legal representatives and support through referrals. Donating to PCVC can help dismantle the culture of violence against women.",
     link: "https://pcvconline.org/"
 },

@@ -4,50 +4,33 @@
 .navList {
     top:0px;
     left:0px;
-    /* top:200px; */
     width: 20%;
     top:80px;
     height:100vh;
-    /* border-right:2px solid black; */
-    /* position: sticky; */
-    /* position: -webkit-sticky; */
     position: fixed;
-    /* color: ; */
-    /* font-size: 20vw; */
-    /* margin:0px; */
     background-color: #d6d6d6;
 }
 
 .nav {
-    /* box-shadow: 0px 3px 6px 0px rgba(1, 1.5, 0, 2); */
-    /* position: absolute; */
     position: sticky;
-    /* top: 80px; */
-    /* left: 150px; */
-    /* margin: 2px 0px; */
-    /* background-color: white; */
     list-style: none;
     overflow: hidden;
     margin-top:30px;
 }
 
 .nav-item {
-    /* margin: 5% 0; */
     width: 100%;
-    /* border-bottom: 1px solid black; */
     padding: 5px 10px;
 }
 
 .nav-link {
     text-decoration: none;
-    /* color: rgb(110, 94, 254); */
     color:black;
     font-family: 'Mukta Vaani', sans-serif;
     font-size: 20px;
     display: flex;
     justify-content: left;
     align-items: center;
-    /* margin-left: 40px; */
     padding:5px 20px;
 }
 
@@ -58,7 +41,6 @@ li>a {
 }
 .sideactive{
     background: linear-gradient(90deg, rgb(176, 171, 225) 0%, rgb(181, 178, 237) 100%);
-    /* padding:10px 0px; */
     border-radius: 10px;
 }
 

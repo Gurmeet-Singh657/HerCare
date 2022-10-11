@@ -4,7 +4,6 @@
     width: 100%;
     margin: auto;
     margin-top: 10px;
-    /* border: 2px solid red; */
     font-family: 'Mukta Vaani', sans-serif;
     display: flex;
     flex-direction: column;
@@ -13,8 +12,6 @@
 }
 
 .headings {
-    /* background-color: black; */
-    /* width: 140px; */
     height: max-content;
     border-radius: 10px;
     padding: 5px;
@@ -36,13 +33,9 @@
 .filterdata {
     display: flex;
     flex-direction: row;
-    /* justify-content: center;
-    align-items: center; */
     flex-wrap: wrap;
     gap: 4px;
     font-size: 0.8rem;
-    /* overflow: hidden; */
-    /* width: 60%; */
 }
 
 .chipcontainer {

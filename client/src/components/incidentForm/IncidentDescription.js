@@ -38,7 +38,6 @@ function IncidentDescription({ formData, setFormData }) {
             setFormData({ ...formData, message: event.target.value })
           }
           rows={4}
-          // defaultValue="Default Value"
           variant="filled"
           inputProps={{
             maxLength: 300,

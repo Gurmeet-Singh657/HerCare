@@ -2,7 +2,6 @@
 
 .footer {
     width: 100%;
-    /* max-width: 1024px; */
     font-size: 15px;
     background-color: rgb(110, 94, 254);
     color: white;
@@ -12,5 +11,4 @@
     align-items: center;
     overflow: hidden;
     font-family: 'Mukta Vaani', sans-serif;
-    /* margin-bottom: 0; */
 }

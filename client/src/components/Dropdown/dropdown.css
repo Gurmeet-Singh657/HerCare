@@ -8,25 +8,20 @@
      border: 2px solid 5cabff;
      border-radius: 5px;
      color: white;
-     /* padding: 10px; */
      border: 2px solid white;
      z-index: 2;
  }
 
  .dropdown-menu li {
      cursor: pointer;
-     /* padding: 0px 10px; */
      border-bottom: 2px solid white;
-     /* padding:10px; */
  }
 
  .dropdown-menu li a {
      color: white;
      text-decoration: none;
      display: inline-block;
-     /* padding: 10px 20px; */
      width: 100%;
-     /* margin: auto; */
      padding: 10px 6px;
      cursor: pointer;
  }

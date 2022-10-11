@@ -7,7 +7,6 @@
     right: 0px;
     top: 150px;
     font-family: 'Mukta Vaani', sans-serif;
-    /* background-color: red; */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -17,15 +16,12 @@
 .FIRfiling,
 .sexualviolence {
     position: absolute;
-    /* right: 35%; */
     top: 0vh;
-    /* transform:translate(-100%,10px); */
     transition: all 0.2s ease;
     height: 10vh;
     width: 400px;
     padding: 20px;
     border-radius: 10px;
-    /* margin: 100px; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -35,8 +31,6 @@
 }
 
 .FIRfiling {
-    /* transform: translate(-100%,200px); */
-    /* right: 35%; */
     top: 20vh;
 }
 
@@ -48,7 +42,6 @@
 .sexualviolence:hover {
     height: 11vh;
     width: 420px;
-    /* margin:auto-10px; */
 }
 
 @media screen and (max-width:1100px) {
@@ -86,17 +79,4 @@
     .sexualviolence:hover {
         width: 90vw;
     }
-
-    /* 
-    .legalresource {
-        width: 100vw;
-    }
-
-    .FIRfiling:hover {
-        height: 12px;
-    }
-
-    .sexualviolence:hover {
-        height: 12px;
-    } */
 }

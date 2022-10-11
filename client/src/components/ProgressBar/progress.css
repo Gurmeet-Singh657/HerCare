@@ -5,11 +5,7 @@
 }
 
 .progresscont {
-  /* position: absolute; */
   width: 50vw;
-  /* border: 5px solid green; */
-  /* display: flex;
-  justify-content: center; */
 }
 
 .progress {
@@ -18,7 +14,6 @@
   position: relative;
   height: 21px;
   width: 50%;
-  /* border: 5px solid black; */
   margin-left: 20%;
 }
 

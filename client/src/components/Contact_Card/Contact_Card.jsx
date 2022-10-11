@@ -19,5 +19,4 @@ const Contact_Card = () => {
   );
 };
 
-{/* <span style="color: #592d8d;">+91 9876432456 </span> */}
 export default Contact_Card;

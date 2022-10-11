@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import SafetyTipDescription from "./SafetyTipDescription";
 import TypeOfViolence from "./TypeOfViolence";
-// import "./incidentForm.css";
 import axios from "axios";
 import { useCallback } from "react";
 import ProgressBar from "../ProgressBar/Progress";
@@ -92,17 +91,14 @@ function SafetyTipForm() {
     if (page === FormTitles.length - 1) {
       return (
         <Button
-          // className="nextBtn navigateBtn"
           onClick={handleSubmit}
         >
           Submit&nbsp;
-          {/* <ArrowForwardIcon style={{ fontSize: "20px" }} /> */}
         </Button>
       );
     } else {
       return (
         <Button
-          //   className="nextBtn navigateBtn"
           onClick={handleclick}
         >
           Next&nbsp;
@@ -124,7 +120,6 @@ function SafetyTipForm() {
           <div className="body">{PageDisplay()}</div>
           <div className="IncidentFormBtns">
             <Button
-              //   className="prevBtn navigateBtn"
               disabled={page === 0}
               onClick={() => {
                 setPage((currPage) => currPage - 1);

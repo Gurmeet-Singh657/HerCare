@@ -9,7 +9,6 @@
     border: 2px solid blue;
     background-color: #fff;
     font-family: 'Mukta Vaani', sans-serif;
-    /* border-radius: 7px; */
     filter: drop-shadow(1px 5px 3px rgb(136, 133, 133));
     position: relative;
 }

@@ -1,4 +1,3 @@
-// import "./chart.scss"
 import {
     ComposedChart,
     Line,
@@ -15,17 +14,10 @@ import {
 
 import useFetch from "../../hooks/useFetch";
 import "./Chart.css"
-// const data = [
-//     { name: "January", Total: 1200 },
-//     { name: "February", Total: 2100 },
-//     { name: "March", Total: 800 },
-//     { name: "April", Total: 1600 },
-//     { name: "May", Total: 900 },
-//     { name: "June", Total: 1700 }
-// ]
 
 const XYChart = ({ aspect, title }) => {
-    const { data, loading, reFetch } = useFetch("/getIncidentFormData");
+    const { data, loading, reFetch } = useFetch("https://hercare.herokuapp.com/getIncidentFormData");
+    console.log(data);
     let StateData = [];
     const map = new Map([
         ["Andaman and Nicobar Islands", 0],
@@ -72,7 +64,6 @@ const XYChart = ({ aspect, title }) => {
     console.log(StateData);
     let idx = 0;
     for (let [key, value] of map.entries()) {
-        // console.log(key + " " + value)
         const obj = {
             name: key,
             value: value,
@@ -120,9 +111,6 @@ const XYChart = ({ aspect, title }) => {
                         <XAxis type="number" />
                         <YAxis dataKey="name" type="category" scale="band" width={120} />
                         <Tooltip />
-                        {/* <Legend /> */}
-                        {/* <Area dataKey="value" fill="#8884d8" stroke="#8884d8" /> */}
-                        {/* {StateData.map((index)=>( */}
                         <Bar dataKey="value" barSize={20} fill={COLORS[1]}>
                             {
                                 StateData.map((entry, index) => (
@@ -130,8 +118,6 @@ const XYChart = ({ aspect, title }) => {
                                 ))
                             }
                         </Bar>
-                        {/* ))} */}
-                        {/* <Line dataKey="uv" stroke="#ff7300" /> */}
                     </ComposedChart>
                 </ResponsiveContainer>
             </div>

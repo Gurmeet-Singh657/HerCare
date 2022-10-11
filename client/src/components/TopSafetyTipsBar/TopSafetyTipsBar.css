@@ -4,7 +4,6 @@
     width: 100%;
     margin: auto;
     margin-top: 10px;
-    /* border: 2px solid red; */
     font-family: 'Mukta Vaani', sans-serif;
     display: flex;
     flex-direction: column;
@@ -13,8 +12,6 @@
 }
 
 .headingsst {
-    /* background-color: black; */
-    /* width: 140px; */
     width: max-content;
     height: max-content;
     border-radius: 10px;
@@ -35,14 +32,10 @@
 
 .filterdatast {
     display: flex;
-    flex-direction: row;
-    /* justify-content: center;
-    align-items: center; */
+    flex-direction: row; 
     flex-wrap: wrap;
     gap: 4px;
     font-size: 0.8rem;
-    /* overflow: hidden; */
-    /* width: 60%; */
 }
 
 .chipcontainerst {

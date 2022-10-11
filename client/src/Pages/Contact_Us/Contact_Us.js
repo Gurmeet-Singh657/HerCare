@@ -13,7 +13,6 @@ const Contact_Us = () => {
         <SideBar />
         <Contact_Card />
       </div>
-      {/* <Footer/> */}
     </div>
   );
 };

@@ -16,11 +16,6 @@ const Help = () => {
     <>
       <Navbar />
       <div className="help">
-
-        {/* <div className="bigsize hospitalsnearme" onClick={() => navigate("/hospitals")}>
-          <div className="hostext">Hospitals Near Me</div>
-          <LocalHospitalIcon />
-        </div> */}
         <div className="helpcontain">
           <h1 className="helptitle">Emergency Numbers</h1>
           <div className="helpnumbers">
@@ -54,19 +49,6 @@ const Help = () => {
             </div>
           </div>
         </div>
-        {/* <div className="bigsize policestationsnearme" onClick={() => navigate("/police")}>
-          <div className="policetext">Police Stations Near Me</div>
-          <LocalPoliceIcon />
-        </div>
-
-        <div className="hospitalsnearmesm" onClick={() => navigate("/hospitals")}>
-          <div className="hostext">Hospitals Near Me</div>
-          <LocalHospitalIcon />
-        </div>
-        <div className="policestationsnearmesm" onClick={() => navigate("/police")}>
-          <div className="policetext">Police Stations Near Me</div>
-          <LocalPoliceIcon />
-        </div> */}
       </div>
       <div className="footerhelp">
         <Footer />

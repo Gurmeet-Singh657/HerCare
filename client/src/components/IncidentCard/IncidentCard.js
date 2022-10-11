@@ -15,6 +15,7 @@ export default function IncidentCard(props) {
         {props.gender}&nbsp;|&nbsp;{props.age}
       </div>
       <div className="incidentdesc">{props.desc}</div>
+      <div className="incidentlocandatetimespace"></div>
       <div className="incidentlocandatetime">
         <div className="incidentDate">
           <DateRangeIcon style={{ color: "#5D3FD3" }} />

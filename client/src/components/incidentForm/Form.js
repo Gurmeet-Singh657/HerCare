@@ -136,27 +136,20 @@ function Form() {
         alert("Please Enter a Valid Choice!!");
       else setPage((currPage) => currPage + 1);
     }
-    // else {
-    //   if (formData.identity === "") alert("Please Enter Your Identity");
-    //   else setPage((currPage) => currPage + 1);
-    // }
   };
 
   const checkPage = () => {
     if (page === FormTitles.length - 1) {
       return (
         <Button
-          // className="nextBtn navigateBtn"
           onClick={handleSubmit}
         >
           Submit&nbsp;
-          {/* <ArrowForwardIcon style={{ fontSize: "20px" }} /> */}
         </Button>
       );
     } else {
       return (
         <Button
-          //   className="nextBtn navigateBtn"
           onClick={handleclick}
         >
           Next&nbsp;
