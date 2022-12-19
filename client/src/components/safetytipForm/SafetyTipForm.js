@@ -33,7 +33,7 @@ function SafetyTipForm() {
     console.log(JSON.stringify(formData));
     await axios
       .post(
-        "https://hercare.herokuapp.com/safetytip",
+        "https://hercare-0nh9.onrender.com/safetytip",
         JSON.stringify(formData),
         {
           headers: { "Content-Type": "application/json" },

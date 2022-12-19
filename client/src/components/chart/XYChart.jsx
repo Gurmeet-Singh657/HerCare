@@ -16,7 +16,7 @@ import useFetch from "../../hooks/useFetch";
 import "./Chart.css"
 
 const XYChart = ({ aspect, title }) => {
-    const { data, loading, reFetch } = useFetch("https://hercare.herokuapp.com/getIncidentFormData");
+    const { data, loading, reFetch } = useFetch("https://hercare-0nh9.onrender.com/getIncidentFormData");
     console.log(data);
     let StateData = [];
     const map = new Map([

@@ -3,7 +3,7 @@ import { GoogleMap, InfoWindow, MarkerF } from "@react-google-maps/api";
 import useFetch from "../../hooks/useFetch.js";
 /*global google*/ function Map() {
   const { data, loading, reFetch } = useFetch(
-    "https://hercare.herokuapp.com/getIncidentFormData"
+    "https://hercare-0nh9.onrender.com/getIncidentFormData"
   );
   const markers = [];
   for (let i = 0; i < data.length; ++i) {

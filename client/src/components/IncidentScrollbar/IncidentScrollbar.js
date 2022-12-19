@@ -19,7 +19,7 @@ export default function SimpleTable() {
   } = useContext(SearchContext);
 
   const { data, loading, reFetch } = useFetch(
-    `https://hercare.herokuapp.com/getAllIncidents?typesofassault=${typesofassault}&locations=${locations}&showIncidentsfrom=${showIncidentsfrom}`
+    `https://hercare-0nh9.onrender.com/getAllIncidents?typesofassault=${typesofassault}&locations=${locations}&showIncidentsfrom=${showIncidentsfrom}`
   );
 
   const [page, setPage] = useState(0);

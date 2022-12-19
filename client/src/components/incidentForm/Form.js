@@ -48,7 +48,7 @@ function Form() {
     console.log(JSON.stringify(formData));
     await axios
       .post(
-        "https://hercare.herokuapp.com/incident",
+        "https://hercare-0nh9.onrender.com/incident",
         JSON.stringify(formData),
         {
           headers: { "Content-Type": "application/json" },

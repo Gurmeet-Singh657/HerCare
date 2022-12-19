@@ -43,7 +43,7 @@ const renderCustomizedLabel = ({
     );
 };
 export default function ViolenceWiseChart() {
-    const { data, loading, reFetch } = useFetch('https://hercare.herokuapp.com/getIncidentFormData')
+    const { data, loading, reFetch } = useFetch('hhttps://hercare-0nh9.onrender.com/getIncidentFormData')
     const ViolenceData = []
     const Violence = new Map([
         ["Physical Assault", 0],

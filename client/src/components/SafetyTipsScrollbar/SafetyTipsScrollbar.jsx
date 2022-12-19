@@ -12,7 +12,7 @@ export default function SimpleTable() {
     useContext(SafetyTipsContext);
 
   const { data, loading, reFetch } = useFetch(
-    `https://hercare.herokuapp.com/getAllSafetyTips?typesofassaultst=${typesofassaultst}&locationsst=${locationsst}`
+    `https://hercare-0nh9.onrender.com/getAllSafetyTips?typesofassaultst=${typesofassaultst}&locationsst=${locationsst}`
   );
 
   const [page, setPage] = useState(0);
