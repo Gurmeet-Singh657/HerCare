@@ -67,6 +67,8 @@
 }
 
 .logohead {
+    color: white;
+    text-decoration: none;
     font-size: 28px;
     line-height: 28px;
     font-family: 'Caveat', cursive;
@@ -196,5 +198,9 @@
         right: 0;
         transform: translate(-10%, 40%);
         padding: 8px 8px;
+    }
+
+    .logohead {
+        background: none;
     }
 }

@@ -19,7 +19,7 @@ import XYChart from "./components/chart/XYChart";
 import TenNgosfighting from "./Pages/ten_ngos_fighting/TenNgosfighting";
 const App = () => {
   return (
-    <div>
+    <div className="mainapp">
       <BrowserRouter>
         <Routes>
           <Route exact path="/" element={<Home />}></Route>

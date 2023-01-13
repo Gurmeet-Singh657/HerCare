@@ -24,12 +24,12 @@ export const ngosdata = [{
 },
 {
     title: " Shikshan Ane Samaj Kalyan Kendra",
-    img: "https://storage.googleapis.com/wp-sskkamreli/2021/08/327a9aa3-new-piyush.jpg",
+    img: "https://cfstatic.give.do/e07264ba-ca49-43ad-87e3-adc6c23da53d.JPG",
     desc: "Shikshan Ane Samaj Kalyan Kendra is dedicated to helping women through activities like health, education, women empowerment, etc. It holds workshops about the cause and effects of domestic violence and takes the issues of violence to district level authorities and lower courts. They also encourage victims to come forward and discourage men from partaking in activities that will cause harm to their spouses. Donating to this organization will help rural women fight discrimination and domestic violence.",
     link: "https://sskkamreli.org/"
 }, {
     title: "International Foundation for Crime Prevention and Victim Care (PCVC)",
-    img: "https://scontent.fdel3-2.fna.fbcdn.net/v/t1.6435-9/39295016_887615101432696_903978697550200832_n.png?_nc_cat=101&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=SdWqSN_Bq6IAX8dBIL7&_nc_ht=scontent.fdel3-2.fna&oh=00_AT_aXY1-pGlwTkrhdl0sZrP1SoPopQXPNvecwMWIlVypGg&oe=6368FF8E",
+    img: "https://namati.org/wp-content/uploads/2019/03/PCVC-New-Logo.jpg",
     desc: "International Foundation for Crime Prevention and Victim Care was set up in response to the need for a support agency for victims and survivors of domestic violence. This NGO for women provides several necessary services like crisis management, legal advocacy, support and resource services. PCVC started the national domestic violence hotline to help women who are struggling with different forms of abuse. The organization also provides victims with legal representatives and support through referrals. Donating to PCVC can help dismantle the culture of violence against women.",
     link: "https://pcvconline.org/"
 },
@@ -46,13 +46,13 @@ export const ngosdata = [{
 },
 {
     title: "Sakhya Women’s Guidance Cell",
-    img: "http://sakhyawgc.org/wp-content/uploads/2019/09/5cfd6b2e13aa3fc3af20d233736051a6-3.jpg",
+    img: "https://4.bp.blogspot.com/-ljXaNs2TJAU/VtPMojhbPkI/AAAAAAAAAoM/HT1qmKDlKoU/s1600/DSCN2108.JPG",
     desc: "The main aim of Sakhya Women’s Guidance Cell is to promote gender equality and gender justice through women empowerment. They hope to give women more autonomy through sensitization and spreading awareness. The organization offers victims of sexual abuse case counseling, referrals, legal aid, shelter, rehabilitation and accompany them to hospitals and legal institutes. Donating to this NGO for women, will help put an end to violence against women and provide justice to survivors.",
     link: "http://sakhyawgc.org/"
 },
 {
     title: "The Prajnya Trust",
-    img: "https://media-exp1.licdn.com/dms/image/C5116AQH2M53evAKjjg/profile-displaybackgroundimage-shrink_200_800/0/1517600838881?e=2147483647&v=beta&t=dPvzV0Ys5rVYiqd0s07hCQAsf6EKkBbyNwjemWExDSY",
+    img: "https://i.ytimg.com/vi/YAW2Q5FzNhk/maxresdefault.jpg",
     desc: "The Prajnya Trust has been working since 2008 to prevent gender and sex-based violence against women.  This NGO for women conducts workshops, facilitates discussions, provides legal advice and sensitizes service providers who might encounter cases of sexual violence at work. A donation to this NGO can help end the silence around gender violence.When we help women get legal justice against their abusers, we are taking a small step in the direction of eradicating gender discrimination.With counseling and legal services, these NGOs for women also provide them with freedom and financial independence, giving them a new lease of life.",
     link: "https://prajnya.in/"
 }

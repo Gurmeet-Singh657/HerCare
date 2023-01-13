@@ -29,7 +29,7 @@ const Navbar = () => {
       <h1 className="navbar-logo">
         <div className="logo"></div>
         &nbsp;
-        <div className="logohead">HerCare</div>
+        <NavLink className="logohead" to="/"><div className="logohead">HerCare</div></NavLink>
       </h1>
       <div className="menu-icon" onClick={handleClick}>
         {!clicked && (

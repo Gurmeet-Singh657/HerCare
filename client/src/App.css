@@ -2,9 +2,3 @@
     margin: 0;
     padding: 0;
 }
-
-body {
-
-    overflow: -moz-scrollbars-vertical;
-    overflow-y: scroll;
-}
