@@ -19,7 +19,6 @@ We present to you HerCare, a Women Safety App to provides One Stop Platform to g
 ### Setting Environmental Variables 
 I had provided all environmental variables for testing purpose .
 
-`Video Link :- `: [Click here]()
 `Website Live Link :- `: [Click here](https://hercare-women.web.app/)
 
 ### Home Page
