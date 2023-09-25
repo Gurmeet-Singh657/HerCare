@@ -27,18 +27,12 @@ export const ngosdata = [
     title: " Shikshan Ane Samaj Kalyan Kendra",
     img: "https://cfstatic.give.do/e07264ba-ca49-43ad-87e3-adc6c23da53d.JPG",
     desc: "Shikshan Ane Samaj Kalyan Kendra is dedicated to helping women through activities like health, education, women empowerment, etc. It holds workshops about the cause and effects of domestic violence and takes the issues of violence to district level authorities and lower courts. They also encourage victims to come forward and discourage men from partaking in activities that will cause harm to their spouses. Donating to this organization will help rural women fight discrimination and domestic violence.",
-<<<<<<< HEAD
-    link: "https://sskkamreli.org/"
-}, {
-    title: "International Foundation for Crime Prevention and Victim Care (PCVC)",
-=======
     link: "https://sskkamreli.org/",
   },
   {
     title:
       "International Foundation for Crime Prevention and Victim Care (PCVC)",
->>>>>>> da510436c4a5e406be7a303fd551c865ce63354b
-    img: "https://namati.org/wp-content/uploads/2019/03/PCVC-New-Logo.jpg",
+    img: "https://pcvconline.org/wp-content/uploads/2021/07/about-us-banner.jpg",
     desc: "International Foundation for Crime Prevention and Victim Care was set up in response to the need for a support agency for victims and survivors of domestic violence. This NGO for women provides several necessary services like crisis management, legal advocacy, support and resource services. PCVC started the national domestic violence hotline to help women who are struggling with different forms of abuse. The organization also provides victims with legal representatives and support through referrals. Donating to PCVC can help dismantle the culture of violence against women.",
     link: "https://pcvconline.org/",
   },

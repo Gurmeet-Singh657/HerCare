@@ -19,7 +19,7 @@ import { LatLonContext } from "../../context/LatLonContext";
 
 export default function Places({ formData, setFormData }) {
   const { isLoaded } = useLoadScript({
-    googleMapsApiKey: "AIzaSyA-RG4hM7qRh3jHfOwSuUOBexPTn0CZf6w",
+    googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
     libraries: ["places"],
   });
 
